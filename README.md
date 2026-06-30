@@ -1,5 +1,7 @@
 # 🌊 goldenwave
 
+![version](https://img.shields.io/badge/version-0.1-blue) ![license](https://img.shields.io/badge/license-MIT-green) ![status](https://img.shields.io/badge/status-early%20alpha-orange) ![local-first](https://img.shields.io/badge/local--first-%E2%9C%93-success) ![format](https://img.shields.io/badge/format-Markdown%20%2B%20git-lightgrey)
+
 > A **local-first, plain-Markdown, git-auditable** personal AI operating system —
 > an open **SPEC + Skill suite** that keeps your **knowledge, facts, and persona**
 > cleanly layered, governed, and readable by any agent.
@@ -40,7 +42,7 @@
 ## Quick start
 
 ```bash
-git clone https://github.com/TheGoldenWave/goldenwave.git
+git clone git@github.com:TheGoldenWave/goldenwave.git
 cd goldenwave
 bash scripts/init.sh ~/MyKnowledgeBase
 ```
