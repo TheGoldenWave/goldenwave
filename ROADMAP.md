@@ -9,10 +9,12 @@
 - [x] templates: knowledge + profile
 
 ## v0.2 — Governed Ingest（建立壁垒）
-从"模板"跃迁为"系统"。
-- [ ] 半自动摄入路由器：inbox → agent 判断进 事实/知识/人格 → 人确认
+从"模板"跃迁为"系统"。设计见 [docs/v0.2-router-PRD.md](docs/v0.2-router-PRD.md)。
+- [x] 半自动摄入路由器 skill：`skills/goldenwave-ingest`（inbox → 判断 事实/知识/人格 → 人确认）
+- [x] `_pending/` 草稿区约定（低置信/敏感项安全阀）
 - [ ] facet 半衰期 + 四态生命周期（借 OpenHuman PROFILE.md）
 - [ ] 证据分级落地到摄入流水线（capture→score→render→inject）
+- [ ] 实测：投 10 条混合原料，路由准确率 ≥ 80%、敏感项 0 直接入库
 
 ## v0.3+ — Distill & Connect（吸引贡献者）
 - [ ] 三合一蒸馏冷启动：微信 / IM / 历史文档（借 immortal 采集器，注意 GNU 兼容）
