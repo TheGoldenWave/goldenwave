@@ -6,7 +6,7 @@
 ## 0. 设计哲学
 
 1. **本地优先**：数据存在用户机器上，云是可选增强，不是依赖。
-2. **一切皆 Markdown + git**：所有知识/事实/人格都是纯文本，可被 `git diff`、可审计、可回滚。拒绝黑盒记忆引擎。
+2. **正式知识皆 Markdown + git**：进入 L1/L2/L4 的知识、事实、人格与项目资产保持纯文本，可被 `git diff`、可审计、可回滚。L3 传输 envelope、Schema 和 validator 可以使用 JSON/JSONL 等文本格式，但它们只是受治理的中间协议，不能绕过 render / confirm 直接成为正式知识。
 3. **人机共读**：frontmatter 是机器协议（agent 先读它判断），正文是人机共享语义层。
 4. **三维分层**：知识（可复用）/ 事实（此刻为真）/ 人格（怎么想怎么说）严格分离，互不污染。
 5. **标准写进库，不绑工具**：规则存在知识库里（如 CLAUDE.md / AGENTS.md），任何遵守 SPEC 的 agent 都能接管。
@@ -62,3 +62,4 @@
 - 本 SPEC 为 v0.1，对应 goldenwave v0.1（标准 + 骨架，不含路由器）。
 - L3 摄入路由器、L4 人格实例、蒸馏冷启动见 ROADMAP（v0.2 / v0.3+）。
 - frontmatter 字段集向后兼容；新增字段必须先改 SPEC。
+- 外部 producer 通过版本化 L3 Contract 接入，不依赖 GoldenWave 源码目录或 Git submodule。GoldenWave 拥有 Contract、validator 与兼容策略；producer 声明支持版本并通过契约测试。Malow 的具体关系见 [GoldenWave 与 Malow 集成合同](docs/malow-integration.md)。
