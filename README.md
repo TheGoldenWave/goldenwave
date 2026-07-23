@@ -51,6 +51,12 @@ bash scripts/init.sh ~/MyKnowledgeBase
 
 ---
 
+## Integrations
+
+- [Malow](docs/malow-integration.md)：Malow 作为下游 Knowledge Patch producer，通过版本化 GoldenWave Contract 和运行时 Inbox 路径接入；两个源码仓库保持独立，不使用 Git submodule。
+
+---
+
 ## 项目状态
 
 **v0.1（当前）**：开放标准 + 结构骨架 + init 脚本 + 三个 Skill。
