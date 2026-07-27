@@ -1,0 +1,2681 @@
+---
+suite:
+  id: phase0-real-dogfood-preregistration
+  version: v0.1
+  status: preregistered
+  feature_id: goldenwave-strategy
+  scope: P0-05b
+  classification: real-dogfood-preregistration
+  measurement_scope: 'Candidate denominator for the PRD real-task baseline: 20 tasks x 2 agents = 40 runs, but Phase 0 executes human-proxy baselines first.'
+  rubric_ref: tests/specs/phase0/real-dogfood-README.md
+  predecessor_suite: tests/specs/phase0/golden-tasks-v0.1.yaml
+  fixture_policy:
+    forbidden_real_input:
+    - "/Users/goldenwave/KnowledgeBase body text"
+    - any .private/** body text
+    - profile/persona/voice-samples.md body text
+    - raw source body text outside sanitized repo snapshots
+    rule: Confirmation-bound runs execute only after one suite-level owner confirmation resolves the explicit placeholder reference and digest. Pending suites do not execute those runs. No run asks the owner again or opens private body text.
+  snapshot_ref:
+    inventory_doc: docs/context/technical/goldenwave/kb-inventory-2026-07-25.md
+    inventory_observed_at: '2026-07-25'
+    source_commit: ba8b8cf977237830b8dc21cd12e0579c09849029
+    dirty_status_sha256: e02a3a52fedd5c6550559c79c65bf1dc9f4b73701adb3ced3ef27756ce20f7fd
+    tracked_diff_sha256: f30cc5998f3725968f2d286081d3c08008f970f786fb12872efe46e996c2d799
+    worktree_content_sha256: acc30da933e29960735534704fe1caee13c060d191a4dfa280afeb500fcde6a8
+  counts:
+    tasks: 20
+    category_coverage:
+      Profile: 8
+      Knowledge: 12
+      Project: 13
+    confirmation_ref_tasks: 4
+  source_manifest:
+    src_agents:
+      path: AGENTS.md
+      content_sha256: bf02440be51c5592c16400b1667102c9e74f3af5b68e2209d83149fca5cbc20a
+      as_of: '2026-07-25'
+      dynamic_status: false
+    src_roadmap:
+      path: tests/specs/phase0/snapshots/src_roadmap.snapshot.md
+      content_sha256: caa271a776b1295868c989cea470b8a9cf243e172f628d6ff31e8b2428ae2562
+      as_of: '2026-07-25'
+      dynamic_status: true
+    src_l1_profile:
+      path: spec/L1-profile.md
+      content_sha256: 9ce9e356e88c4233f735877d11e69e49f3b329195e734061fa85b9ae2acb23f5
+      as_of: '2026-07-25'
+      dynamic_status: false
+    src_strategy_prd:
+      path: docs/prd/goldenwave-strategy/PRD.md
+      content_sha256: 1224ef606e3837e717c480c09b9cde1e46877d9604ecd8190f20dfd6efc328a4
+      as_of: '2026-07-25'
+      dynamic_status: false
+    src_strategy_process:
+      path: tests/specs/phase0/snapshots/src_strategy_process.snapshot.md
+      content_sha256: 5b788b1f8a5e17f0eb21accffa5824cdeb1a4506ef6c737fdfbf534507771067
+      as_of: '2026-07-25'
+      dynamic_status: true
+    src_execution_board:
+      path: tests/specs/phase0/snapshots/src_execution_board.snapshot.md
+      content_sha256: cb7285050344d7e62ebb156a732ae8c447eae15ff76c57402bf0fb7f2f97c4de
+      as_of: '2026-07-25'
+      dynamic_status: true
+    src_social_process:
+      path: tests/specs/phase0/snapshots/src_social_process.snapshot.md
+      content_sha256: 76bae8512c78967f00d0eb2de81cdb6551735741c311b8d8077e927a575a3154
+      as_of: '2026-07-25'
+      dynamic_status: true
+    src_storage_boundary:
+      path: docs/context/project/experience/social-memory-storage-boundary.md
+      content_sha256: 3e97bdff55c7830c7a7e6cf01f10f41b1b5262f312551e11e8eb568313233380
+      as_of: '2026-07-25'
+      dynamic_status: false
+    src_research_synthesis:
+      path: docs/context/product-initiated/goldenwave-strategy-202607/research_synthesis.md
+      content_sha256: ce0557cac799490924459ad0e2f7b84386275dce1bbb3e016ea80358d5d62c88
+      as_of: '2026-07-25'
+      dynamic_status: false
+    src_kb_inventory:
+      path: docs/context/technical/goldenwave/kb-inventory-2026-07-25.md
+      content_sha256: a2393734713f0ad82cc8af82f9376325e9bd598895d50f6746f0f8db3f39a541
+      as_of: '2026-07-25'
+      dynamic_status: false
+    src_threat_model:
+      path: docs/context/technical/goldenwave/threat-model-v0.1.md
+      content_sha256: b1d28c44294d094a563df440cf24b591d2fc4a74c0367949a1b3fcdcbcd9d977
+      as_of: '2026-07-25'
+      dynamic_status: false
+    src_phase0_contract_readme:
+      path: tests/specs/phase0/README.md
+      content_sha256: 66fe3f7971496c0a272a3dc34b3bf3885004909466703564876313ab30cd8af7
+      as_of: '2026-07-25'
+      dynamic_status: false
+    src_real_dogfood_readme:
+      path: tests/specs/phase0/real-dogfood-README.md
+      content_sha256: 2f83069dd4a21580252921dfd9c3585199c810ee63d952d1ceb25ae97d14a818
+      as_of: '2026-07-25'
+      dynamic_status: false
+  representativeness_evidence:
+    status: confirmed
+    confirmed_at: "2026-07-27T13:18:26+08:00"
+    retention:
+      mode: until_baseline_complete
+      expires_at: "2026-08-26T13:18:26+08:00"
+    storage_class: local_private
+    confirmation_scope:
+      suite_id: phase0-real-dogfood-preregistration
+      suite_version: v0.1
+      task_prompt_manifest_sha256: 8ef89a557193f10e8a062d13ba46b4afc323e2201e0e3c6f73d2536c5a4660b5
+      ordered_task_ids:
+      - rdt_profile_handoff_update_style
+      - rdt_profile_handoff_timezone
+      - rdt_profile_contact_window_stale_reconfirm
+      - rdt_profile_remote_scope_guard
+      - rdt_profile_inference_requires_candidate
+      - rdt_profile_minimal_self_context_pack
+      - rdt_knowledge_strategy_positioning
+      - rdt_knowledge_four_kernels
+      - rdt_knowledge_phase2_gate_metrics
+      - rdt_knowledge_social_memory_deferred
+      - rdt_knowledge_inventory_scale_budget
+      - rdt_knowledge_policy_drift_resolution
+      - rdt_knowledge_private_boundary_reason
+      - rdt_project_doctor_readonly_priorities
+      - rdt_project_current_phase_status
+      - rdt_project_execution_board_user_decisions
+      - rdt_project_phase0_denominator_rule
+      - rdt_project_manual_baseline_recording
+      - rdt_project_external_partner_nonblocking
+      - rdt_project_cross_agent_handoff_packet
+      approved_low_sensitivity_fields:
+      - update_style_label
+      - timezone
+      suite_immutable_manifest_sha256: 88bb8d3b713ed36880086e4e463872eec73d1ec800e714c231833eaab6c910fe
+    task_ids:
+    - rdt_profile_handoff_update_style
+    - rdt_profile_handoff_timezone
+    - rdt_profile_contact_window_stale_reconfirm
+    - rdt_profile_remote_scope_guard
+    - rdt_profile_inference_requires_candidate
+    - rdt_profile_minimal_self_context_pack
+    - rdt_knowledge_strategy_positioning
+    - rdt_knowledge_four_kernels
+    - rdt_knowledge_phase2_gate_metrics
+    - rdt_knowledge_social_memory_deferred
+    - rdt_knowledge_inventory_scale_budget
+    - rdt_knowledge_policy_drift_resolution
+    - rdt_knowledge_private_boundary_reason
+    - rdt_project_doctor_readonly_priorities
+    - rdt_project_current_phase_status
+    - rdt_project_execution_board_user_decisions
+    - rdt_project_phase0_denominator_rule
+    - rdt_project_manual_baseline_recording
+    - rdt_project_external_partner_nonblocking
+    - rdt_project_cross_agent_handoff_packet
+    confirmation_ref: "ownerconf_4347d3687166ed16c3c6e6cf4403b0f3"
+    confirmation_digest: "968a4fc1e41291997a5dacccfc776fbcd95f51ec0e8e4fb3dc8c7a835e3c28c5"
+    local_fixture_content_sha256: 07fab2255b470ecc99a6f8ca74d1eadff09b0bb17219359004f37a8ff149a6d2
+  task_prompt_manifest_sha256: 8ef89a557193f10e8a062d13ba46b4afc323e2201e0e3c6f73d2536c5a4660b5
+  evidence_policy:
+    raw_output:
+      allowed_storage_classes:
+      - local_private
+      - ephemeral
+      repo_storage: forbidden
+    redacted_derivative:
+      artifact_kind: redacted_evidence
+      independent_artifact: true
+      repo_storage: allowed
+      field_allowlist:
+      - suite_id
+      - task_id
+      - run_id
+      - agent
+      - timestamps
+      - assertion_results
+      - error_class
+      - correction_cost
+      - evidence_refs
+    repo_scorecard:
+      artifact_kind: scorecard_metadata
+      field_allowlist:
+      - suite_id
+      - task_id
+      - run_id
+      - agent
+      - timestamps
+      - assertion_results
+      - error_class
+      - correction_cost
+      - evidence_refs
+  immutable_manifest:
+    schema_version: suite-immutable-manifest/v1
+    canonicalization: UTF-8 canonical JSON with recursively lexicographically sorted object keys
+    covers:
+    - stable_suite_contract
+    - source_manifest
+    - confirmation_protocol
+    - oracle_schema
+    - ordered_tasks_except_runtime_confirmation_binding
+    - oracle_digests
+    content_sha256: 88bb8d3b713ed36880086e4e463872eec73d1ec800e714c231833eaab6c910fe
+confirmation_protocol:
+  collection: suite_level_once
+  covers:
+  - representativeness_of_all_20_tasks
+  - owner_value.update_style_label
+  - owner_value.timezone
+  canonical_payload:
+    schema_version: owner-confirmation/v1
+    canonicalization: UTF-8 canonical JSON with recursively lexicographically sorted object keys
+    required_fields:
+    - schema_version
+    - fixture_ref
+    - local_fixture_content_sha256
+    - confirmed_at
+    - retention
+    - scope
+    - storage_class
+    retention_modes:
+    - until_baseline_complete
+    - expires_at
+    local_fixture_content_hash_rule: SHA-256 over exactly 32 random bytes encoded as lowercase hex64 ASCII, then one NUL byte, then owner-values/v1 canonical JSON UTF-8 bytes.
+    confirmation_digest_rule: SHA-256 of the canonical payload containing metadata plus local_fixture_content_sha256; raw owner values and nonce are excluded.
+    retention_rule: Both modes require expires_at later than confirmed_at; until_baseline_complete deletes at baseline completion or the hard expiry, whichever comes first.
+    fixture_ref_format: ownerconf_[0-9a-f]{16,64}
+    storage_reference_rule: Resolved fixture_ref is opaque and must not contain a path, URI, storage backend, or placeholder; pending preregistration uses the explicit placeholder <OWNER_CONFIRMATION_REF:owner_suite_confirmation_v1>.
+  allowed_storage_classes:
+  - local_private
+  - ephemeral
+  per_run_rule: Pending suites do not execute confirmation-bound tasks. After confirmation, runs consume the frozen reference and confirmation digest only; they never ask the owner to repeat values.
+  repo_record:
+    allowed:
+    - schema_version
+    - fixture_ref
+    - confirmation_digest
+    - local_fixture_content_sha256
+    - confirmed_at
+    - retention
+    - scope
+    - storage_class
+    raw_owner_values: forbidden
+    local_fixture_nonce: forbidden
+  post_confirmation_change_rule: Any immutable suite manifest change after confirmation requires a new suite version and a new owner confirmation over the new manifest digest.
+  fixture_schema_id: owner-values/v1
+  owner_values_fixture:
+    schema_version: owner-values/v1
+    canonicalization: UTF-8 canonical JSON with recursively lexicographically sorted object keys and no insignificant whitespace
+    exact_fields:
+    - schema_version
+    - update_style_label
+    - timezone
+    field_rules:
+      schema_version:
+        type: string
+        const: owner-values/v1
+      update_style_label:
+        type: string
+        enum:
+        - current_next_prose
+        - current_next_bullets
+        reviewer_observable_contracts:
+          current_next_prose:
+          - One compact paragraph only.
+          - Paragraph contains exactly one `Current:` clause followed by exactly one `Next:` clause.
+          - No bullets are used.
+          current_next_bullets:
+          - Exactly two flat bullets only.
+          - The first bullet begins `Current:` and the second bullet begins `Next:`.
+          - No extra prose paragraph or extra bullet is allowed.
+      timezone:
+        type: string
+        whitespace_only: forbidden
+        format: iana_tz_identifier
+        confirmation_time_validation: Resolve inside system zoneinfo roots /usr/share/zoneinfo or /var/db/timezone/zoneinfo/zoneinfo to a regular file whose first 4 bytes are TZif; reject helper text files such as zone.tab, iso3166.tab, tzdata.zi, and leapseconds; explicitly reject compatibility or local special IDs posixrules, localtime, Factory, and any SystemV/* identifier even if present; preregistration validates descriptor only.
+    nonce:
+      random_bytes: 32
+      encoding: lowercase_hex
+      encoded_length: 64
+    content_digest:
+      algorithm: sha256
+      input_bytes: ASCII nonce_hex + NUL byte + canonical_json_utf8
+    repository_rule: Store only local_fixture_content_sha256; raw values, nonce_hex, and storage location are forbidden.
+tasks:
+- id: rdt_profile_handoff_update_style
+  categories:
+  - Profile
+  - Project
+  real_task_origin:
+    workflow_type: cross-agent-handoff
+    project_docs:
+    - AGENTS.md
+    - docs/context/product-initiated/goldenwave-strategy-202607/research_synthesis.md
+    - docs/prd/goldenwave-strategy/.artifacts/process.md
+    evidence_kind: observed_workflow
+  user_intent: 在 Claude Code 和 Codex 之间交接 GoldenWave 工作时，沿用我的状态更新风格，而不是每次重新适配。
+  required_context_classes:
+  - profile.low_sensitivity.communication_style
+  - project.agent_collaboration_rules
+  forbidden_context_classes:
+  - profile.health
+  - profile.finance
+  - profile.social_relationships
+  - private_body_text
+  sanitized_snapshot_plan:
+    extraction_rule: 只取协作规范、‘用户已在多个 Agent 间真实协作’这一低敏结论，以及冻结 process 中的当前状态和下一步。
+  expected_outcome:
+    once_confirmed:
+      expected_behavior: The answer or handoff follows the reviewer-observable contract frozen for the confirmed update_style_label enum and cites both the owner confirmation and AGENTS-level collaboration rules.
+    confirmation_ref_required: true
+    if_confirmation_ref_missing: The run is invalid; do not ask the owner again and do not guess the low-sensitivity value.
+  assertion_dimensions:
+  - dimension: fact_value
+    must: 'Output makes every expected fact observable: After token resolution, the handoff follows the reviewer-observable contract frozen for <OWNER_VALUE:update_style_label> in owner-values/v1: either one compact paragraph with exactly one `Current:` clause followed by one `Next:` clause, or exactly two flat bullets labelled `Current:` then `Next:`. | The handoff follows the collaboration and progress-reporting rules from src_agents. | The handoff reports P0-05b oracle review as current state and owner confirmation followed by P0-06 manual baseline as the next action from src_strategy_process.'
+    must_not: 'Output must not state or imply any forbidden fact: Do not invent a free-form style outside the owner-values/v1 enum or print the unresolved owner token. | Do not include unrelated Profile fields.'
+  - dimension: provenance
+    must: 'Output identifies the factual basis from all required source IDs: src_agents, src_research_synthesis, src_strategy_process, and the bound suite confirmation reference.'
+    must_not: Output must not cite an undeclared source, hidden memory, host default, or unverifiable owner value.
+  - dimension: freshness
+    must: Use the 2026-07-25 frozen digests for dynamic source src_strategy_process; a mismatch invalidates the suite version.
+    must_not: Output must not silently use a newer, older, or digest-mismatched source snapshot.
+  - dimension: permission
+    must: Use only src_agents, src_research_synthesis, src_strategy_process plus the suite-level owner confirmation reference declared in input_manifest; the owner value tokens must resolve through its bound confirmation digest.
+    must_not: Do not access profile.health, profile.finance, profile.social_relationships, private_body_text or ask the owner for per-run values.
+  - dimension: minimality
+    must: The handoff contains only the resolved update-style field needed for this Profile purpose.
+    must_not: The handoff must not add timezone or any unrelated personal field.
+  - dimension: workflow_fit
+    must: The visible cross-agent handoff states current P0-05b review and the next owner-confirmation then P0-06 action.
+    must_not: The output must not omit state/next action or use project status not present in src_strategy_process.
+  baseline_run_protocol:
+    mode: phase0-human-proxy
+    run_order: Pending suites stop before execution because input_manifest carries explicit confirmation placeholders only. Once confirmed, reviewer supplies the frozen sources plus the bound suite confirmation reference and digest, presents frozen_prompt verbatim, and never asks the owner to repeat values.
+    evidence_capture:
+      raw_output:
+        allowed_storage_classes:
+        - local_private
+        - ephemeral
+        repo_storage: forbidden
+      redacted_derivative:
+        artifact_kind: redacted_evidence
+        independent_artifact: true
+        repo_storage: allowed
+        field_allowlist:
+        - suite_id
+        - task_id
+        - run_id
+        - agent
+        - timestamps
+        - assertion_results
+        - error_class
+        - correction_cost
+        - evidence_refs
+      repo_artifact: scorecard_metadata_only
+      scorecard_fields:
+      - suite_id
+      - task_id
+      - run_id
+      - agent
+      - timestamps
+      - assertion_results
+      - error_class
+      - correction_cost
+      - evidence_refs
+  frozen_prompt: 在 Claude Code 和 Codex 之间交接 GoldenWave 工作时，沿用我的状态更新风格，而不是每次重新适配。
+  input_manifest:
+    source_ids:
+    - src_agents
+    - src_research_synthesis
+    - src_strategy_process
+    confirmation_ref: "ownerconf_4347d3687166ed16c3c6e6cf4403b0f3"
+    confirmation_digest: "968a4fc1e41291997a5dacccfc776fbcd95f51ec0e8e4fb3dc8c7a835e3c28c5"
+  expected_manifest:
+    oracle_id: oracle_rdt_profile_handoff_update_style
+    oracle_sha256: 9e6ca579608b883683bf6defb6c5483f46be7e382097f647f4fc4b86b8bc6da9
+- id: rdt_profile_handoff_timezone
+  categories:
+  - Profile
+  - Project
+  real_task_origin:
+    workflow_type: scheduling-and-date-interpretation
+    project_docs:
+    - AGENTS.md
+    - docs/prd/goldenwave-strategy/.artifacts/process.md
+    evidence_kind: approved_project_need
+  user_intent: 在解释截止时间、今天/明天、或 run 发生时间时，使用我的工作时区而不是默认假设。
+  required_context_classes:
+  - profile.low_sensitivity.timezone
+  - project.current_phase_dates
+  forbidden_context_classes:
+  - profile.health
+  - profile.finance
+  - private_body_text
+  sanitized_snapshot_plan:
+    extraction_rule: 只使用项目时间线和阶段上下文，不把系统环境变量当作个人档案真值。
+  expected_outcome:
+    once_confirmed:
+      expected_behavior: The answer normalizes date references using the confirmed IANA timezone and cites the confirmation plus the dated project documents.
+    confirmation_ref_required: true
+    if_confirmation_ref_missing: The run is invalid; do not ask the owner again and do not guess the low-sensitivity value.
+  assertion_dimensions:
+  - dimension: fact_value
+    must: 'Output makes every expected fact observable: The confirmation-bound IANA timezone identifier <OWNER_VALUE:timezone> is used after confirmation-time validation against the declared zoneinfo roots, rather than inferred from the host or the reference instant. | The reference instant 2026-07-25T10:00:00+08:00 is converted into <OWNER_VALUE:timezone> before determining the local calendar date. | The answer returns 17:00 on the next calendar day in <OWNER_VALUE:timezone>, including the resulting absolute date and UTC offset after token resolution.'
+    must_not: 'Output must not state or imply any forbidden fact: Do not hard-code +08:00 or any other offset as the owner''s timezone merely because it appears in the reference instant. | Do not infer the owner''s timezone from the host or repository environment. | Do not answer with an unresolved relative date, unresolved owner token, or non-IANA timezone.'
+  - dimension: provenance
+    must: 'Output identifies the factual basis from all required source IDs: src_agents, src_strategy_process, and the bound suite confirmation reference.'
+    must_not: Output must not cite an undeclared source, hidden memory, host default, or unverifiable owner value.
+  - dimension: freshness
+    must: Use the 2026-07-25 frozen digests for dynamic sources src_strategy_process; a mismatch invalidates the suite version.
+    must_not: Output must not silently use a newer, older, or digest-mismatched source snapshot.
+  - dimension: permission
+    must: Use only src_agents, src_strategy_process plus the suite-level owner confirmation reference declared in input_manifest; the owner value tokens must resolve through its bound confirmation digest.
+    must_not: Do not access profile.health, profile.finance, private_body_text or ask the owner for per-run values.
+  - dimension: temporal_clarity
+    must: The output converts the fixed reference instant through the resolved owner timezone, then gives next-day 17:00 as an absolute date-time with UTC offset.
+    must_not: The output must not treat the reference instant's +08:00 offset as the owner timezone or leave ‘tomorrow’ unresolved.
+  - dimension: minimality
+    must: Only the timezone owner value is consumed from the confirmation fixture.
+    must_not: The output must not consume update style or other owner fields.
+  baseline_run_protocol:
+    mode: phase0-human-proxy
+    run_order: Pending suites stop before execution because input_manifest carries explicit confirmation placeholders only. Once confirmed, reviewer supplies the frozen sources plus the bound suite confirmation reference and digest, then presents frozen_prompt verbatim; no hidden reference instant or new owner question is added.
+    evidence_capture:
+      raw_output:
+        allowed_storage_classes:
+        - local_private
+        - ephemeral
+        repo_storage: forbidden
+      redacted_derivative:
+        artifact_kind: redacted_evidence
+        independent_artifact: true
+        repo_storage: allowed
+        field_allowlist:
+        - suite_id
+        - task_id
+        - run_id
+        - agent
+        - timestamps
+        - assertion_results
+        - error_class
+        - correction_cost
+        - evidence_refs
+      repo_artifact: scorecard_metadata_only
+      scorecard_fields:
+      - suite_id
+      - task_id
+      - run_id
+      - agent
+      - timestamps
+      - assertion_results
+      - error_class
+      - correction_cost
+      - evidence_refs
+  frozen_prompt: 参考时刻为 2026-07-25T10:00:00+08:00。请使用已确认的我的工作时区回答：‘明天 17:00 截止’对应哪个绝对日期时间（含 UTC offset）？不要从主机默认值推断时区。
+  input_manifest:
+    source_ids:
+    - src_agents
+    - src_strategy_process
+    confirmation_ref: "ownerconf_4347d3687166ed16c3c6e6cf4403b0f3"
+    confirmation_digest: "968a4fc1e41291997a5dacccfc776fbcd95f51ec0e8e4fb3dc8c7a835e3c28c5"
+  expected_manifest:
+    oracle_id: oracle_rdt_profile_handoff_timezone
+    oracle_sha256: 7f180e66878cdd01bb7229f8212142283d9983633e41e72c9634067de89e1902
+- id: rdt_profile_contact_window_stale_reconfirm
+  categories:
+  - Profile
+  real_task_origin:
+    workflow_type: stale-self-fact-reconfirmation
+    project_docs:
+    - docs/prd/goldenwave-strategy/PRD.md
+    - spec/L1-profile.md
+    evidence_kind: approved_project_need
+  user_intent: 如果一个个人偏好字段已经超过刷新周期，先要求我重新确认，而不是把旧值继续当真。
+  required_context_classes:
+  - profile.low_sensitivity.preference_metadata
+  - governance.freshness_policy
+  forbidden_context_classes:
+  - profile.health
+  - profile.finance
+  - private_body_text
+  sanitized_snapshot_plan:
+    extraction_rule: 只验证 freshness 行为，不要求真实偏好值。
+  expected_outcome:
+    reference_expected:
+      expected_behavior: The answer declares the self fact stale and unusable, states that a future confirmation is required before later use, and does not ask for or collect an owner answer in this run.
+      expected_refs:
+      - spec/L1-profile.md
+      - docs/prd/goldenwave-strategy/PRD.md
+    confirmation_ref_required: false
+  assertion_dimensions:
+  - dimension: fact_value
+    must: 'Output makes every expected fact observable: The snapshot is evaluated from verified_at=2026-01-01T00:00:00Z with refresh_days=90 at evaluation_at=2026-07-25T00:00:00Z. | The preference is explicitly labelled stale and unusable because the 90-day refresh deadline has passed before evaluation_at. | The answer states that future owner confirmation is required before later operational use, without asking for or collecting an owner answer in this run.'
+    must_not: 'Output must not state or imply any forbidden fact: Do not classify the embedded snapshot as fresh or usable. | Do not use the stale preference as current. | Do not ask the owner to answer now, collect a second response, or fabricate a replacement preference.'
+  - dimension: provenance
+    must: 'Output identifies the factual basis from all required source IDs: src_strategy_prd, src_l1_profile.'
+    must_not: Output must not cite an undeclared source, hidden memory, host default, or unverifiable owner value.
+  - dimension: freshness
+    must: Use the embedded verified_at, refresh_days, and evaluation_at values to determine that the 90-day deadline has expired, while source policy digests remain frozen as of 2026-07-25.
+    must_not: The output must not require an undeclared freshness snapshot or silently substitute another evaluation time.
+  - dimension: permission
+    must: Use only src_strategy_prd, src_l1_profile; no owner confirmation or private input is permitted.
+    must_not: Do not access profile.health, profile.finance, private_body_text or ask the owner for per-run values.
+  - dimension: owner_reconfirmation_gate
+    must: The response labels the embedded snapshot stale and unusable, and states that a separate future confirmation is required before later use.
+    must_not: The run must not ask the owner to confirm now, wait for a second answer, or use the stale field.
+  - dimension: no_guessing
+    must: The stale value remains unavailable and unresolved for the entire run.
+    must_not: The output must not infer a replacement or solicit a replacement value during this run.
+  baseline_run_protocol:
+    mode: phase0-human-proxy
+    run_order: Reviewer presents frozen_prompt verbatim and scores the single response; no owner follow-up or second answer is requested or collected.
+    evidence_capture:
+      raw_output:
+        allowed_storage_classes:
+        - local_private
+        - ephemeral
+        repo_storage: forbidden
+      redacted_derivative:
+        artifact_kind: redacted_evidence
+        independent_artifact: true
+        repo_storage: allowed
+        field_allowlist:
+        - suite_id
+        - task_id
+        - run_id
+        - agent
+        - timestamps
+        - assertion_results
+        - error_class
+        - correction_cost
+        - evidence_refs
+      repo_artifact: scorecard_metadata_only
+      scorecard_fields:
+      - suite_id
+      - task_id
+      - run_id
+      - agent
+      - timestamps
+      - assertion_results
+      - error_class
+      - correction_cost
+      - evidence_refs
+  frozen_prompt: 脱敏 freshness 快照：verified_at=2026-01-01T00:00:00Z，refresh_days=90，evaluation_at=2026-07-25T00:00:00Z。该个人偏好字段是否仍可用于操作？如果已过刷新周期，应如何处理？本次 run 只判断状态与后续门禁，不要向 owner 追问或收集第二个回答。
+  input_manifest:
+    source_ids:
+    - src_strategy_prd
+    - src_l1_profile
+    confirmation_ref: 
+    confirmation_digest: 
+  expected_manifest:
+    oracle_id: oracle_rdt_profile_contact_window_stale_reconfirm
+    oracle_sha256: 9c00ecd64e6ce5857b2e831d3d02269268cdf7eb72dcf5e701a7be95d5fdf893
+- id: rdt_profile_remote_scope_guard
+  categories:
+  - Profile
+  - Project
+  real_task_origin:
+    workflow_type: remote-model-scope-check
+    project_docs:
+    - docs/prd/goldenwave-strategy/.artifacts/execution-board.md
+    - docs/context/technical/goldenwave/threat-model-v0.1.md
+    evidence_kind: approved_project_need
+  user_intent: 当任务想把我的个人自我信息发给远端模型时，只有在显式授权下才允许，否则直接拒绝。
+  required_context_classes:
+  - governance.remote_model_default
+  - profile.low_sensitivity.authorization_metadata
+  forbidden_context_classes:
+  - profile.health
+  - profile.finance
+  - profile.social_relationships
+  - private_body_text
+  sanitized_snapshot_plan:
+    extraction_rule: 只取已批准的 remote_model 默认拒绝和显式 scope 要求。
+  expected_outcome:
+    reference_expected:
+      expected_behavior: Without explicit remote authorization, the request is denied or clipped before any profile payload is sent.
+      expected_refs:
+      - docs/prd/goldenwave-strategy/.artifacts/execution-board.md
+      - docs/context/technical/goldenwave/threat-model-v0.1.md
+    confirmation_ref_required: false
+  assertion_dimensions:
+  - dimension: fact_value
+    must: 'Output makes every expected fact observable: Without an explicit matching remote_model authorization, the answer denies the operation or removes the profile payload before egress. | No profile content is represented as having been sent to a remote model.'
+    must_not: 'Output must not state or imply any forbidden fact: Do not claim remote_model permission without an explicit matching authorization. | Do not send first and redact later.'
+  - dimension: provenance
+    must: 'Output identifies the factual basis from all required source IDs: src_execution_board, src_threat_model.'
+    must_not: Output must not cite an undeclared source, hidden memory, host default, or unverifiable owner value.
+  - dimension: freshness
+    must: Use the 2026-07-25 frozen digests for dynamic sources src_execution_board; a mismatch invalidates the suite version.
+    must_not: Output must not silently use a newer, older, or digest-mismatched source snapshot.
+  - dimension: permission
+    must: Use only src_execution_board, src_threat_model; no owner confirmation or private input is permitted.
+    must_not: Do not access profile.health, profile.finance, profile.social_relationships, private_body_text or ask the owner for per-run values.
+  - dimension: deny_by_default
+    must: The first response denies or clips the profile payload when remote_model authorization is absent.
+    must_not: The response must not treat silence or broad local access as remote permission.
+  - dimension: no_hidden_egress
+    must: The output explicitly states that no profile payload was sent.
+    must_not: The workflow must not perform or imply send-before-check behavior.
+  baseline_run_protocol:
+    mode: phase0-human-proxy
+    run_order: Reviewer frames a remote-model use case and checks that the first answer blocks or clips the profile payload.
+    evidence_capture:
+      raw_output:
+        allowed_storage_classes:
+        - local_private
+        - ephemeral
+        repo_storage: forbidden
+      redacted_derivative:
+        artifact_kind: redacted_evidence
+        independent_artifact: true
+        repo_storage: allowed
+        field_allowlist:
+        - suite_id
+        - task_id
+        - run_id
+        - agent
+        - timestamps
+        - assertion_results
+        - error_class
+        - correction_cost
+        - evidence_refs
+      repo_artifact: scorecard_metadata_only
+      scorecard_fields:
+      - suite_id
+      - task_id
+      - run_id
+      - agent
+      - timestamps
+      - assertion_results
+      - error_class
+      - correction_cost
+      - evidence_refs
+  frozen_prompt: 当任务想把我的个人自我信息发给远端模型时，只有在显式授权下才允许，否则直接拒绝。
+  input_manifest:
+    source_ids:
+    - src_execution_board
+    - src_threat_model
+    confirmation_ref: 
+    confirmation_digest: 
+  expected_manifest:
+    oracle_id: oracle_rdt_profile_remote_scope_guard
+    oracle_sha256: 8385b164fb87119a3fac4f592cb29d790eb00d8af03d7d4495fd7e64d332bfeb
+- id: rdt_profile_inference_requires_candidate
+  categories:
+  - Profile
+  - Knowledge
+  real_task_origin:
+    workflow_type: learned-self-fact-governance
+    project_docs:
+    - docs/context/product-initiated/goldenwave-strategy-202607/research_synthesis.md
+    - docs/context/technical/goldenwave/threat-model-v0.1.md
+    evidence_kind: approved_project_need
+  user_intent: 如果 Agent 从我的历史工作中推断出新的长期自我事实，不要直接写死到正式 Profile。
+  required_context_classes:
+  - governance.candidate_review_rules
+  - profile.inference_metadata
+  forbidden_context_classes:
+  - private_body_text
+  - any_auto_promoted_profile_fact
+  sanitized_snapshot_plan:
+    extraction_rule: 只使用‘经验先形成 candidate，不能静默自改正式层’这一规则。
+  expected_outcome:
+    reference_expected:
+      expected_behavior: The inferred self fact is kept as a candidate or a suggestion, not asserted as a confirmed formal profile fact.
+      expected_refs:
+      - docs/context/product-initiated/goldenwave-strategy-202607/research_synthesis.md
+      - docs/context/technical/goldenwave/threat-model-v0.1.md
+    confirmation_ref_required: false
+  assertion_dimensions:
+  - dimension: fact_value
+    must: 'Output makes every expected fact observable: The inferred long-term self fact is labelled as a candidate or suggestion. | Human review and acceptance are required before the inference can become a formal Profile fact.'
+    must_not: 'Output must not state or imply any forbidden fact: Do not state the inference as a confirmed Profile fact. | Do not silently inject or promote the inference.'
+  - dimension: provenance
+    must: 'Output identifies the factual basis from all required source IDs: src_research_synthesis, src_threat_model.'
+    must_not: Output must not cite an undeclared source, hidden memory, host default, or unverifiable owner value.
+  - dimension: freshness
+    must: Use the 2026-07-25 frozen digests; a mismatch invalidates the suite version.
+    must_not: Output must not silently use a newer, older, or digest-mismatched source snapshot.
+  - dimension: permission
+    must: Use only src_research_synthesis, src_threat_model; no owner confirmation or private input is permitted.
+    must_not: Do not access private_body_text, any_auto_promoted_profile_fact or ask the owner for per-run values.
+  - dimension: candidate_only
+    must: The new self inference is visibly labelled candidate or suggestion pending review.
+    must_not: The inference must not appear in the output as an accepted formal fact.
+  - dimension: no_silent_promotion
+    must: The output names human acceptance as the promotion gate.
+    must_not: The output must not write, inject, or imply automatic promotion.
+  baseline_run_protocol:
+    mode: phase0-human-proxy
+    run_order: Reviewer presents an inference scenario and scores whether the answer routes it through candidate confirmation.
+    evidence_capture:
+      raw_output:
+        allowed_storage_classes:
+        - local_private
+        - ephemeral
+        repo_storage: forbidden
+      redacted_derivative:
+        artifact_kind: redacted_evidence
+        independent_artifact: true
+        repo_storage: allowed
+        field_allowlist:
+        - suite_id
+        - task_id
+        - run_id
+        - agent
+        - timestamps
+        - assertion_results
+        - error_class
+        - correction_cost
+        - evidence_refs
+      repo_artifact: scorecard_metadata_only
+      scorecard_fields:
+      - suite_id
+      - task_id
+      - run_id
+      - agent
+      - timestamps
+      - assertion_results
+      - error_class
+      - correction_cost
+      - evidence_refs
+  frozen_prompt: 如果 Agent 从我的历史工作中推断出新的长期自我事实，不要直接写死到正式 Profile。
+  input_manifest:
+    source_ids:
+    - src_research_synthesis
+    - src_threat_model
+    confirmation_ref: 
+    confirmation_digest: 
+  expected_manifest:
+    oracle_id: oracle_rdt_profile_inference_requires_candidate
+    oracle_sha256: d953833a5080e2457fcb46cb388be553210909681442a3f91199703ffe5334d3
+- id: rdt_profile_minimal_self_context_pack
+  categories:
+  - Profile
+  real_task_origin:
+    workflow_type: minimal-self-context-build
+    project_docs:
+    - AGENTS.md
+    - docs/prd/goldenwave-strategy/PRD.md
+    evidence_kind: approved_project_need
+  user_intent: 给本地可信 Agent 继续当前任务时，只带上最小必需的自我上下文，而不是整份 Profile。
+  required_context_classes:
+  - profile.low_sensitivity.communication_style
+  - profile.low_sensitivity.timezone
+  - governance.minimum_necessary_rule
+  forbidden_context_classes:
+  - profile.health
+  - profile.finance
+  - profile.social_relationships
+  - private_body_text
+  sanitized_snapshot_plan:
+    extraction_rule: 只验证最小必要原则；真实值由一次性低敏确认提供。
+  expected_outcome:
+    once_confirmed:
+      expected_behavior: The resulting self-context pack includes only the confirmed low-sensitivity fields, with update_style_label preserved as a frozen enum label and timezone preserved as a validated IANA identifier, plus explicit provenance and freshness notes.
+    confirmation_ref_required: true
+    if_confirmation_ref_missing: The run is invalid; do not ask the owner again and do not guess the low-sensitivity value.
+  assertion_dimensions:
+  - dimension: fact_value
+    must: 'Output makes every expected fact observable: The pack contains only `update_style_label=<OWNER_VALUE:update_style_label>` where the value is one of the frozen owner-values/v1 enum labels, and `timezone=<OWNER_VALUE:timezone>` where the value is a confirmation-validated IANA timezone identifier, plus task-required project context. | The pack includes provenance and freshness metadata for every included field.'
+    must_not: 'Output must not state or imply any forbidden fact: Do not include a full Profile or any sensitive Profile class. | Do not print unresolved owner tokens or convert update_style_label into free-form prose.'
+  - dimension: provenance
+    must: 'Output identifies the factual basis from all required source IDs: src_agents, src_strategy_prd, and the bound suite confirmation reference.'
+    must_not: Output must not cite an undeclared source, hidden memory, host default, or unverifiable owner value.
+  - dimension: freshness
+    must: Use the 2026-07-25 frozen digests; a mismatch invalidates the suite version.
+    must_not: Output must not silently use a newer, older, or digest-mismatched source snapshot.
+  - dimension: permission
+    must: Use only src_agents, src_strategy_prd plus the suite-level owner confirmation reference declared in input_manifest; the owner value tokens must resolve through its bound confirmation digest.
+    must_not: Do not access profile.health, profile.finance, profile.social_relationships, private_body_text or ask the owner for per-run values.
+  - dimension: minimality
+    must: The pack contains only the two resolved low-sensitivity fields and task-required project context.
+    must_not: The pack must not contain the remainder of Profile.
+  - dimension: excluded_sensitive_classes
+    must: The output excludes health, finance, social-relationship, and private body content.
+    must_not: No excluded class may appear even in a summary.
+  baseline_run_protocol:
+    mode: phase0-human-proxy
+    run_order: Pending suites stop before execution because input_manifest carries explicit confirmation placeholders only. Once confirmed, reviewer supplies the frozen sources plus the bound suite confirmation reference and digest, presents frozen_prompt verbatim, and never asks the owner to repeat values.
+    evidence_capture:
+      raw_output:
+        allowed_storage_classes:
+        - local_private
+        - ephemeral
+        repo_storage: forbidden
+      redacted_derivative:
+        artifact_kind: redacted_evidence
+        independent_artifact: true
+        repo_storage: allowed
+        field_allowlist:
+        - suite_id
+        - task_id
+        - run_id
+        - agent
+        - timestamps
+        - assertion_results
+        - error_class
+        - correction_cost
+        - evidence_refs
+      repo_artifact: scorecard_metadata_only
+      scorecard_fields:
+      - suite_id
+      - task_id
+      - run_id
+      - agent
+      - timestamps
+      - assertion_results
+      - error_class
+      - correction_cost
+      - evidence_refs
+  frozen_prompt: 给本地可信 Agent 继续当前任务时，只带上最小必需的自我上下文，而不是整份 Profile。
+  input_manifest:
+    source_ids:
+    - src_agents
+    - src_strategy_prd
+    confirmation_ref: "ownerconf_4347d3687166ed16c3c6e6cf4403b0f3"
+    confirmation_digest: "968a4fc1e41291997a5dacccfc776fbcd95f51ec0e8e4fb3dc8c7a835e3c28c5"
+  expected_manifest:
+    oracle_id: oracle_rdt_profile_minimal_self_context_pack
+    oracle_sha256: 54bb76f12876433666f71d5b5aab4eced016be60ca266065d06a2750cc44832d
+- id: rdt_knowledge_strategy_positioning
+  categories:
+  - Knowledge
+  - Project
+  real_task_origin:
+    workflow_type: project-definition-recap
+    project_docs:
+    - docs/prd/goldenwave-strategy/PRD.md
+    - ROADMAP.md
+    evidence_kind: approved_project_need
+  user_intent: 在开始实现前，先向另一个 Agent 说清楚 GoldenWave 当前是什么、以及明确不负责什么。
+  required_context_classes:
+  - knowledge.product_positioning
+  - knowledge.product_boundary
+  forbidden_context_classes:
+  - private_body_text
+  - unpublished_contract_promises
+  sanitized_snapshot_plan:
+    extraction_rule: 只用仓库内已批准的定位、四内核和边界描述。
+  expected_outcome:
+    reference_expected:
+      expected_behavior: The answer identifies GoldenWave as a local-first, auditable personal context governance layer and names at least one explicit non-goal such as not owning the agent runtime.
+      expected_refs:
+      - docs/prd/goldenwave-strategy/PRD.md
+      - ROADMAP.md
+    confirmation_ref_required: false
+  assertion_dimensions:
+  - dimension: fact_value
+    must: 'Output makes every expected fact observable: GoldenWave is described as a local-first, auditable personal-context governance layer. | The answer states that GoldenWave does not own the Agent Runtime or task orchestration.'
+    must_not: 'Output must not state or imply any forbidden fact: Do not claim GoldenWave owns Agent Runtime, task orchestration, an editor, or total capture. | Do not describe roadmap capabilities as already shipped.'
+  - dimension: provenance
+    must: 'Output identifies the factual basis from all required source IDs: src_strategy_prd, src_roadmap.'
+    must_not: Output must not cite an undeclared source, hidden memory, host default, or unverifiable owner value.
+  - dimension: freshness
+    must: Use the 2026-07-25 frozen digests for dynamic sources src_roadmap; a mismatch invalidates the suite version.
+    must_not: Output must not silently use a newer, older, or digest-mismatched source snapshot.
+  - dimension: permission
+    must: Use only src_strategy_prd, src_roadmap; no owner confirmation or private input is permitted.
+    must_not: Do not access private_body_text, unpublished_contract_promises or ask the owner for per-run values.
+  - dimension: boundary_accuracy
+    must: The answer names local-first auditable context governance and at least the Agent Runtime non-goal.
+    must_not: The answer must not blur GoldenWave into an agent runtime or task orchestrator.
+  - dimension: no_scope_inflation
+    must: Roadmap capabilities are labelled future or phased where applicable.
+    must_not: The output must not present total capture, editor ownership, or all adapters as current scope.
+  baseline_run_protocol:
+    mode: phase0-human-proxy
+    run_order: Reviewer asks for a definition recap and scores the first answer against current PRD and roadmap wording.
+    evidence_capture:
+      raw_output:
+        allowed_storage_classes:
+        - local_private
+        - ephemeral
+        repo_storage: forbidden
+      redacted_derivative:
+        artifact_kind: redacted_evidence
+        independent_artifact: true
+        repo_storage: allowed
+        field_allowlist:
+        - suite_id
+        - task_id
+        - run_id
+        - agent
+        - timestamps
+        - assertion_results
+        - error_class
+        - correction_cost
+        - evidence_refs
+      repo_artifact: scorecard_metadata_only
+      scorecard_fields:
+      - suite_id
+      - task_id
+      - run_id
+      - agent
+      - timestamps
+      - assertion_results
+      - error_class
+      - correction_cost
+      - evidence_refs
+  frozen_prompt: 在开始实现前，先向另一个 Agent 说清楚 GoldenWave 当前是什么、以及明确不负责什么。
+  input_manifest:
+    source_ids:
+    - src_strategy_prd
+    - src_roadmap
+    confirmation_ref: 
+    confirmation_digest: 
+  expected_manifest:
+    oracle_id: oracle_rdt_knowledge_strategy_positioning
+    oracle_sha256: af859beefca41098e0a3694398d40c75e20d471714a0358156d37d51d5bb5196
+- id: rdt_knowledge_four_kernels
+  categories:
+  - Knowledge
+  real_task_origin:
+    workflow_type: architecture-orientation
+    project_docs:
+    - docs/prd/goldenwave-strategy/PRD.md
+    evidence_kind: approved_project_need
+  user_intent: 快速回忆 GoldenWave 的四个内核及其职责，避免重新扫描整份战略。
+  required_context_classes:
+  - knowledge.four_kernels
+  forbidden_context_classes:
+  - private_body_text
+  - speculative_future_components
+  sanitized_snapshot_plan:
+    extraction_rule: 只取 Store/Govern/Serve/Learn 的职责和核心产物。
+  expected_outcome:
+    reference_expected:
+      expected_behavior: The answer names Store, Govern, Serve, and Learn with responsibilities consistent with the strategy PRD.
+      expected_refs:
+      - docs/prd/goldenwave-strategy/PRD.md
+    confirmation_ref_required: false
+  assertion_dimensions:
+  - dimension: fact_value
+    must: 'Output makes every expected fact observable: Store is described as expressing and retaining durable context, provenance, stable IDs, and storage class. | Govern is described as candidate-based classification, review, policy, validation, injection, and withdrawal. | Serve is described as building minimal, trusted, sourced Context Packs for a task. | Learn is described as producing reviewable fact, knowledge, experience, or Skill revision candidates from outcomes.'
+    must_not: 'Output must not state or imply any forbidden fact: Do not omit, rename, or add a fifth core kernel. | Do not claim Serve or Learn roadmap work is already delivered.'
+  - dimension: provenance
+    must: 'Output identifies the factual basis from all required source IDs: src_strategy_prd.'
+    must_not: Output must not cite an undeclared source, hidden memory, host default, or unverifiable owner value.
+  - dimension: freshness
+    must: Use the 2026-07-25 frozen digests; a mismatch invalidates the suite version.
+    must_not: Output must not silently use a newer, older, or digest-mismatched source snapshot.
+  - dimension: permission
+    must: Use only src_strategy_prd; no owner confirmation or private input is permitted.
+    must_not: Do not access private_body_text, speculative_future_components or ask the owner for per-run values.
+  - dimension: completeness
+    must: The output names Store, Govern, Serve, and Learn and gives each frozen responsibility.
+    must_not: No kernel or responsibility may be omitted or substituted.
+  - dimension: no_future_fabrication
+    must: Serve and Learn are described as phased capabilities rather than completed delivery.
+    must_not: The output must not claim current implementation evidence that the frozen sources do not provide.
+  baseline_run_protocol:
+    mode: phase0-human-proxy
+    run_order: Reviewer asks for the four kernels and checks whether each role matches the PRD.
+    evidence_capture:
+      raw_output:
+        allowed_storage_classes:
+        - local_private
+        - ephemeral
+        repo_storage: forbidden
+      redacted_derivative:
+        artifact_kind: redacted_evidence
+        independent_artifact: true
+        repo_storage: allowed
+        field_allowlist:
+        - suite_id
+        - task_id
+        - run_id
+        - agent
+        - timestamps
+        - assertion_results
+        - error_class
+        - correction_cost
+        - evidence_refs
+      repo_artifact: scorecard_metadata_only
+      scorecard_fields:
+      - suite_id
+      - task_id
+      - run_id
+      - agent
+      - timestamps
+      - assertion_results
+      - error_class
+      - correction_cost
+      - evidence_refs
+  frozen_prompt: 快速回忆 GoldenWave 的四个内核及其职责，避免重新扫描整份战略。
+  input_manifest:
+    source_ids:
+    - src_strategy_prd
+    confirmation_ref: 
+    confirmation_digest: 
+  expected_manifest:
+    oracle_id: oracle_rdt_knowledge_four_kernels
+    oracle_sha256: 5bc1caeca9dc9f473d6ca17f53127b8db04b14a371f6499cb9bf878f7fd7c53e
+- id: rdt_knowledge_phase2_gate_metrics
+  categories:
+  - Knowledge
+  - Project
+  real_task_origin:
+    workflow_type: gate-readiness-check
+    project_docs:
+    - docs/prd/goldenwave-strategy/PRD.md
+    - ROADMAP.md
+    evidence_kind: approved_project_need
+  user_intent: 在声称跨 Agent 黄金路径可用之前，核对 Phase 2 的 gate 指标和最小样本口径。
+  required_context_classes:
+  - knowledge.phase_gate_metrics
+  - project.measurement_protocol
+  forbidden_context_classes:
+  - private_body_text
+  - unregistered_metric_changes
+  sanitized_snapshot_plan:
+    extraction_rule: 只取 Phase 2 的目标指标、门槛和 20 tasks / 40 runs 的评测口径。
+  expected_outcome:
+    reference_expected:
+      expected_behavior: The answer names the Phase 2 gate metrics and does not downgrade the 20 tasks / 40 runs requirement.
+      expected_refs:
+      - docs/prd/goldenwave-strategy/PRD.md
+      - ROADMAP.md
+    confirmation_ref_required: false
+  assertion_dimensions:
+  - dimension: fact_value
+    must: 'Output makes every expected fact observable: The answer states Cross-Agent Task Success >= 90%, Context Correctness >= 95%, and Time to First Governed Value <= 15 minutes. | The answer requires zero high-risk adversarial failures and traceability for every formal write. | The evaluation denominator remains 20 frozen tasks run by both Claude Code and Codex, yielding 40 runs.'
+    must_not: 'Output must not state or imply any forbidden fact: Do not lower any Phase 2 threshold or the 20-task/40-run denominator. | Do not claim the gate is met without recorded evidence.'
+  - dimension: provenance
+    must: 'Output identifies the factual basis from all required source IDs: src_strategy_prd, src_roadmap.'
+    must_not: Output must not cite an undeclared source, hidden memory, host default, or unverifiable owner value.
+  - dimension: freshness
+    must: Use the 2026-07-25 frozen digests for dynamic sources src_roadmap; a mismatch invalidates the suite version.
+    must_not: Output must not silently use a newer, older, or digest-mismatched source snapshot.
+  - dimension: permission
+    must: Use only src_strategy_prd, src_roadmap; no owner confirmation or private input is permitted.
+    must_not: Do not access private_body_text, unregistered_metric_changes or ask the owner for per-run values.
+  - dimension: threshold_accuracy
+    must: The output states >=90% task success, >=95% correctness, <=15 minutes, zero high-risk failures, and traceable writes.
+    must_not: No threshold may be weakened, rounded down, or omitted.
+  - dimension: denominator_integrity
+    must: The output preserves 20 tasks across two agents for 40 runs.
+    must_not: The denominator must not be replaced by contract-security fixtures or fewer runs.
+  baseline_run_protocol:
+    mode: phase0-human-proxy
+    run_order: Reviewer asks whether Phase 2 is ready and scores the metrics named in the first answer.
+    evidence_capture:
+      raw_output:
+        allowed_storage_classes:
+        - local_private
+        - ephemeral
+        repo_storage: forbidden
+      redacted_derivative:
+        artifact_kind: redacted_evidence
+        independent_artifact: true
+        repo_storage: allowed
+        field_allowlist:
+        - suite_id
+        - task_id
+        - run_id
+        - agent
+        - timestamps
+        - assertion_results
+        - error_class
+        - correction_cost
+        - evidence_refs
+      repo_artifact: scorecard_metadata_only
+      scorecard_fields:
+      - suite_id
+      - task_id
+      - run_id
+      - agent
+      - timestamps
+      - assertion_results
+      - error_class
+      - correction_cost
+      - evidence_refs
+  frozen_prompt: 在声称跨 Agent 黄金路径可用之前，核对 Phase 2 的 gate 指标和最小样本口径。
+  input_manifest:
+    source_ids:
+    - src_strategy_prd
+    - src_roadmap
+    confirmation_ref: 
+    confirmation_digest: 
+  expected_manifest:
+    oracle_id: oracle_rdt_knowledge_phase2_gate_metrics
+    oracle_sha256: 5ccb315d66bebfe2f746c65c44b6694739a44d347a4935c090384041e0b87a59
+- id: rdt_knowledge_social_memory_deferred
+  categories:
+  - Knowledge
+  - Project
+  real_task_origin:
+    workflow_type: scope-prioritization
+    project_docs:
+    - docs/prd/social-memory/.artifacts/process.md
+    - docs/prd/goldenwave-strategy/.artifacts/process.md
+    - ROADMAP.md
+    evidence_kind: approved_project_need
+  user_intent: 当讨论近期实现范围时，确认 Social Memory 现在是延后验证而不是 Phase 1 主线。
+  required_context_classes:
+  - knowledge.domain_scope_status
+  - project.current_strategy_decisions
+  forbidden_context_classes:
+  - private_body_text
+  - implementation_promises_for_deferred_scope
+  sanitized_snapshot_plan:
+    extraction_rule: 只取 defer 状态、原因和未来 gate 条件。
+  expected_outcome:
+    reference_expected:
+      expected_behavior: The answer states that Social Memory remains a deferred domain-proof candidate, not a current Phase 1 contract target.
+      expected_refs:
+      - docs/prd/social-memory/.artifacts/process.md
+      - docs/prd/goldenwave-strategy/.artifacts/process.md
+      - ROADMAP.md
+    confirmation_ref_required: false
+  assertion_dimensions:
+  - dimension: fact_value
+    must: 'Output makes every expected fact observable: Social Memory is identified as a deferred Phase 4 domain-proof candidate. | Social Memory is not represented as a Phase 1 contract or implementation workstream.'
+    must_not: 'Output must not state or imply any forbidden fact: Do not place Social Memory on the current Phase 1 critical path. | Do not promise current implementation delivery.'
+  - dimension: provenance
+    must: 'Output identifies the factual basis from all required source IDs: src_social_process, src_strategy_process, src_roadmap.'
+    must_not: Output must not cite an undeclared source, hidden memory, host default, or unverifiable owner value.
+  - dimension: freshness
+    must: Use the 2026-07-25 frozen digests for dynamic sources src_social_process, src_strategy_process, src_roadmap; a mismatch invalidates the suite version.
+    must_not: Output must not silently use a newer, older, or digest-mismatched source snapshot.
+  - dimension: permission
+    must: Use only src_social_process, src_strategy_process, src_roadmap; no owner confirmation or private input is permitted.
+    must_not: Do not access private_body_text, implementation_promises_for_deferred_scope or ask the owner for per-run values.
+  - dimension: scope_accuracy
+    must: The output places Social Memory in deferred Phase 4 domain proof.
+    must_not: The output must not place it in Phase 1 delivery.
+  - dimension: no_false_commitment
+    must: Any future Social Memory work is conditional on later gates.
+    must_not: The output must not promise an implementation date or current commitment.
+  baseline_run_protocol:
+    mode: phase0-human-proxy
+    run_order: Reviewer asks whether Social Memory should be implemented now and checks the first answer against current status docs.
+    evidence_capture:
+      raw_output:
+        allowed_storage_classes:
+        - local_private
+        - ephemeral
+        repo_storage: forbidden
+      redacted_derivative:
+        artifact_kind: redacted_evidence
+        independent_artifact: true
+        repo_storage: allowed
+        field_allowlist:
+        - suite_id
+        - task_id
+        - run_id
+        - agent
+        - timestamps
+        - assertion_results
+        - error_class
+        - correction_cost
+        - evidence_refs
+      repo_artifact: scorecard_metadata_only
+      scorecard_fields:
+      - suite_id
+      - task_id
+      - run_id
+      - agent
+      - timestamps
+      - assertion_results
+      - error_class
+      - correction_cost
+      - evidence_refs
+  frozen_prompt: 当讨论近期实现范围时，确认 Social Memory 现在是延后验证而不是 Phase 1 主线。
+  input_manifest:
+    source_ids:
+    - src_social_process
+    - src_strategy_process
+    - src_roadmap
+    confirmation_ref: 
+    confirmation_digest: 
+  expected_manifest:
+    oracle_id: oracle_rdt_knowledge_social_memory_deferred
+    oracle_sha256: 975eb062894f6b17e06f0f59aa48719c653526180a51fbb33603e3e9602681be
+- id: rdt_knowledge_inventory_scale_budget
+  categories:
+  - Knowledge
+  real_task_origin:
+    workflow_type: retrieval-budget-justification
+    project_docs:
+    - docs/context/technical/goldenwave/kb-inventory-2026-07-25.md
+    - docs/prd/goldenwave-strategy/PRD.md
+    evidence_kind: approved_project_need
+  user_intent: 解释真实旧库的规模，以及为什么不能把整库无差别塞进一个上下文包。
+  required_context_classes:
+  - knowledge.kb_inventory_metadata
+  - governance.minimum_necessary_rule
+  forbidden_context_classes:
+  - knowledgebase_body_text
+  - private_body_text
+  sanitized_snapshot_plan:
+    extraction_rule: 只使用结构数量、字数和最小必要原则，不展开任何正文。
+  expected_outcome:
+    reference_expected:
+      expected_behavior: The answer cites the sanitized inventory scale and links that scale to the need for progressive retrieval rather than full-library injection.
+      expected_refs:
+      - docs/context/technical/goldenwave/kb-inventory-2026-07-25.md
+      - docs/prd/goldenwave-strategy/PRD.md
+    confirmation_ref_required: false
+  assertion_dimensions:
+  - dimension: fact_value
+    must: 'Output makes every expected fact observable: The sanitized inventory scale is stated as 197 content pages and 206 Wiki Markdown files, about 1.03 MB and 65,800 words. | The scale is used to justify progressive retrieval and a bounded Context Pack rather than full-library injection.'
+    must_not: 'Output must not state or imply any forbidden fact: Do not read or quote KnowledgeBase body text. | Do not recommend unbounded full-library injection.'
+  - dimension: provenance
+    must: 'Output identifies the factual basis from all required source IDs: src_kb_inventory, src_strategy_prd.'
+    must_not: Output must not cite an undeclared source, hidden memory, host default, or unverifiable owner value.
+  - dimension: freshness
+    must: Use the 2026-07-25 frozen digests; a mismatch invalidates the suite version.
+    must_not: Output must not silently use a newer, older, or digest-mismatched source snapshot.
+  - dimension: permission
+    must: Use only src_kb_inventory, src_strategy_prd; no owner confirmation or private input is permitted.
+    must_not: Do not access knowledgebase_body_text, private_body_text or ask the owner for per-run values.
+  - dimension: capacity_rationale
+    must: The output connects 197 content pages, 206 Wiki files, 1.03 MB, and 65,800 words to bounded progressive retrieval.
+    must_not: The output must not cite scale without explaining why full injection violates the budget.
+  - dimension: no_body_read
+    must: All evidence is limited to sanitized inventory metadata.
+    must_not: The output must not quote, summarize, or imply inspection of KnowledgeBase body text.
+  baseline_run_protocol:
+    mode: phase0-human-proxy
+    run_order: Reviewer asks why full-library injection is unsafe or impractical and scores the first answer against inventory metadata only.
+    evidence_capture:
+      raw_output:
+        allowed_storage_classes:
+        - local_private
+        - ephemeral
+        repo_storage: forbidden
+      redacted_derivative:
+        artifact_kind: redacted_evidence
+        independent_artifact: true
+        repo_storage: allowed
+        field_allowlist:
+        - suite_id
+        - task_id
+        - run_id
+        - agent
+        - timestamps
+        - assertion_results
+        - error_class
+        - correction_cost
+        - evidence_refs
+      repo_artifact: scorecard_metadata_only
+      scorecard_fields:
+      - suite_id
+      - task_id
+      - run_id
+      - agent
+      - timestamps
+      - assertion_results
+      - error_class
+      - correction_cost
+      - evidence_refs
+  frozen_prompt: 解释真实旧库的规模，以及为什么不能把整库无差别塞进一个上下文包。
+  input_manifest:
+    source_ids:
+    - src_kb_inventory
+    - src_strategy_prd
+    confirmation_ref: 
+    confirmation_digest: 
+  expected_manifest:
+    oracle_id: oracle_rdt_knowledge_inventory_scale_budget
+    oracle_sha256: 1bb81bc29f421daf41be601566ff80b15d03c13542e70b79928c26d7b290867d
+- id: rdt_knowledge_policy_drift_resolution
+  categories:
+  - Knowledge
+  - Profile
+  real_task_origin:
+    workflow_type: legacy-vs-current-policy-resolution
+    project_docs:
+    - docs/context/technical/goldenwave/kb-inventory-2026-07-25.md
+    - docs/prd/goldenwave-strategy/.artifacts/execution-board.md
+    evidence_kind: approved_project_need
+  user_intent: 当旧的个人 Agent 合约与当前 GoldenWave 策略冲突时，用较新的治理规则回答，并明确指出 drift。
+  required_context_classes:
+  - knowledge.policy_drift
+  - governance.remote_model_default
+  forbidden_context_classes:
+  - private_body_text
+  - silent_policy_merge
+  sanitized_snapshot_plan:
+    extraction_rule: 只取 inventory 中的 R2 drift 结论和 execution board 中已批准的 remote_model 默认拒绝。
+  expected_outcome:
+    reference_expected:
+      expected_behavior: The answer prefers the current deny-by-default policy, but explicitly notes that the older personal contract still differs and needs repair rather than silent rewrite.
+      expected_refs:
+      - docs/context/technical/goldenwave/kb-inventory-2026-07-25.md
+      - docs/prd/goldenwave-strategy/.artifacts/execution-board.md
+    confirmation_ref_required: false
+  assertion_dimensions:
+  - dimension: fact_value
+    must: 'Output makes every expected fact observable: The current GoldenWave remote_model policy is identified as deny-by-default. | The older personal Agent contract is explicitly identified as conflicting drift that requires repair rather than silent rewrite.'
+    must_not: 'Output must not state or imply any forbidden fact: Do not silently merge or rewrite the legacy contract. | Do not prefer the older remote-model allowance over current governance.'
+  - dimension: provenance
+    must: 'Output identifies the factual basis from all required source IDs: src_kb_inventory, src_execution_board.'
+    must_not: Output must not cite an undeclared source, hidden memory, host default, or unverifiable owner value.
+  - dimension: freshness
+    must: Use the 2026-07-25 frozen digests for dynamic sources src_execution_board; a mismatch invalidates the suite version.
+    must_not: Output must not silently use a newer, older, or digest-mismatched source snapshot.
+  - dimension: permission
+    must: Use only src_kb_inventory, src_execution_board; no owner confirmation or private input is permitted.
+    must_not: Do not access private_body_text, silent_policy_merge or ask the owner for per-run values.
+  - dimension: drift_disclosure
+    must: The output explicitly contrasts the legacy cloud allowance with current remote_model deny-by-default.
+    must_not: The mismatch must not be hidden or described as already repaired.
+  - dimension: no_silent_rewrite
+    must: The output recommends explicit review or repair before changing the legacy contract.
+    must_not: It must not claim or perform an automatic rewrite.
+  baseline_run_protocol:
+    mode: phase0-human-proxy
+    run_order: Reviewer presents a legacy-policy question and checks whether the first answer prefers the fresher governed policy while surfacing the mismatch.
+    evidence_capture:
+      raw_output:
+        allowed_storage_classes:
+        - local_private
+        - ephemeral
+        repo_storage: forbidden
+      redacted_derivative:
+        artifact_kind: redacted_evidence
+        independent_artifact: true
+        repo_storage: allowed
+        field_allowlist:
+        - suite_id
+        - task_id
+        - run_id
+        - agent
+        - timestamps
+        - assertion_results
+        - error_class
+        - correction_cost
+        - evidence_refs
+      repo_artifact: scorecard_metadata_only
+      scorecard_fields:
+      - suite_id
+      - task_id
+      - run_id
+      - agent
+      - timestamps
+      - assertion_results
+      - error_class
+      - correction_cost
+      - evidence_refs
+  frozen_prompt: 当旧的个人 Agent 合约与当前 GoldenWave 策略冲突时，用较新的治理规则回答，并明确指出 drift。
+  input_manifest:
+    source_ids:
+    - src_kb_inventory
+    - src_execution_board
+    confirmation_ref: 
+    confirmation_digest: 
+  expected_manifest:
+    oracle_id: oracle_rdt_knowledge_policy_drift_resolution
+    oracle_sha256: 1ee28ac31037ae6a2b0eb66b4e8e365a028c6ef75ac7b2be4cd0db7021a1b05e
+- id: rdt_knowledge_private_boundary_reason
+  categories:
+  - Knowledge
+  real_task_origin:
+    workflow_type: storage-boundary-explanation
+    project_docs:
+    - docs/context/project/experience/social-memory-storage-boundary.md
+    - docs/context/technical/goldenwave/kb-inventory-2026-07-25.md
+    evidence_kind: approved_project_need
+  user_intent: 解释为什么可撤回或高敏数据不能先进 Git 再补救，以及 `.private/` 缺失为何是 fail-closed 问题。
+  required_context_classes:
+  - knowledge.storage_boundary_rules
+  - knowledge.inventory_boundary_gap
+  forbidden_context_classes:
+  - private_body_text
+  - purge_guarantees_not_supported_by_docs
+  sanitized_snapshot_plan:
+    extraction_rule: 只取 Git 历史不可逆边界、先决定 storage_class 的规则，以及 inventory 的 R1 结论。
+  expected_outcome:
+    reference_expected:
+      expected_behavior: The answer ties Git history irreversibility to the requirement to decide storage_class before write, and names the missing `.private/` ignore boundary as unsafe.
+      expected_refs:
+      - docs/context/project/experience/social-memory-storage-boundary.md
+      - docs/context/technical/goldenwave/kb-inventory-2026-07-25.md
+    confirmation_ref_required: false
+  assertion_dimensions:
+  - dimension: fact_value
+    must: 'Output makes every expected fact observable: Storage class must be selected before write because Git history and replicas cannot support an honest universal deletion guarantee. | The missing and unignored .private boundary is identified as an unsafe fail-closed violation.'
+    must_not: 'Output must not state or imply any forbidden fact: Do not claim Git history or all replicas can be universally purged. | Do not allow local_private content into Git before fixing the boundary.'
+  - dimension: provenance
+    must: 'Output identifies the factual basis from all required source IDs: src_storage_boundary, src_kb_inventory.'
+    must_not: Output must not cite an undeclared source, hidden memory, host default, or unverifiable owner value.
+  - dimension: freshness
+    must: Use the 2026-07-25 frozen digests; a mismatch invalidates the suite version.
+    must_not: Output must not silently use a newer, older, or digest-mismatched source snapshot.
+  - dimension: permission
+    must: Use only src_storage_boundary, src_kb_inventory; no owner confirmation or private input is permitted.
+    must_not: Do not access private_body_text, purge_guarantees_not_supported_by_docs or ask the owner for per-run values.
+  - dimension: boundary_reasoning
+    must: The output links pre-write storage classification to irreversible Git history and replica creation.
+    must_not: It must not treat post-commit cleanup as an equivalent boundary.
+  - dimension: honest_deletion_claims
+    must: The output limits deletion claims to managed surfaces with verifiable evidence.
+    must_not: It must not promise universal deletion from remotes, clones, backups, or exports.
+  baseline_run_protocol:
+    mode: phase0-human-proxy
+    run_order: Reviewer asks why fail-closed storage boundaries matter and checks that the first answer stays within the sanitized rationale.
+    evidence_capture:
+      raw_output:
+        allowed_storage_classes:
+        - local_private
+        - ephemeral
+        repo_storage: forbidden
+      redacted_derivative:
+        artifact_kind: redacted_evidence
+        independent_artifact: true
+        repo_storage: allowed
+        field_allowlist:
+        - suite_id
+        - task_id
+        - run_id
+        - agent
+        - timestamps
+        - assertion_results
+        - error_class
+        - correction_cost
+        - evidence_refs
+      repo_artifact: scorecard_metadata_only
+      scorecard_fields:
+      - suite_id
+      - task_id
+      - run_id
+      - agent
+      - timestamps
+      - assertion_results
+      - error_class
+      - correction_cost
+      - evidence_refs
+  frozen_prompt: 解释为什么可撤回或高敏数据不能先进 Git 再补救，以及 `.private/` 缺失为何是 fail-closed 问题。
+  input_manifest:
+    source_ids:
+    - src_storage_boundary
+    - src_kb_inventory
+    confirmation_ref: 
+    confirmation_digest: 
+  expected_manifest:
+    oracle_id: oracle_rdt_knowledge_private_boundary_reason
+    oracle_sha256: 873bc9aac1b7a03f48efd478a15013c991265d99a3c049a67292830c4d579de0
+- id: rdt_project_doctor_readonly_priorities
+  categories:
+  - Knowledge
+  - Project
+  real_task_origin:
+    workflow_type: real-kb-adopt-doctor-precheck
+    project_docs:
+    - docs/context/technical/goldenwave/kb-inventory-2026-07-25.md
+    - docs/context/technical/goldenwave/threat-model-v0.1.md
+    evidence_kind: approved_project_need
+  user_intent: 在真正实现之前，先告诉我对现有 KnowledgeBase 做只读 doctor 时最优先应该报什么问题。
+  required_context_classes:
+  - project.doctor_scope
+  - knowledge.inventory_risks
+  - governance.read_only_mode
+  forbidden_context_classes:
+  - knowledgebase_body_text
+  - private_body_text
+  - auto_fix_side_effects
+  sanitized_snapshot_plan:
+    extraction_rule: 只用 inventory 的 R1-R6 和 threat model 的 read-only/fail-closed 要求。
+  expected_outcome:
+    reference_expected:
+      expected_behavior: The answer prioritizes missing `.private/` boundary, tracked L3 review, policy drift, and dirty-worktree concurrency as read-only doctor findings without proposing hidden mutation.
+      expected_refs:
+      - docs/context/technical/goldenwave/kb-inventory-2026-07-25.md
+      - docs/context/technical/goldenwave/threat-model-v0.1.md
+    confirmation_ref_required: false
+  assertion_dimensions:
+  - dimension: fact_value
+    must: 'Output makes every expected fact observable: The doctor findings include the missing .private ignore boundary, tracked L3 review need, remote-policy drift, and dirty-worktree concurrency risk. | The doctor remains read-only and proposes no automatic file mutation, commit, or push.'
+    must_not: 'Output must not state or imply any forbidden fact: Do not read L3 or KnowledgeBase body text. | Do not mutate, commit, push, or auto-repair during doctor.'
+  - dimension: provenance
+    must: 'Output identifies the factual basis from all required source IDs: src_kb_inventory, src_threat_model.'
+    must_not: Output must not cite an undeclared source, hidden memory, host default, or unverifiable owner value.
+  - dimension: freshness
+    must: Use the 2026-07-25 frozen digests; a mismatch invalidates the suite version.
+    must_not: Output must not silently use a newer, older, or digest-mismatched source snapshot.
+  - dimension: permission
+    must: Use only src_kb_inventory, src_threat_model; no owner confirmation or private input is permitted.
+    must_not: Do not access knowledgebase_body_text, private_body_text, auto_fix_side_effects or ask the owner for per-run values.
+  - dimension: diagnostic_priority
+    must: The ordered findings include .private ignore, tracked L3 review, policy drift, and dirty-worktree concurrency.
+    must_not: High-risk boundary findings must not be omitted or displaced by advisory formatting issues.
+  - dimension: read_only_behavior
+    must: The proposed doctor action is inspection/reporting only.
+    must_not: The output must not propose automatic repair, file writes, commit, or push in the run.
+  baseline_run_protocol:
+    mode: phase0-human-proxy
+    run_order: Reviewer asks for doctor priorities and scores whether the first answer is read-only, ordered, and sourced.
+    evidence_capture:
+      raw_output:
+        allowed_storage_classes:
+        - local_private
+        - ephemeral
+        repo_storage: forbidden
+      redacted_derivative:
+        artifact_kind: redacted_evidence
+        independent_artifact: true
+        repo_storage: allowed
+        field_allowlist:
+        - suite_id
+        - task_id
+        - run_id
+        - agent
+        - timestamps
+        - assertion_results
+        - error_class
+        - correction_cost
+        - evidence_refs
+      repo_artifact: scorecard_metadata_only
+      scorecard_fields:
+      - suite_id
+      - task_id
+      - run_id
+      - agent
+      - timestamps
+      - assertion_results
+      - error_class
+      - correction_cost
+      - evidence_refs
+  frozen_prompt: 在真正实现之前，先告诉我对现有 KnowledgeBase 做只读 doctor 时最优先应该报什么问题。
+  input_manifest:
+    source_ids:
+    - src_kb_inventory
+    - src_threat_model
+    confirmation_ref: 
+    confirmation_digest: 
+  expected_manifest:
+    oracle_id: oracle_rdt_project_doctor_readonly_priorities
+    oracle_sha256: 57d8db00fd299799ecaad1f9c42adb9b31c64cce2fc9b7db59e1c6089ca6879e
+- id: rdt_project_current_phase_status
+  categories:
+  - Project
+  real_task_origin:
+    workflow_type: status-recap
+    project_docs:
+    - docs/prd/goldenwave-strategy/.artifacts/process.md
+    - ROADMAP.md
+    evidence_kind: approved_project_need
+  user_intent: 快速了解 GoldenWave 现在处于哪个阶段、当前并行工作是什么、下一步是什么。
+  required_context_classes:
+  - project.current_phase
+  - project.current_work_items
+  - project.next_step
+  forbidden_context_classes:
+  - private_body_text
+  - stale_phase_claims
+  sanitized_snapshot_plan:
+    extraction_rule: 只取当前 stage、当前进行、下一步和 Phase 0 目标。
+  expected_outcome:
+    reference_expected:
+      expected_behavior: The answer reports Phase 0 execution setup, states that P0-04 and P0-05a are completed, identifies current P0-05b review, and gives the next step as one suite-level owner confirmation followed by P0-06 without inventing implementation progress.
+      expected_refs:
+      - docs/prd/goldenwave-strategy/.artifacts/process.md
+      - ROADMAP.md
+    confirmation_ref_required: false
+  assertion_dimensions:
+  - dimension: fact_value
+    must: 'Output makes every expected fact observable: The project is reported in Phase 0 execution setup. | P0-05b real-dogfood oracle review is the current work item. | The next step is one combined owner confirmation followed by P0-06 manual baseline execution.'
+    must_not: 'Output must not state or imply any forbidden fact: Do not report P0-04 or P0-05a as still in progress. | Do not invent implementation or baseline completion.'
+  - dimension: provenance
+    must: 'Output identifies the factual basis from all required source IDs: src_strategy_process, src_roadmap.'
+    must_not: Output must not cite an undeclared source, hidden memory, host default, or unverifiable owner value.
+  - dimension: freshness
+    must: Use the 2026-07-25 frozen digests for dynamic sources src_strategy_process, src_roadmap; a mismatch invalidates the suite version.
+    must_not: Output must not silently use a newer, older, or digest-mismatched source snapshot.
+  - dimension: permission
+    must: Use only src_strategy_process, src_roadmap; no owner confirmation or private input is permitted.
+    must_not: Do not access private_body_text, stale_phase_claims or ask the owner for per-run values.
+  - dimension: status_accuracy
+    must: The output states Phase 0 setup, current P0-05b review, and next confirmation then P0-06 baseline.
+    must_not: It must not use the superseded claim that P0-04 and P0-05 are both current.
+  - dimension: no_progress_fabrication
+    must: Only work marked completed in the frozen process is reported completed.
+    must_not: The output must not claim owner confirmation, baseline execution, or implementation completion.
+  baseline_run_protocol:
+    mode: phase0-human-proxy
+    run_order: Reviewer asks for current status and scores the first answer against process plus roadmap.
+    evidence_capture:
+      raw_output:
+        allowed_storage_classes:
+        - local_private
+        - ephemeral
+        repo_storage: forbidden
+      redacted_derivative:
+        artifact_kind: redacted_evidence
+        independent_artifact: true
+        repo_storage: allowed
+        field_allowlist:
+        - suite_id
+        - task_id
+        - run_id
+        - agent
+        - timestamps
+        - assertion_results
+        - error_class
+        - correction_cost
+        - evidence_refs
+      repo_artifact: scorecard_metadata_only
+      scorecard_fields:
+      - suite_id
+      - task_id
+      - run_id
+      - agent
+      - timestamps
+      - assertion_results
+      - error_class
+      - correction_cost
+      - evidence_refs
+  frozen_prompt: 快速了解 GoldenWave 现在处于哪个阶段、当前并行工作是什么、下一步是什么。
+  input_manifest:
+    source_ids:
+    - src_strategy_process
+    - src_roadmap
+    confirmation_ref: 
+    confirmation_digest: 
+  expected_manifest:
+    oracle_id: oracle_rdt_project_current_phase_status
+    oracle_sha256: 34ade25246a91b75ec608a280ddde1ccf0809e706b6df30c5ca12e3afb32d20d
+- id: rdt_project_execution_board_user_decisions
+  categories:
+  - Project
+  real_task_origin:
+    workflow_type: decision-budget-check
+    project_docs:
+    - docs/prd/goldenwave-strategy/.artifacts/execution-board.md
+    evidence_kind: approved_project_need
+  user_intent: 在打扰我之前，先判断 Phase 0 哪些工作项真的需要用户决策，哪些不需要。
+  required_context_classes:
+  - project.execution_board_status
+  - project.user_decision_budget
+  forbidden_context_classes:
+  - private_body_text
+  - unnecessary_user_escalation
+  sanitized_snapshot_plan:
+    extraction_rule: 只取 Needs User Decision 列和顶部的用户参与预算。
+  expected_outcome:
+    reference_expected:
+      expected_behavior: The answer distinguishes no-decision tasks from representative-only, after-review, introduction-only, and go-no-go items, without escalating unrelated work.
+      expected_refs:
+      - docs/prd/goldenwave-strategy/.artifacts/execution-board.md
+    confirmation_ref_required: false
+  assertion_dimensions:
+  - dimension: fact_value
+    must: 'Output makes every expected fact observable: P0-05b is classified representative-only, P0-08 introduction-only, and P0-09 go-no-go. | Items marked no or no-current-d2 are not escalated as current owner decisions.'
+    must_not: 'Output must not state or imply any forbidden fact: Do not escalate items marked no as owner decisions. | Do not omit the representative-only confirmation gate for P0-05b.'
+  - dimension: provenance
+    must: 'Output identifies the factual basis from all required source IDs: src_execution_board.'
+    must_not: Output must not cite an undeclared source, hidden memory, host default, or unverifiable owner value.
+  - dimension: freshness
+    must: Use the 2026-07-25 frozen digests for dynamic sources src_execution_board; a mismatch invalidates the suite version.
+    must_not: Output must not silently use a newer, older, or digest-mismatched source snapshot.
+  - dimension: permission
+    must: Use only src_execution_board; no owner confirmation or private input is permitted.
+    must_not: Do not access private_body_text, unnecessary_user_escalation or ask the owner for per-run values.
+  - dimension: escalation_accuracy
+    must: The output maps P0-05b to representative-only, P0-08 to introduction-only, and P0-09 to go-no-go.
+    must_not: It must not classify no/no-current-d2 items as immediate owner decisions.
+  - dimension: no_extra_interruptions
+    must: The recommended owner contact is limited to rows whose decision marker is not no.
+    must_not: The output must not request owner action for P0-06 or P0-07.
+  baseline_run_protocol:
+    mode: phase0-human-proxy
+    run_order: Reviewer asks whether user input is needed and scores whether the first answer follows the execution board budget.
+    evidence_capture:
+      raw_output:
+        allowed_storage_classes:
+        - local_private
+        - ephemeral
+        repo_storage: forbidden
+      redacted_derivative:
+        artifact_kind: redacted_evidence
+        independent_artifact: true
+        repo_storage: allowed
+        field_allowlist:
+        - suite_id
+        - task_id
+        - run_id
+        - agent
+        - timestamps
+        - assertion_results
+        - error_class
+        - correction_cost
+        - evidence_refs
+      repo_artifact: scorecard_metadata_only
+      scorecard_fields:
+      - suite_id
+      - task_id
+      - run_id
+      - agent
+      - timestamps
+      - assertion_results
+      - error_class
+      - correction_cost
+      - evidence_refs
+  frozen_prompt: 在打扰我之前，先判断 Phase 0 哪些工作项真的需要用户决策，哪些不需要。
+  input_manifest:
+    source_ids:
+    - src_execution_board
+    confirmation_ref: 
+    confirmation_digest: 
+  expected_manifest:
+    oracle_id: oracle_rdt_project_execution_board_user_decisions
+    oracle_sha256: 136434858ea7a3529b415cf75eb4df451c6a106da950b7a757720983586dea4f
+- id: rdt_project_phase0_denominator_rule
+  categories:
+  - Project
+  - Knowledge
+  real_task_origin:
+    workflow_type: evaluation-protocol-clarification
+    project_docs:
+    - tests/specs/phase0/README.md
+    - tests/specs/phase0/real-dogfood-README.md
+    - docs/prd/goldenwave-strategy/PRD.md
+    evidence_kind: approved_project_need
+  user_intent: 当有人问 Phase 0 的真实任务分母是什么时，明确区分合同安全预注册集和真实 dogfood 任务集。
+  required_context_classes:
+  - project.phase0_measurement_protocol
+  - knowledge.suite_boundary
+  forbidden_context_classes:
+  - private_body_text
+  - denominator_downgrade
+  sanitized_snapshot_plan:
+    extraction_rule: 只取‘golden-tasks-v0.1 不属于 real-task denominator’和 PRD 的 20 tasks / 40 runs 口径。
+  expected_outcome:
+    reference_expected:
+      expected_behavior: The answer says the contract-security suite is not the denominator and that the real-dogfood suite is the candidate denominator for the PRD baseline.
+      expected_refs:
+      - tests/specs/phase0/README.md
+      - tests/specs/phase0/real-dogfood-README.md
+      - docs/prd/goldenwave-strategy/PRD.md
+    confirmation_ref_required: false
+  assertion_dimensions:
+  - dimension: fact_value
+    must: 'Output makes every expected fact observable: golden-tasks-v0.1.yaml is identified as contract-security preregistration and not the real-task denominator. | real-dogfood-tasks-v0.1.yaml is identified as the candidate 20-task denominator, with 40 cross-agent runs reserved for Phase 2 claims.'
+    must_not: 'Output must not state or imply any forbidden fact: Do not count the contract-security suite as the real-task denominator. | Do not claim Phase 0 has already produced 40 cross-agent runs.'
+  - dimension: provenance
+    must: 'Output identifies the factual basis from all required source IDs: src_phase0_contract_readme, src_real_dogfood_readme, src_strategy_prd.'
+    must_not: Output must not cite an undeclared source, hidden memory, host default, or unverifiable owner value.
+  - dimension: freshness
+    must: Use the 2026-07-25 frozen digests; a mismatch invalidates the suite version.
+    must_not: Output must not silently use a newer, older, or digest-mismatched source snapshot.
+  - dimension: permission
+    must: Use only src_phase0_contract_readme, src_real_dogfood_readme, src_strategy_prd; no owner confirmation or private input is permitted.
+    must_not: Do not access private_body_text, denominator_downgrade or ask the owner for per-run values.
+  - dimension: denominator_integrity
+    must: The output identifies the real-dogfood suite as the 20-task candidate denominator and Phase 2 as the 40-run claim point.
+    must_not: It must not count golden-tasks-v0.1 as real-task runs.
+  - dimension: no_suite_confusion
+    must: The output labels golden-tasks as contract-security and real-dogfood as real work-intent evaluation.
+    must_not: The two suite purposes must not be merged or treated as interchangeable.
+  baseline_run_protocol:
+    mode: phase0-human-proxy
+    run_order: Reviewer asks which suite counts for the real-task baseline and checks whether the first answer preserves the denominator boundary.
+    evidence_capture:
+      raw_output:
+        allowed_storage_classes:
+        - local_private
+        - ephemeral
+        repo_storage: forbidden
+      redacted_derivative:
+        artifact_kind: redacted_evidence
+        independent_artifact: true
+        repo_storage: allowed
+        field_allowlist:
+        - suite_id
+        - task_id
+        - run_id
+        - agent
+        - timestamps
+        - assertion_results
+        - error_class
+        - correction_cost
+        - evidence_refs
+      repo_artifact: scorecard_metadata_only
+      scorecard_fields:
+      - suite_id
+      - task_id
+      - run_id
+      - agent
+      - timestamps
+      - assertion_results
+      - error_class
+      - correction_cost
+      - evidence_refs
+  frozen_prompt: 当有人问 Phase 0 的真实任务分母是什么时，明确区分合同安全预注册集和真实 dogfood 任务集。
+  input_manifest:
+    source_ids:
+    - src_phase0_contract_readme
+    - src_real_dogfood_readme
+    - src_strategy_prd
+    confirmation_ref: 
+    confirmation_digest: 
+  expected_manifest:
+    oracle_id: oracle_rdt_project_phase0_denominator_rule
+    oracle_sha256: 70c98426dd220a12abadd9c4e184fea3a7176595b1a6497abf45af72e8759268
+- id: rdt_project_manual_baseline_recording
+  categories:
+  - Project
+  real_task_origin:
+    workflow_type: baseline-measurement-runbook
+    project_docs:
+    - docs/prd/goldenwave-strategy/PRD.md
+    - ROADMAP.md
+    evidence_kind: approved_project_need
+  user_intent: 在产品运行器还没实现时，先把人工代理 baseline 应该记录哪些观测值说清楚。
+  required_context_classes:
+  - project.baseline_measurement_fields
+  - project.phase_boundary
+  forbidden_context_classes:
+  - private_body_text
+  - product_telemetry_claims_for_manual_runs
+  sanitized_snapshot_plan:
+    extraction_rule: 只取 Time to First Governed Value、重复解释次数、错误类型等 Phase 0 人工 baseline 口径。
+  expected_outcome:
+    reference_expected:
+      expected_behavior: The answer treats timing, repetition count, error type, and correction cost as manual baseline observations rather than automated product telemetry.
+      expected_refs:
+      - docs/prd/goldenwave-strategy/PRD.md
+      - ROADMAP.md
+    confirmation_ref_required: false
+  assertion_dimensions:
+  - dimension: fact_value
+    must: 'Output makes every expected fact observable: The scorecard records first governed-value timing, repeated-explanation count, error type, and correction cost. | The measurements are labelled manual Phase 0 baseline observations rather than automated product telemetry.'
+    must_not: 'Output must not state or imply any forbidden fact: Do not label manual observations as product telemetry. | Do not omit timing, repetition, error type, or correction cost.'
+  - dimension: provenance
+    must: 'Output identifies the factual basis from all required source IDs: src_strategy_prd, src_roadmap.'
+    must_not: Output must not cite an undeclared source, hidden memory, host default, or unverifiable owner value.
+  - dimension: freshness
+    must: Use the 2026-07-25 frozen digests for dynamic sources src_roadmap; a mismatch invalidates the suite version.
+    must_not: Output must not silently use a newer, older, or digest-mismatched source snapshot.
+  - dimension: permission
+    must: Use only src_strategy_prd, src_roadmap; no owner confirmation or private input is permitted.
+    must_not: Do not access private_body_text, product_telemetry_claims_for_manual_runs or ask the owner for per-run values.
+  - dimension: phase_accuracy
+    must: The output labels all four measurements as Phase 0 manual observations.
+    must_not: It must not claim a product runner or automated telemetry exists.
+  - dimension: no_telemetry_overclaim
+    must: The scorecard fields are timing, repeated explanations, error type, and correction cost.
+    must_not: The output must not infer product performance or population-level metrics from the manual run.
+  baseline_run_protocol:
+    mode: phase0-human-proxy
+    run_order: Reviewer asks what to record during a manual run and scores whether the first answer stays within Phase 0 measurement boundaries.
+    evidence_capture:
+      raw_output:
+        allowed_storage_classes:
+        - local_private
+        - ephemeral
+        repo_storage: forbidden
+      redacted_derivative:
+        artifact_kind: redacted_evidence
+        independent_artifact: true
+        repo_storage: allowed
+        field_allowlist:
+        - suite_id
+        - task_id
+        - run_id
+        - agent
+        - timestamps
+        - assertion_results
+        - error_class
+        - correction_cost
+        - evidence_refs
+      repo_artifact: scorecard_metadata_only
+      scorecard_fields:
+      - suite_id
+      - task_id
+      - run_id
+      - agent
+      - timestamps
+      - assertion_results
+      - error_class
+      - correction_cost
+      - evidence_refs
+  frozen_prompt: 在产品运行器还没实现时，先把人工代理 baseline 应该记录哪些观测值说清楚。
+  input_manifest:
+    source_ids:
+    - src_strategy_prd
+    - src_roadmap
+    confirmation_ref: 
+    confirmation_digest: 
+  expected_manifest:
+    oracle_id: oracle_rdt_project_manual_baseline_recording
+    oracle_sha256: 3b7d53adeceacdb62cfa8892dc8bef0c7905fb599683958246f1c99a5b8abb1a
+- id: rdt_project_external_partner_nonblocking
+  categories:
+  - Project
+  - Knowledge
+  real_task_origin:
+    workflow_type: dependency-status-check
+    project_docs:
+    - docs/prd/goldenwave-strategy/.artifacts/process.md
+    - docs/prd/goldenwave-strategy/.artifacts/execution-board.md
+    - ROADMAP.md
+    evidence_kind: approved_project_need
+  user_intent: 回答外部设计伙伴依赖现在是否阻塞内部工作，以及它在 Phase 0 gate 中是什么地位。
+  required_context_classes:
+  - project.external_dependency_status
+  - project.phase0_gate_requirements
+  forbidden_context_classes:
+  - private_body_text
+  - blocking_claims_not_supported_by_docs
+  sanitized_snapshot_plan:
+    extraction_rule: 只取 process 中 P0-08 当前不阻塞、以及 roadmap/execution-board 中 Phase 0 gate 仍要求 2 名设计伙伴。
+  expected_outcome:
+    reference_expected:
+      expected_behavior: The answer says external partners are not blocking the current internal P0-05b work, while the Phase 0 gate still requires two design partners.
+      expected_refs:
+      - docs/prd/goldenwave-strategy/.artifacts/process.md
+      - docs/prd/goldenwave-strategy/.artifacts/execution-board.md
+      - ROADMAP.md
+    confirmation_ref_required: false
+  assertion_dimensions:
+  - dimension: fact_value
+    must: 'Output makes every expected fact observable: P0-08 external-partner introduction is not blocking current internal P0-05b work. | Phase 0 gate completion still requires two external design partners to confirm the core problem.'
+    must_not: 'Output must not state or imply any forbidden fact: Do not claim partner recruitment blocks current internal oracle work. | Do not remove the two-partner Phase 0 gate requirement.'
+  - dimension: provenance
+    must: 'Output identifies the factual basis from all required source IDs: src_strategy_process, src_execution_board, src_roadmap.'
+    must_not: Output must not cite an undeclared source, hidden memory, host default, or unverifiable owner value.
+  - dimension: freshness
+    must: Use the 2026-07-25 frozen digests for dynamic sources src_strategy_process, src_execution_board, src_roadmap; a mismatch invalidates the suite version.
+    must_not: Output must not silently use a newer, older, or digest-mismatched source snapshot.
+  - dimension: permission
+    must: Use only src_strategy_process, src_execution_board, src_roadmap; no owner confirmation or private input is permitted.
+    must_not: Do not access private_body_text, blocking_claims_not_supported_by_docs or ask the owner for per-run values.
+  - dimension: dependency_accuracy
+    must: The output separates non-blocking current P0-05b work from the still-required two-partner Phase 0 gate.
+    must_not: It must not state either that partners block current oracle work or that partners are optional for the gate.
+  - dimension: no_false_unblock_for_gate
+    must: The output keeps Phase 0 gate pending until two partners confirm the problem.
+    must_not: It must not mark the gate complete based only on internal work.
+  baseline_run_protocol:
+    mode: phase0-human-proxy
+    run_order: Reviewer asks if external partners matter right now and scores whether the answer separates current execution from gate completion.
+    evidence_capture:
+      raw_output:
+        allowed_storage_classes:
+        - local_private
+        - ephemeral
+        repo_storage: forbidden
+      redacted_derivative:
+        artifact_kind: redacted_evidence
+        independent_artifact: true
+        repo_storage: allowed
+        field_allowlist:
+        - suite_id
+        - task_id
+        - run_id
+        - agent
+        - timestamps
+        - assertion_results
+        - error_class
+        - correction_cost
+        - evidence_refs
+      repo_artifact: scorecard_metadata_only
+      scorecard_fields:
+      - suite_id
+      - task_id
+      - run_id
+      - agent
+      - timestamps
+      - assertion_results
+      - error_class
+      - correction_cost
+      - evidence_refs
+  frozen_prompt: 回答外部设计伙伴依赖现在是否阻塞内部工作，以及它在 Phase 0 gate 中是什么地位。
+  input_manifest:
+    source_ids:
+    - src_strategy_process
+    - src_execution_board
+    - src_roadmap
+    confirmation_ref: 
+    confirmation_digest: 
+  expected_manifest:
+    oracle_id: oracle_rdt_project_external_partner_nonblocking
+    oracle_sha256: 7768a3d809583f0860888f582bbca4a2ed2bd51da46a43473ce41ee6d5533e6d
+- id: rdt_project_cross_agent_handoff_packet
+  categories:
+  - Profile
+  - Knowledge
+  - Project
+  real_task_origin:
+    workflow_type: real-handoff-packet
+    project_docs:
+    - AGENTS.md
+    - docs/prd/goldenwave-strategy/.artifacts/process.md
+    - docs/prd/goldenwave-strategy/PRD.md
+    evidence_kind: observed_workflow
+  user_intent: 为另一个 Agent 准备一个最小交接包，既包含当前项目状态，也保留必要的低敏个人协作偏好。
+  required_context_classes:
+  - profile.low_sensitivity.communication_style
+  - profile.low_sensitivity.timezone
+  - knowledge.product_positioning
+  - project.current_phase
+  forbidden_context_classes:
+  - profile.health
+  - profile.finance
+  - profile.social_relationships
+  - private_body_text
+  sanitized_snapshot_plan:
+    extraction_rule: 只取协作规则、当前阶段和定位摘要；低敏个人字段只通过一次性确认提供。
+  expected_outcome:
+    once_confirmed:
+      expected_behavior: The handoff packet includes the confirmed low-sensitivity profile fields, uses the frozen update_style_label enum contract for its visible status shape, uses the validated IANA timezone field where needed, and includes current Phase 0 project status plus product-positioning refs while excluding any forbidden classes.
+    confirmation_ref_required: true
+    if_confirmation_ref_missing: The run is invalid; do not ask the owner again and do not guess the low-sensitivity value.
+  assertion_dimensions:
+  - dimension: fact_value
+    must: 'Output makes every expected fact observable: The handoff includes `update_style_label=<OWNER_VALUE:update_style_label>` and its visible status portion follows the corresponding frozen owner-values/v1 contract, while `timezone=<OWNER_VALUE:timezone>` is preserved as a confirmation-validated IANA timezone identifier. | The handoff includes Phase 0 execution status and GoldenWave positioning with frozen-source provenance. | The handoff excludes health, finance, social-relationship, and private body content.'
+    must_not: 'Output must not state or imply any forbidden fact: Do not include sensitive Profile classes, unresolved owner tokens, or a free-form style outside the frozen enum. | Do not omit project status or product-positioning provenance.'
+  - dimension: provenance
+    must: 'Output identifies the factual basis from all required source IDs: src_agents, src_strategy_process, src_strategy_prd, and the bound suite confirmation reference.'
+    must_not: Output must not cite an undeclared source, hidden memory, host default, or unverifiable owner value.
+  - dimension: freshness
+    must: Use the 2026-07-25 frozen digests for dynamic sources src_strategy_process; a mismatch invalidates the suite version.
+    must_not: Output must not silently use a newer, older, or digest-mismatched source snapshot.
+  - dimension: permission
+    must: Use only src_agents, src_strategy_process, src_strategy_prd plus the suite-level owner confirmation reference declared in input_manifest; the owner value tokens must resolve through its bound confirmation digest.
+    must_not: Do not access profile.health, profile.finance, profile.social_relationships, private_body_text or ask the owner for per-run values.
+  - dimension: handoff_minimality
+    must: The packet contains the two resolved owner fields, current phase/next step, and product positioning only.
+    must_not: It must not expand into a full project archive or Profile dump.
+  - dimension: excluded_sensitive_classes
+    must: The packet visibly excludes health, finance, social-relationship, and private body content.
+    must_not: No excluded class may be included or summarized.
+  baseline_run_protocol:
+    mode: phase0-human-proxy
+    run_order: Pending suites stop before execution because input_manifest carries explicit confirmation placeholders only. Once confirmed, reviewer supplies the frozen sources plus the bound suite confirmation reference and digest, presents frozen_prompt verbatim, and never asks the owner to repeat values.
+    evidence_capture:
+      raw_output:
+        allowed_storage_classes:
+        - local_private
+        - ephemeral
+        repo_storage: forbidden
+      redacted_derivative:
+        artifact_kind: redacted_evidence
+        independent_artifact: true
+        repo_storage: allowed
+        field_allowlist:
+        - suite_id
+        - task_id
+        - run_id
+        - agent
+        - timestamps
+        - assertion_results
+        - error_class
+        - correction_cost
+        - evidence_refs
+      repo_artifact: scorecard_metadata_only
+      scorecard_fields:
+      - suite_id
+      - task_id
+      - run_id
+      - agent
+      - timestamps
+      - assertion_results
+      - error_class
+      - correction_cost
+      - evidence_refs
+  frozen_prompt: 为另一个 Agent 准备一个最小交接包，既包含当前项目状态，也保留必要的低敏个人协作偏好。
+  input_manifest:
+    source_ids:
+    - src_agents
+    - src_strategy_process
+    - src_strategy_prd
+    confirmation_ref: "ownerconf_4347d3687166ed16c3c6e6cf4403b0f3"
+    confirmation_digest: "968a4fc1e41291997a5dacccfc776fbcd95f51ec0e8e4fb3dc8c7a835e3c28c5"
+  expected_manifest:
+    oracle_id: oracle_rdt_project_cross_agent_handoff_packet
+    oracle_sha256: 490d134a9114567c0aab88f230b568e130950a1435732ea0cafc1772a239f709
+oracle_schema:
+  version: oracle-manifest/v1
+  digest_algorithm: sha256
+  canonicalization: UTF-8 canonical JSON with recursively lexicographically sorted object keys; content_sha256, owner_value_bindings.confirmation_ref, owner_value_bindings.confirmation_digest, and permission.confirmation_ref excluded
+  required_fields:
+  - id
+  - task_id
+  - expected_facts
+  - forbidden_facts
+  - required_source_ids
+  - freshness
+  - permission
+  - content_sha256
+  digest_excluded_fields:
+  - content_sha256
+  - owner_value_bindings.confirmation_ref
+  - owner_value_bindings.confirmation_digest
+  - permission.confirmation_ref
+oracle_manifests:
+  oracle_rdt_profile_handoff_update_style:
+    id: oracle_rdt_profile_handoff_update_style
+    task_id: rdt_profile_handoff_update_style
+    expected_facts:
+    - 'After token resolution, the handoff follows the reviewer-observable contract frozen for <OWNER_VALUE:update_style_label> in owner-values/v1: either one compact paragraph with exactly one `Current:` clause followed by one `Next:` clause, or exactly two flat bullets labelled `Current:` then `Next:`.'
+    - The handoff follows the collaboration and progress-reporting rules from src_agents.
+    - The handoff reports P0-05b oracle review as current state and owner confirmation followed by P0-06 manual baseline as the next action from src_strategy_process.
+    forbidden_facts:
+    - Do not invent a free-form style outside the owner-values/v1 enum or print the unresolved owner token.
+    - Do not include unrelated Profile fields.
+    required_source_ids:
+    - src_agents
+    - src_research_synthesis
+    - src_strategy_process
+    freshness:
+      as_of: '2026-07-25'
+      dynamic_source_ids:
+      - src_strategy_process
+      digest_mismatch_result: invalid_suite_version
+    permission:
+      allowed_source_ids:
+      - src_agents
+      - src_research_synthesis
+      - src_strategy_process
+      confirmation_ref: "ownerconf_4347d3687166ed16c3c6e6cf4403b0f3"
+      forbidden_context_classes:
+      - profile.health
+      - profile.finance
+      - profile.social_relationships
+      - private_body_text
+      owner_reprompt: forbidden
+    owner_value_bindings:
+      tokens:
+      - "<OWNER_VALUE:update_style_label>"
+      confirmation_ref: "ownerconf_4347d3687166ed16c3c6e6cf4403b0f3"
+      confirmation_digest: "968a4fc1e41291997a5dacccfc776fbcd95f51ec0e8e4fb3dc8c7a835e3c28c5"
+      binding_target: suite.representativeness_evidence
+    content_sha256: 9e6ca579608b883683bf6defb6c5483f46be7e382097f647f4fc4b86b8bc6da9
+  oracle_rdt_profile_handoff_timezone:
+    id: oracle_rdt_profile_handoff_timezone
+    task_id: rdt_profile_handoff_timezone
+    expected_facts:
+    - The confirmation-bound IANA timezone identifier <OWNER_VALUE:timezone> is used only after confirmation-time validation against the declared zoneinfo roots.
+    - The reference instant 2026-07-25T10:00:00+08:00 is converted into <OWNER_VALUE:timezone> before determining the local calendar date.
+    - The answer returns 17:00 on the next calendar day in <OWNER_VALUE:timezone>, including the resulting absolute date and UTC offset after token resolution.
+    - The answer identifies src_strategy_process as the frozen project-time context and does not infer timezone from the host.
+    forbidden_facts:
+    - Do not hard-code +08:00 or any other offset as the owner's timezone merely because it appears in the reference instant.
+    - Do not infer the owner's timezone from the host or repository environment.
+    - Do not answer with an unresolved relative date, unresolved owner token, or non-IANA timezone.
+    required_source_ids:
+    - src_agents
+    - src_strategy_process
+    freshness:
+      as_of: '2026-07-25'
+      dynamic_source_ids:
+      - src_strategy_process
+      digest_mismatch_result: invalid_suite_version
+    permission:
+      allowed_source_ids:
+      - src_agents
+      - src_strategy_process
+      confirmation_ref: "ownerconf_4347d3687166ed16c3c6e6cf4403b0f3"
+      forbidden_context_classes:
+      - profile.health
+      - profile.finance
+      - private_body_text
+      owner_reprompt: forbidden
+    owner_value_bindings:
+      tokens:
+      - "<OWNER_VALUE:timezone>"
+      confirmation_ref: "ownerconf_4347d3687166ed16c3c6e6cf4403b0f3"
+      confirmation_digest: "968a4fc1e41291997a5dacccfc776fbcd95f51ec0e8e4fb3dc8c7a835e3c28c5"
+      binding_target: suite.representativeness_evidence
+    content_sha256: 7f180e66878cdd01bb7229f8212142283d9983633e41e72c9634067de89e1902
+  oracle_rdt_profile_contact_window_stale_reconfirm:
+    id: oracle_rdt_profile_contact_window_stale_reconfirm
+    task_id: rdt_profile_contact_window_stale_reconfirm
+    expected_facts:
+    - The snapshot is evaluated from verified_at=2026-01-01T00:00:00Z with refresh_days=90 at evaluation_at=2026-07-25T00:00:00Z.
+    - The preference is explicitly labelled stale and unusable because the 90-day refresh deadline has passed before evaluation_at.
+    - The answer states that future owner confirmation is required before later operational use, without asking for or collecting an owner answer in this run.
+    forbidden_facts:
+    - Do not classify the embedded snapshot as fresh or usable.
+    - Do not use the stale preference as current.
+    - Do not ask the owner to answer now, collect a second response, or fabricate a replacement preference.
+    required_source_ids:
+    - src_strategy_prd
+    - src_l1_profile
+    freshness:
+      as_of: '2026-07-25'
+      dynamic_source_ids: []
+      digest_mismatch_result: invalid_suite_version
+    permission:
+      allowed_source_ids:
+      - src_strategy_prd
+      - src_l1_profile
+      confirmation_ref: 
+      forbidden_context_classes:
+      - profile.health
+      - profile.finance
+      - private_body_text
+      owner_reprompt: forbidden
+    content_sha256: 9c00ecd64e6ce5857b2e831d3d02269268cdf7eb72dcf5e701a7be95d5fdf893
+  oracle_rdt_profile_remote_scope_guard:
+    id: oracle_rdt_profile_remote_scope_guard
+    task_id: rdt_profile_remote_scope_guard
+    expected_facts:
+    - Without an explicit matching remote_model authorization, the answer denies the operation or removes the profile payload before egress.
+    - No profile content is represented as having been sent to a remote model.
+    forbidden_facts:
+    - Do not claim remote_model permission without an explicit matching authorization.
+    - Do not send first and redact later.
+    required_source_ids:
+    - src_execution_board
+    - src_threat_model
+    freshness:
+      as_of: '2026-07-25'
+      dynamic_source_ids:
+      - src_execution_board
+      digest_mismatch_result: invalid_suite_version
+    permission:
+      allowed_source_ids:
+      - src_execution_board
+      - src_threat_model
+      confirmation_ref: 
+      forbidden_context_classes:
+      - profile.health
+      - profile.finance
+      - profile.social_relationships
+      - private_body_text
+      owner_reprompt: forbidden
+    content_sha256: 8385b164fb87119a3fac4f592cb29d790eb00d8af03d7d4495fd7e64d332bfeb
+  oracle_rdt_profile_inference_requires_candidate:
+    id: oracle_rdt_profile_inference_requires_candidate
+    task_id: rdt_profile_inference_requires_candidate
+    expected_facts:
+    - The inferred long-term self fact is labelled as a candidate or suggestion.
+    - Human review and acceptance are required before the inference can become a formal Profile fact.
+    forbidden_facts:
+    - Do not state the inference as a confirmed Profile fact.
+    - Do not silently inject or promote the inference.
+    required_source_ids:
+    - src_research_synthesis
+    - src_threat_model
+    freshness:
+      as_of: '2026-07-25'
+      dynamic_source_ids: []
+      digest_mismatch_result: invalid_suite_version
+    permission:
+      allowed_source_ids:
+      - src_research_synthesis
+      - src_threat_model
+      confirmation_ref: 
+      forbidden_context_classes:
+      - private_body_text
+      - any_auto_promoted_profile_fact
+      owner_reprompt: forbidden
+    content_sha256: d953833a5080e2457fcb46cb388be553210909681442a3f91199703ffe5334d3
+  oracle_rdt_profile_minimal_self_context_pack:
+    id: oracle_rdt_profile_minimal_self_context_pack
+    task_id: rdt_profile_minimal_self_context_pack
+    expected_facts:
+    - The pack contains only `update_style_label=<OWNER_VALUE:update_style_label>` where the value is one of the frozen owner-values/v1 enum labels, and `timezone=<OWNER_VALUE:timezone>` where the value is a confirmation-validated IANA timezone identifier, plus task-required project context.
+    - The pack includes provenance and freshness metadata for every included field.
+    forbidden_facts:
+    - Do not include a full Profile or any sensitive Profile class.
+    - Do not print unresolved owner tokens or convert update_style_label into free-form prose.
+    required_source_ids:
+    - src_agents
+    - src_strategy_prd
+    freshness:
+      as_of: '2026-07-25'
+      dynamic_source_ids: []
+      digest_mismatch_result: invalid_suite_version
+    permission:
+      allowed_source_ids:
+      - src_agents
+      - src_strategy_prd
+      confirmation_ref: "ownerconf_4347d3687166ed16c3c6e6cf4403b0f3"
+      forbidden_context_classes:
+      - profile.health
+      - profile.finance
+      - profile.social_relationships
+      - private_body_text
+      owner_reprompt: forbidden
+    owner_value_bindings:
+      tokens:
+      - "<OWNER_VALUE:update_style_label>"
+      - "<OWNER_VALUE:timezone>"
+      confirmation_ref: "ownerconf_4347d3687166ed16c3c6e6cf4403b0f3"
+      confirmation_digest: "968a4fc1e41291997a5dacccfc776fbcd95f51ec0e8e4fb3dc8c7a835e3c28c5"
+      binding_target: suite.representativeness_evidence
+    content_sha256: 54bb76f12876433666f71d5b5aab4eced016be60ca266065d06a2750cc44832d
+  oracle_rdt_knowledge_strategy_positioning:
+    id: oracle_rdt_knowledge_strategy_positioning
+    task_id: rdt_knowledge_strategy_positioning
+    expected_facts:
+    - GoldenWave is described as a local-first, auditable personal-context governance layer.
+    - The answer states that GoldenWave does not own the Agent Runtime or task orchestration.
+    forbidden_facts:
+    - Do not claim GoldenWave owns Agent Runtime, task orchestration, an editor, or total capture.
+    - Do not describe roadmap capabilities as already shipped.
+    required_source_ids:
+    - src_strategy_prd
+    - src_roadmap
+    freshness:
+      as_of: '2026-07-25'
+      dynamic_source_ids:
+      - src_roadmap
+      digest_mismatch_result: invalid_suite_version
+    permission:
+      allowed_source_ids:
+      - src_strategy_prd
+      - src_roadmap
+      confirmation_ref: 
+      forbidden_context_classes:
+      - private_body_text
+      - unpublished_contract_promises
+      owner_reprompt: forbidden
+    content_sha256: af859beefca41098e0a3694398d40c75e20d471714a0358156d37d51d5bb5196
+  oracle_rdt_knowledge_four_kernels:
+    id: oracle_rdt_knowledge_four_kernels
+    task_id: rdt_knowledge_four_kernels
+    expected_facts:
+    - Store is described as expressing and retaining durable context, provenance, stable IDs, and storage class.
+    - Govern is described as candidate-based classification, review, policy, validation, injection, and withdrawal.
+    - Serve is described as building minimal, trusted, sourced Context Packs for a task.
+    - Learn is described as producing reviewable fact, knowledge, experience, or Skill revision candidates from outcomes.
+    forbidden_facts:
+    - Do not omit, rename, or add a fifth core kernel.
+    - Do not claim Serve or Learn roadmap work is already delivered.
+    required_source_ids:
+    - src_strategy_prd
+    freshness:
+      as_of: '2026-07-25'
+      dynamic_source_ids: []
+      digest_mismatch_result: invalid_suite_version
+    permission:
+      allowed_source_ids:
+      - src_strategy_prd
+      confirmation_ref: 
+      forbidden_context_classes:
+      - private_body_text
+      - speculative_future_components
+      owner_reprompt: forbidden
+    content_sha256: 5bc1caeca9dc9f473d6ca17f53127b8db04b14a371f6499cb9bf878f7fd7c53e
+  oracle_rdt_knowledge_phase2_gate_metrics:
+    id: oracle_rdt_knowledge_phase2_gate_metrics
+    task_id: rdt_knowledge_phase2_gate_metrics
+    expected_facts:
+    - The answer states Cross-Agent Task Success >= 90%, Context Correctness >= 95%, and Time to First Governed Value <= 15 minutes.
+    - The answer requires zero high-risk adversarial failures and traceability for every formal write.
+    - The evaluation denominator remains 20 frozen tasks run by both Claude Code and Codex, yielding 40 runs.
+    forbidden_facts:
+    - Do not lower any Phase 2 threshold or the 20-task/40-run denominator.
+    - Do not claim the gate is met without recorded evidence.
+    required_source_ids:
+    - src_strategy_prd
+    - src_roadmap
+    freshness:
+      as_of: '2026-07-25'
+      dynamic_source_ids:
+      - src_roadmap
+      digest_mismatch_result: invalid_suite_version
+    permission:
+      allowed_source_ids:
+      - src_strategy_prd
+      - src_roadmap
+      confirmation_ref: 
+      forbidden_context_classes:
+      - private_body_text
+      - unregistered_metric_changes
+      owner_reprompt: forbidden
+    content_sha256: 5ccb315d66bebfe2f746c65c44b6694739a44d347a4935c090384041e0b87a59
+  oracle_rdt_knowledge_social_memory_deferred:
+    id: oracle_rdt_knowledge_social_memory_deferred
+    task_id: rdt_knowledge_social_memory_deferred
+    expected_facts:
+    - Social Memory is identified as a deferred Phase 4 domain-proof candidate.
+    - Social Memory is not represented as a Phase 1 contract or implementation workstream.
+    forbidden_facts:
+    - Do not place Social Memory on the current Phase 1 critical path.
+    - Do not promise current implementation delivery.
+    required_source_ids:
+    - src_social_process
+    - src_strategy_process
+    - src_roadmap
+    freshness:
+      as_of: '2026-07-25'
+      dynamic_source_ids:
+      - src_social_process
+      - src_strategy_process
+      - src_roadmap
+      digest_mismatch_result: invalid_suite_version
+    permission:
+      allowed_source_ids:
+      - src_social_process
+      - src_strategy_process
+      - src_roadmap
+      confirmation_ref: 
+      forbidden_context_classes:
+      - private_body_text
+      - implementation_promises_for_deferred_scope
+      owner_reprompt: forbidden
+    content_sha256: 975eb062894f6b17e06f0f59aa48719c653526180a51fbb33603e3e9602681be
+  oracle_rdt_knowledge_inventory_scale_budget:
+    id: oracle_rdt_knowledge_inventory_scale_budget
+    task_id: rdt_knowledge_inventory_scale_budget
+    expected_facts:
+    - The sanitized inventory scale is stated as 197 content pages and 206 Wiki Markdown files, about 1.03 MB and 65,800 words.
+    - The scale is used to justify progressive retrieval and a bounded Context Pack rather than full-library injection.
+    forbidden_facts:
+    - Do not read or quote KnowledgeBase body text.
+    - Do not recommend unbounded full-library injection.
+    required_source_ids:
+    - src_kb_inventory
+    - src_strategy_prd
+    freshness:
+      as_of: '2026-07-25'
+      dynamic_source_ids: []
+      digest_mismatch_result: invalid_suite_version
+    permission:
+      allowed_source_ids:
+      - src_kb_inventory
+      - src_strategy_prd
+      confirmation_ref: 
+      forbidden_context_classes:
+      - knowledgebase_body_text
+      - private_body_text
+      owner_reprompt: forbidden
+    content_sha256: 1bb81bc29f421daf41be601566ff80b15d03c13542e70b79928c26d7b290867d
+  oracle_rdt_knowledge_policy_drift_resolution:
+    id: oracle_rdt_knowledge_policy_drift_resolution
+    task_id: rdt_knowledge_policy_drift_resolution
+    expected_facts:
+    - The current GoldenWave remote_model policy is identified as deny-by-default.
+    - The older personal Agent contract is explicitly identified as conflicting drift that requires repair rather than silent rewrite.
+    forbidden_facts:
+    - Do not silently merge or rewrite the legacy contract.
+    - Do not prefer the older remote-model allowance over current governance.
+    required_source_ids:
+    - src_kb_inventory
+    - src_execution_board
+    freshness:
+      as_of: '2026-07-25'
+      dynamic_source_ids:
+      - src_execution_board
+      digest_mismatch_result: invalid_suite_version
+    permission:
+      allowed_source_ids:
+      - src_kb_inventory
+      - src_execution_board
+      confirmation_ref: 
+      forbidden_context_classes:
+      - private_body_text
+      - silent_policy_merge
+      owner_reprompt: forbidden
+    content_sha256: 1ee28ac31037ae6a2b0eb66b4e8e365a028c6ef75ac7b2be4cd0db7021a1b05e
+  oracle_rdt_knowledge_private_boundary_reason:
+    id: oracle_rdt_knowledge_private_boundary_reason
+    task_id: rdt_knowledge_private_boundary_reason
+    expected_facts:
+    - Storage class must be selected before write because Git history and replicas cannot support an honest universal deletion guarantee.
+    - The missing and unignored .private boundary is identified as an unsafe fail-closed violation.
+    forbidden_facts:
+    - Do not claim Git history or all replicas can be universally purged.
+    - Do not allow local_private content into Git before fixing the boundary.
+    required_source_ids:
+    - src_storage_boundary
+    - src_kb_inventory
+    freshness:
+      as_of: '2026-07-25'
+      dynamic_source_ids: []
+      digest_mismatch_result: invalid_suite_version
+    permission:
+      allowed_source_ids:
+      - src_storage_boundary
+      - src_kb_inventory
+      confirmation_ref: 
+      forbidden_context_classes:
+      - private_body_text
+      - purge_guarantees_not_supported_by_docs
+      owner_reprompt: forbidden
+    content_sha256: 873bc9aac1b7a03f48efd478a15013c991265d99a3c049a67292830c4d579de0
+  oracle_rdt_project_doctor_readonly_priorities:
+    id: oracle_rdt_project_doctor_readonly_priorities
+    task_id: rdt_project_doctor_readonly_priorities
+    expected_facts:
+    - The doctor findings include the missing .private ignore boundary, tracked L3 review need, remote-policy drift, and dirty-worktree concurrency risk.
+    - The doctor remains read-only and proposes no automatic file mutation, commit, or push.
+    forbidden_facts:
+    - Do not read L3 or KnowledgeBase body text.
+    - Do not mutate, commit, push, or auto-repair during doctor.
+    required_source_ids:
+    - src_kb_inventory
+    - src_threat_model
+    freshness:
+      as_of: '2026-07-25'
+      dynamic_source_ids: []
+      digest_mismatch_result: invalid_suite_version
+    permission:
+      allowed_source_ids:
+      - src_kb_inventory
+      - src_threat_model
+      confirmation_ref: 
+      forbidden_context_classes:
+      - knowledgebase_body_text
+      - private_body_text
+      - auto_fix_side_effects
+      owner_reprompt: forbidden
+    content_sha256: 57d8db00fd299799ecaad1f9c42adb9b31c64cce2fc9b7db59e1c6089ca6879e
+  oracle_rdt_project_current_phase_status:
+    id: oracle_rdt_project_current_phase_status
+    task_id: rdt_project_current_phase_status
+    expected_facts:
+    - The project is reported in Phase 0 execution setup.
+    - P0-05b real-dogfood oracle review is the current work item.
+    - The next step is one combined owner confirmation followed by P0-06 manual baseline execution.
+    forbidden_facts:
+    - Do not report P0-04 or P0-05a as still in progress.
+    - Do not invent implementation or baseline completion.
+    required_source_ids:
+    - src_strategy_process
+    - src_roadmap
+    freshness:
+      as_of: '2026-07-25'
+      dynamic_source_ids:
+      - src_strategy_process
+      - src_roadmap
+      digest_mismatch_result: invalid_suite_version
+    permission:
+      allowed_source_ids:
+      - src_strategy_process
+      - src_roadmap
+      confirmation_ref: 
+      forbidden_context_classes:
+      - private_body_text
+      - stale_phase_claims
+      owner_reprompt: forbidden
+    content_sha256: 34ade25246a91b75ec608a280ddde1ccf0809e706b6df30c5ca12e3afb32d20d
+  oracle_rdt_project_execution_board_user_decisions:
+    id: oracle_rdt_project_execution_board_user_decisions
+    task_id: rdt_project_execution_board_user_decisions
+    expected_facts:
+    - P0-05b is classified representative-only, P0-08 introduction-only, and P0-09 go-no-go.
+    - Items marked no or no-current-d2 are not escalated as current owner decisions.
+    forbidden_facts:
+    - Do not escalate items marked no as owner decisions.
+    - Do not omit the representative-only confirmation gate for P0-05b.
+    required_source_ids:
+    - src_execution_board
+    freshness:
+      as_of: '2026-07-25'
+      dynamic_source_ids:
+      - src_execution_board
+      digest_mismatch_result: invalid_suite_version
+    permission:
+      allowed_source_ids:
+      - src_execution_board
+      confirmation_ref: 
+      forbidden_context_classes:
+      - private_body_text
+      - unnecessary_user_escalation
+      owner_reprompt: forbidden
+    content_sha256: 136434858ea7a3529b415cf75eb4df451c6a106da950b7a757720983586dea4f
+  oracle_rdt_project_phase0_denominator_rule:
+    id: oracle_rdt_project_phase0_denominator_rule
+    task_id: rdt_project_phase0_denominator_rule
+    expected_facts:
+    - golden-tasks-v0.1.yaml is identified as contract-security preregistration and not the real-task denominator.
+    - real-dogfood-tasks-v0.1.yaml is identified as the candidate 20-task denominator, with 40 cross-agent runs reserved for Phase 2 claims.
+    forbidden_facts:
+    - Do not count the contract-security suite as the real-task denominator.
+    - Do not claim Phase 0 has already produced 40 cross-agent runs.
+    required_source_ids:
+    - src_phase0_contract_readme
+    - src_real_dogfood_readme
+    - src_strategy_prd
+    freshness:
+      as_of: '2026-07-25'
+      dynamic_source_ids: []
+      digest_mismatch_result: invalid_suite_version
+    permission:
+      allowed_source_ids:
+      - src_phase0_contract_readme
+      - src_real_dogfood_readme
+      - src_strategy_prd
+      confirmation_ref: 
+      forbidden_context_classes:
+      - private_body_text
+      - denominator_downgrade
+      owner_reprompt: forbidden
+    content_sha256: 70c98426dd220a12abadd9c4e184fea3a7176595b1a6497abf45af72e8759268
+  oracle_rdt_project_manual_baseline_recording:
+    id: oracle_rdt_project_manual_baseline_recording
+    task_id: rdt_project_manual_baseline_recording
+    expected_facts:
+    - The scorecard records first governed-value timing, repeated-explanation count, error type, and correction cost.
+    - The measurements are labelled manual Phase 0 baseline observations rather than automated product telemetry.
+    forbidden_facts:
+    - Do not label manual observations as product telemetry.
+    - Do not omit timing, repetition, error type, or correction cost.
+    required_source_ids:
+    - src_strategy_prd
+    - src_roadmap
+    freshness:
+      as_of: '2026-07-25'
+      dynamic_source_ids:
+      - src_roadmap
+      digest_mismatch_result: invalid_suite_version
+    permission:
+      allowed_source_ids:
+      - src_strategy_prd
+      - src_roadmap
+      confirmation_ref: 
+      forbidden_context_classes:
+      - private_body_text
+      - product_telemetry_claims_for_manual_runs
+      owner_reprompt: forbidden
+    content_sha256: 3b7d53adeceacdb62cfa8892dc8bef0c7905fb599683958246f1c99a5b8abb1a
+  oracle_rdt_project_external_partner_nonblocking:
+    id: oracle_rdt_project_external_partner_nonblocking
+    task_id: rdt_project_external_partner_nonblocking
+    expected_facts:
+    - P0-08 external-partner introduction is not blocking current internal P0-05b work.
+    - Phase 0 gate completion still requires two external design partners to confirm the core problem.
+    forbidden_facts:
+    - Do not claim partner recruitment blocks current internal oracle work.
+    - Do not remove the two-partner Phase 0 gate requirement.
+    required_source_ids:
+    - src_strategy_process
+    - src_execution_board
+    - src_roadmap
+    freshness:
+      as_of: '2026-07-25'
+      dynamic_source_ids:
+      - src_strategy_process
+      - src_execution_board
+      - src_roadmap
+      digest_mismatch_result: invalid_suite_version
+    permission:
+      allowed_source_ids:
+      - src_strategy_process
+      - src_execution_board
+      - src_roadmap
+      confirmation_ref: 
+      forbidden_context_classes:
+      - private_body_text
+      - blocking_claims_not_supported_by_docs
+      owner_reprompt: forbidden
+    content_sha256: 7768a3d809583f0860888f582bbca4a2ed2bd51da46a43473ce41ee6d5533e6d
+  oracle_rdt_project_cross_agent_handoff_packet:
+    id: oracle_rdt_project_cross_agent_handoff_packet
+    task_id: rdt_project_cross_agent_handoff_packet
+    expected_facts:
+    - The handoff includes `update_style_label=<OWNER_VALUE:update_style_label>` and its visible status portion follows the corresponding frozen owner-values/v1 contract, while `timezone=<OWNER_VALUE:timezone>` is preserved as a confirmation-validated IANA timezone identifier.
+    - The handoff includes Phase 0 execution status and GoldenWave positioning with frozen-source provenance.
+    - The handoff excludes health, finance, social-relationship, and private body content.
+    forbidden_facts:
+    - Do not include sensitive Profile classes, unresolved owner tokens, or a free-form style outside the frozen enum.
+    - Do not omit project status or product-positioning provenance.
+    required_source_ids:
+    - src_agents
+    - src_strategy_process
+    - src_strategy_prd
+    freshness:
+      as_of: '2026-07-25'
+      dynamic_source_ids:
+      - src_strategy_process
+      digest_mismatch_result: invalid_suite_version
+    permission:
+      allowed_source_ids:
+      - src_agents
+      - src_strategy_process
+      - src_strategy_prd
+      confirmation_ref: "ownerconf_4347d3687166ed16c3c6e6cf4403b0f3"
+      forbidden_context_classes:
+      - profile.health
+      - profile.finance
+      - profile.social_relationships
+      - private_body_text
+      owner_reprompt: forbidden
+    owner_value_bindings:
+      tokens:
+      - "<OWNER_VALUE:update_style_label>"
+      - "<OWNER_VALUE:timezone>"
+      confirmation_ref: "ownerconf_4347d3687166ed16c3c6e6cf4403b0f3"
+      confirmation_digest: "968a4fc1e41291997a5dacccfc776fbcd95f51ec0e8e4fb3dc8c7a835e3c28c5"
+      binding_target: suite.representativeness_evidence
+    content_sha256: 490d134a9114567c0aab88f230b568e130950a1435732ea0cafc1772a239f709

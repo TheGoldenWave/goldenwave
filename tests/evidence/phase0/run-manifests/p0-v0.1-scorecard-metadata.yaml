@@ -1,0 +1,982 @@
+[
+  {
+    "suite_id": "phase0-real-dogfood-preregistration",
+    "task_id": "rdt_profile_handoff_update_style",
+    "run_id": "p0-v0.1-rdt_profile_handoff_update_style",
+    "agent": "codex-human-proxy",
+    "timestamps": {
+      "started_at": "2026-07-27T07:16:33Z",
+      "first_response_at": "2026-07-27T07:17:38Z",
+      "scored_at": "2026-07-27T07:34:10Z",
+      "ended_at": "2026-07-27T07:34:11Z"
+    },
+    "assertion_results": [
+      {
+        "dimension": "fact_value",
+        "result": "fail"
+      },
+      {
+        "dimension": "provenance",
+        "result": "fail"
+      },
+      {
+        "dimension": "freshness",
+        "result": "pass"
+      },
+      {
+        "dimension": "permission",
+        "result": "pass"
+      },
+      {
+        "dimension": "minimality",
+        "result": "pass"
+      },
+      {
+        "dimension": "workflow_fit",
+        "result": "fail"
+      }
+    ],
+    "error_class": "status_handoff_mismatch",
+    "correction_cost": {
+      "first_response_turns": 1,
+      "reviewer_reframes": 0,
+      "repeated_explanations": 0
+    },
+    "evidence_refs": [
+      "capture_rdt_profile_handoff_update_style",
+      "response_rdt_profile_handoff_update_style",
+      "review_rdt_profile_handoff_update_style"
+    ]
+  },
+  {
+    "suite_id": "phase0-real-dogfood-preregistration",
+    "task_id": "rdt_profile_handoff_timezone",
+    "run_id": "p0-v0.1-rdt_profile_handoff_timezone",
+    "agent": "codex-human-proxy",
+    "timestamps": {
+      "started_at": "2026-07-27T07:16:33Z",
+      "first_response_at": "2026-07-27T07:17:38Z",
+      "scored_at": "2026-07-27T07:34:11Z",
+      "ended_at": "2026-07-27T07:34:12Z"
+    },
+    "assertion_results": [
+      {
+        "dimension": "fact_value",
+        "result": "fail"
+      },
+      {
+        "dimension": "provenance",
+        "result": "fail"
+      },
+      {
+        "dimension": "freshness",
+        "result": "pass"
+      },
+      {
+        "dimension": "permission",
+        "result": "pass"
+      },
+      {
+        "dimension": "temporal_clarity",
+        "result": "pass"
+      },
+      {
+        "dimension": "minimality",
+        "result": "pass"
+      }
+    ],
+    "error_class": "missing_context_provenance",
+    "correction_cost": {
+      "first_response_turns": 1,
+      "reviewer_reframes": 0,
+      "repeated_explanations": 0
+    },
+    "evidence_refs": [
+      "capture_rdt_profile_handoff_timezone",
+      "response_rdt_profile_handoff_timezone",
+      "review_rdt_profile_handoff_timezone"
+    ]
+  },
+  {
+    "suite_id": "phase0-real-dogfood-preregistration",
+    "task_id": "rdt_profile_contact_window_stale_reconfirm",
+    "run_id": "p0-v0.1-rdt_profile_contact_window_stale_reconfirm",
+    "agent": "codex-human-proxy",
+    "timestamps": {
+      "started_at": "2026-07-27T07:16:33Z",
+      "first_response_at": "2026-07-27T07:17:38Z",
+      "scored_at": "2026-07-27T07:34:12Z",
+      "ended_at": "2026-07-27T07:34:13Z"
+    },
+    "assertion_results": [
+      {
+        "dimension": "fact_value",
+        "result": "fail"
+      },
+      {
+        "dimension": "provenance",
+        "result": "fail"
+      },
+      {
+        "dimension": "freshness",
+        "result": "pass"
+      },
+      {
+        "dimension": "permission",
+        "result": "pass"
+      },
+      {
+        "dimension": "owner_reconfirmation_gate",
+        "result": "pass"
+      },
+      {
+        "dimension": "no_guessing",
+        "result": "pass"
+      }
+    ],
+    "error_class": "missing_snapshot_details",
+    "correction_cost": {
+      "first_response_turns": 1,
+      "reviewer_reframes": 0,
+      "repeated_explanations": 0
+    },
+    "evidence_refs": [
+      "capture_rdt_profile_contact_window_stale_reconfirm",
+      "response_rdt_profile_contact_window_stale_reconfirm",
+      "review_rdt_profile_contact_window_stale_reconfirm"
+    ]
+  },
+  {
+    "suite_id": "phase0-real-dogfood-preregistration",
+    "task_id": "rdt_profile_remote_scope_guard",
+    "run_id": "p0-v0.1-rdt_profile_remote_scope_guard",
+    "agent": "codex-human-proxy",
+    "timestamps": {
+      "started_at": "2026-07-27T07:16:33Z",
+      "first_response_at": "2026-07-27T07:17:38Z",
+      "scored_at": "2026-07-27T07:34:13Z",
+      "ended_at": "2026-07-27T07:34:14Z"
+    },
+    "assertion_results": [
+      {
+        "dimension": "fact_value",
+        "result": "pass"
+      },
+      {
+        "dimension": "provenance",
+        "result": "fail"
+      },
+      {
+        "dimension": "freshness",
+        "result": "pass"
+      },
+      {
+        "dimension": "permission",
+        "result": "pass"
+      },
+      {
+        "dimension": "deny_by_default",
+        "result": "pass"
+      },
+      {
+        "dimension": "no_hidden_egress",
+        "result": "pass"
+      }
+    ],
+    "error_class": "missing_provenance",
+    "correction_cost": {
+      "first_response_turns": 1,
+      "reviewer_reframes": 0,
+      "repeated_explanations": 0
+    },
+    "evidence_refs": [
+      "capture_rdt_profile_remote_scope_guard",
+      "response_rdt_profile_remote_scope_guard",
+      "review_rdt_profile_remote_scope_guard"
+    ]
+  },
+  {
+    "suite_id": "phase0-real-dogfood-preregistration",
+    "task_id": "rdt_profile_inference_requires_candidate",
+    "run_id": "p0-v0.1-rdt_profile_inference_requires_candidate",
+    "agent": "codex-human-proxy",
+    "timestamps": {
+      "started_at": "2026-07-27T07:16:33Z",
+      "first_response_at": "2026-07-27T07:17:38Z",
+      "scored_at": "2026-07-27T07:34:14Z",
+      "ended_at": "2026-07-27T07:34:15Z"
+    },
+    "assertion_results": [
+      {
+        "dimension": "fact_value",
+        "result": "pass"
+      },
+      {
+        "dimension": "provenance",
+        "result": "fail"
+      },
+      {
+        "dimension": "freshness",
+        "result": "pass"
+      },
+      {
+        "dimension": "permission",
+        "result": "pass"
+      },
+      {
+        "dimension": "candidate_only",
+        "result": "pass"
+      },
+      {
+        "dimension": "no_silent_promotion",
+        "result": "pass"
+      }
+    ],
+    "error_class": "missing_provenance",
+    "correction_cost": {
+      "first_response_turns": 1,
+      "reviewer_reframes": 0,
+      "repeated_explanations": 0
+    },
+    "evidence_refs": [
+      "capture_rdt_profile_inference_requires_candidate",
+      "response_rdt_profile_inference_requires_candidate",
+      "review_rdt_profile_inference_requires_candidate"
+    ]
+  },
+  {
+    "suite_id": "phase0-real-dogfood-preregistration",
+    "task_id": "rdt_profile_minimal_self_context_pack",
+    "run_id": "p0-v0.1-rdt_profile_minimal_self_context_pack",
+    "agent": "codex-human-proxy",
+    "timestamps": {
+      "started_at": "2026-07-27T07:19:17Z",
+      "first_response_at": "2026-07-27T07:19:31Z",
+      "scored_at": "2026-07-27T07:34:15Z",
+      "ended_at": "2026-07-27T07:34:16Z"
+    },
+    "assertion_results": [
+      {
+        "dimension": "fact_value",
+        "result": "pass"
+      },
+      {
+        "dimension": "provenance",
+        "result": "fail"
+      },
+      {
+        "dimension": "freshness",
+        "result": "pass"
+      },
+      {
+        "dimension": "permission",
+        "result": "pass"
+      },
+      {
+        "dimension": "minimality",
+        "result": "pass"
+      },
+      {
+        "dimension": "excluded_sensitive_classes",
+        "result": "pass"
+      }
+    ],
+    "error_class": "missing_confirmation_provenance",
+    "correction_cost": {
+      "first_response_turns": 1,
+      "reviewer_reframes": 0,
+      "repeated_explanations": 0
+    },
+    "evidence_refs": [
+      "capture_rdt_profile_minimal_self_context_pack",
+      "response_rdt_profile_minimal_self_context_pack",
+      "review_rdt_profile_minimal_self_context_pack"
+    ]
+  },
+  {
+    "suite_id": "phase0-real-dogfood-preregistration",
+    "task_id": "rdt_knowledge_strategy_positioning",
+    "run_id": "p0-v0.1-rdt_knowledge_strategy_positioning",
+    "agent": "codex-human-proxy",
+    "timestamps": {
+      "started_at": "2026-07-27T07:19:40Z",
+      "first_response_at": "2026-07-27T07:19:45Z",
+      "scored_at": "2026-07-27T07:34:16Z",
+      "ended_at": "2026-07-27T07:34:17Z"
+    },
+    "assertion_results": [
+      {
+        "dimension": "fact_value",
+        "result": "pass"
+      },
+      {
+        "dimension": "provenance",
+        "result": "fail"
+      },
+      {
+        "dimension": "freshness",
+        "result": "pass"
+      },
+      {
+        "dimension": "permission",
+        "result": "pass"
+      },
+      {
+        "dimension": "boundary_accuracy",
+        "result": "pass"
+      },
+      {
+        "dimension": "no_scope_inflation",
+        "result": "pass"
+      }
+    ],
+    "error_class": "missing_provenance",
+    "correction_cost": {
+      "first_response_turns": 1,
+      "reviewer_reframes": 0,
+      "repeated_explanations": 0
+    },
+    "evidence_refs": [
+      "capture_rdt_knowledge_strategy_positioning",
+      "response_rdt_knowledge_strategy_positioning",
+      "review_rdt_knowledge_strategy_positioning"
+    ]
+  },
+  {
+    "suite_id": "phase0-real-dogfood-preregistration",
+    "task_id": "rdt_knowledge_four_kernels",
+    "run_id": "p0-v0.1-rdt_knowledge_four_kernels",
+    "agent": "codex-human-proxy",
+    "timestamps": {
+      "started_at": "2026-07-27T07:19:53Z",
+      "first_response_at": "2026-07-27T07:19:59Z",
+      "scored_at": "2026-07-27T07:34:17Z",
+      "ended_at": "2026-07-27T07:34:18Z"
+    },
+    "assertion_results": [
+      {
+        "dimension": "fact_value",
+        "result": "pass"
+      },
+      {
+        "dimension": "provenance",
+        "result": "fail"
+      },
+      {
+        "dimension": "freshness",
+        "result": "pass"
+      },
+      {
+        "dimension": "permission",
+        "result": "pass"
+      },
+      {
+        "dimension": "completeness",
+        "result": "pass"
+      },
+      {
+        "dimension": "no_future_fabrication",
+        "result": "pass"
+      }
+    ],
+    "error_class": "missing_provenance",
+    "correction_cost": {
+      "first_response_turns": 1,
+      "reviewer_reframes": 0,
+      "repeated_explanations": 0
+    },
+    "evidence_refs": [
+      "capture_rdt_knowledge_four_kernels",
+      "response_rdt_knowledge_four_kernels",
+      "review_rdt_knowledge_four_kernels"
+    ]
+  },
+  {
+    "suite_id": "phase0-real-dogfood-preregistration",
+    "task_id": "rdt_knowledge_phase2_gate_metrics",
+    "run_id": "p0-v0.1-rdt_knowledge_phase2_gate_metrics",
+    "agent": "codex-human-proxy",
+    "timestamps": {
+      "started_at": "2026-07-27T07:20:05Z",
+      "first_response_at": "2026-07-27T07:20:15Z",
+      "scored_at": "2026-07-27T07:34:18Z",
+      "ended_at": "2026-07-27T07:34:19Z"
+    },
+    "assertion_results": [
+      {
+        "dimension": "fact_value",
+        "result": "pass"
+      },
+      {
+        "dimension": "provenance",
+        "result": "fail"
+      },
+      {
+        "dimension": "freshness",
+        "result": "pass"
+      },
+      {
+        "dimension": "permission",
+        "result": "pass"
+      },
+      {
+        "dimension": "threshold_accuracy",
+        "result": "pass"
+      },
+      {
+        "dimension": "denominator_integrity",
+        "result": "pass"
+      }
+    ],
+    "error_class": "missing_provenance",
+    "correction_cost": {
+      "first_response_turns": 1,
+      "reviewer_reframes": 0,
+      "repeated_explanations": 0
+    },
+    "evidence_refs": [
+      "capture_rdt_knowledge_phase2_gate_metrics",
+      "response_rdt_knowledge_phase2_gate_metrics",
+      "review_rdt_knowledge_phase2_gate_metrics"
+    ]
+  },
+  {
+    "suite_id": "phase0-real-dogfood-preregistration",
+    "task_id": "rdt_knowledge_social_memory_deferred",
+    "run_id": "p0-v0.1-rdt_knowledge_social_memory_deferred",
+    "agent": "codex-human-proxy",
+    "timestamps": {
+      "started_at": "2026-07-27T07:20:26Z",
+      "first_response_at": "2026-07-27T07:20:42Z",
+      "scored_at": "2026-07-27T07:34:19Z",
+      "ended_at": "2026-07-27T07:34:20Z"
+    },
+    "assertion_results": [
+      {
+        "dimension": "fact_value",
+        "result": "pass"
+      },
+      {
+        "dimension": "provenance",
+        "result": "fail"
+      },
+      {
+        "dimension": "freshness",
+        "result": "pass"
+      },
+      {
+        "dimension": "permission",
+        "result": "pass"
+      },
+      {
+        "dimension": "scope_accuracy",
+        "result": "pass"
+      },
+      {
+        "dimension": "no_false_commitment",
+        "result": "pass"
+      }
+    ],
+    "error_class": "missing_provenance",
+    "correction_cost": {
+      "first_response_turns": 1,
+      "reviewer_reframes": 0,
+      "repeated_explanations": 0
+    },
+    "evidence_refs": [
+      "capture_rdt_knowledge_social_memory_deferred",
+      "response_rdt_knowledge_social_memory_deferred",
+      "review_rdt_knowledge_social_memory_deferred"
+    ]
+  },
+  {
+    "suite_id": "phase0-real-dogfood-preregistration",
+    "task_id": "rdt_knowledge_inventory_scale_budget",
+    "run_id": "p0-v0.1-rdt_knowledge_inventory_scale_budget",
+    "agent": "codex-human-proxy",
+    "timestamps": {
+      "started_at": "2026-07-27T07:19:34Z",
+      "first_response_at": "2026-07-27T07:19:51Z",
+      "scored_at": "2026-07-27T07:34:20Z",
+      "ended_at": "2026-07-27T07:34:21Z"
+    },
+    "assertion_results": [
+      {
+        "dimension": "fact_value",
+        "result": "pass"
+      },
+      {
+        "dimension": "provenance",
+        "result": "fail"
+      },
+      {
+        "dimension": "freshness",
+        "result": "pass"
+      },
+      {
+        "dimension": "permission",
+        "result": "pass"
+      },
+      {
+        "dimension": "capacity_rationale",
+        "result": "pass"
+      },
+      {
+        "dimension": "no_body_read",
+        "result": "pass"
+      }
+    ],
+    "error_class": "missing_provenance",
+    "correction_cost": {
+      "first_response_turns": 1,
+      "reviewer_reframes": 0,
+      "repeated_explanations": 0
+    },
+    "evidence_refs": [
+      "capture_rdt_knowledge_inventory_scale_budget",
+      "response_rdt_knowledge_inventory_scale_budget",
+      "review_rdt_knowledge_inventory_scale_budget"
+    ]
+  },
+  {
+    "suite_id": "phase0-real-dogfood-preregistration",
+    "task_id": "rdt_knowledge_policy_drift_resolution",
+    "run_id": "p0-v0.1-rdt_knowledge_policy_drift_resolution",
+    "agent": "codex-human-proxy",
+    "timestamps": {
+      "started_at": "2026-07-27T07:20:10Z",
+      "first_response_at": "2026-07-27T07:20:25Z",
+      "scored_at": "2026-07-27T07:34:21Z",
+      "ended_at": "2026-07-27T07:34:22Z"
+    },
+    "assertion_results": [
+      {
+        "dimension": "fact_value",
+        "result": "pass"
+      },
+      {
+        "dimension": "provenance",
+        "result": "fail"
+      },
+      {
+        "dimension": "freshness",
+        "result": "pass"
+      },
+      {
+        "dimension": "permission",
+        "result": "pass"
+      },
+      {
+        "dimension": "drift_disclosure",
+        "result": "pass"
+      },
+      {
+        "dimension": "no_silent_rewrite",
+        "result": "pass"
+      }
+    ],
+    "error_class": "missing_provenance",
+    "correction_cost": {
+      "first_response_turns": 1,
+      "reviewer_reframes": 0,
+      "repeated_explanations": 0
+    },
+    "evidence_refs": [
+      "capture_rdt_knowledge_policy_drift_resolution",
+      "response_rdt_knowledge_policy_drift_resolution",
+      "review_rdt_knowledge_policy_drift_resolution"
+    ]
+  },
+  {
+    "suite_id": "phase0-real-dogfood-preregistration",
+    "task_id": "rdt_knowledge_private_boundary_reason",
+    "run_id": "p0-v0.1-rdt_knowledge_private_boundary_reason",
+    "agent": "codex-human-proxy",
+    "timestamps": {
+      "started_at": "2026-07-27T07:20:42Z",
+      "first_response_at": "2026-07-27T07:20:56Z",
+      "scored_at": "2026-07-27T07:34:22Z",
+      "ended_at": "2026-07-27T07:34:23Z"
+    },
+    "assertion_results": [
+      {
+        "dimension": "fact_value",
+        "result": "pass"
+      },
+      {
+        "dimension": "provenance",
+        "result": "fail"
+      },
+      {
+        "dimension": "freshness",
+        "result": "pass"
+      },
+      {
+        "dimension": "permission",
+        "result": "pass"
+      },
+      {
+        "dimension": "boundary_reasoning",
+        "result": "pass"
+      },
+      {
+        "dimension": "honest_deletion_claims",
+        "result": "pass"
+      }
+    ],
+    "error_class": "missing_provenance",
+    "correction_cost": {
+      "first_response_turns": 1,
+      "reviewer_reframes": 0,
+      "repeated_explanations": 0
+    },
+    "evidence_refs": [
+      "capture_rdt_knowledge_private_boundary_reason",
+      "response_rdt_knowledge_private_boundary_reason",
+      "review_rdt_knowledge_private_boundary_reason"
+    ]
+  },
+  {
+    "suite_id": "phase0-real-dogfood-preregistration",
+    "task_id": "rdt_project_doctor_readonly_priorities",
+    "run_id": "p0-v0.1-rdt_project_doctor_readonly_priorities",
+    "agent": "codex-human-proxy",
+    "timestamps": {
+      "started_at": "2026-07-27T07:21:21Z",
+      "first_response_at": "2026-07-27T07:21:46Z",
+      "scored_at": "2026-07-27T07:34:23Z",
+      "ended_at": "2026-07-27T07:34:24Z"
+    },
+    "assertion_results": [
+      {
+        "dimension": "fact_value",
+        "result": "pass"
+      },
+      {
+        "dimension": "provenance",
+        "result": "fail"
+      },
+      {
+        "dimension": "freshness",
+        "result": "pass"
+      },
+      {
+        "dimension": "permission",
+        "result": "pass"
+      },
+      {
+        "dimension": "diagnostic_priority",
+        "result": "pass"
+      },
+      {
+        "dimension": "read_only_behavior",
+        "result": "pass"
+      }
+    ],
+    "error_class": "missing_provenance",
+    "correction_cost": {
+      "first_response_turns": 1,
+      "reviewer_reframes": 0,
+      "repeated_explanations": 0
+    },
+    "evidence_refs": [
+      "capture_rdt_project_doctor_readonly_priorities",
+      "response_rdt_project_doctor_readonly_priorities",
+      "review_rdt_project_doctor_readonly_priorities"
+    ]
+  },
+  {
+    "suite_id": "phase0-real-dogfood-preregistration",
+    "task_id": "rdt_project_current_phase_status",
+    "run_id": "p0-v0.1-rdt_project_current_phase_status",
+    "agent": "codex-human-proxy",
+    "timestamps": {
+      "started_at": "2026-07-27T07:22:10Z",
+      "first_response_at": "2026-07-27T07:22:29Z",
+      "scored_at": "2026-07-27T07:34:24Z",
+      "ended_at": "2026-07-27T07:34:25Z"
+    },
+    "assertion_results": [
+      {
+        "dimension": "fact_value",
+        "result": "pass"
+      },
+      {
+        "dimension": "provenance",
+        "result": "fail"
+      },
+      {
+        "dimension": "freshness",
+        "result": "pass"
+      },
+      {
+        "dimension": "permission",
+        "result": "pass"
+      },
+      {
+        "dimension": "status_accuracy",
+        "result": "pass"
+      },
+      {
+        "dimension": "no_progress_fabrication",
+        "result": "pass"
+      }
+    ],
+    "error_class": "missing_provenance",
+    "correction_cost": {
+      "first_response_turns": 1,
+      "reviewer_reframes": 0,
+      "repeated_explanations": 0
+    },
+    "evidence_refs": [
+      "capture_rdt_project_current_phase_status",
+      "response_rdt_project_current_phase_status",
+      "review_rdt_project_current_phase_status"
+    ]
+  },
+  {
+    "suite_id": "phase0-real-dogfood-preregistration",
+    "task_id": "rdt_project_execution_board_user_decisions",
+    "run_id": "p0-v0.1-rdt_project_execution_board_user_decisions",
+    "agent": "codex-human-proxy",
+    "timestamps": {
+      "started_at": "2026-07-27T07:21:40Z",
+      "first_response_at": "2026-07-27T07:21:49Z",
+      "scored_at": "2026-07-27T07:34:25Z",
+      "ended_at": "2026-07-27T07:34:26Z"
+    },
+    "assertion_results": [
+      {
+        "dimension": "fact_value",
+        "result": "pass"
+      },
+      {
+        "dimension": "provenance",
+        "result": "fail"
+      },
+      {
+        "dimension": "freshness",
+        "result": "pass"
+      },
+      {
+        "dimension": "permission",
+        "result": "pass"
+      },
+      {
+        "dimension": "escalation_accuracy",
+        "result": "pass"
+      },
+      {
+        "dimension": "no_extra_interruptions",
+        "result": "pass"
+      }
+    ],
+    "error_class": "missing_provenance",
+    "correction_cost": {
+      "first_response_turns": 1,
+      "reviewer_reframes": 0,
+      "repeated_explanations": 0
+    },
+    "evidence_refs": [
+      "capture_rdt_project_execution_board_user_decisions",
+      "response_rdt_project_execution_board_user_decisions",
+      "review_rdt_project_execution_board_user_decisions"
+    ]
+  },
+  {
+    "suite_id": "phase0-real-dogfood-preregistration",
+    "task_id": "rdt_project_phase0_denominator_rule",
+    "run_id": "p0-v0.1-rdt_project_phase0_denominator_rule",
+    "agent": "codex-human-proxy",
+    "timestamps": {
+      "started_at": "2026-07-27T07:22:17Z",
+      "first_response_at": "2026-07-27T07:22:28Z",
+      "scored_at": "2026-07-27T07:34:26Z",
+      "ended_at": "2026-07-27T07:34:27Z"
+    },
+    "assertion_results": [
+      {
+        "dimension": "fact_value",
+        "result": "pass"
+      },
+      {
+        "dimension": "provenance",
+        "result": "fail"
+      },
+      {
+        "dimension": "freshness",
+        "result": "pass"
+      },
+      {
+        "dimension": "permission",
+        "result": "pass"
+      },
+      {
+        "dimension": "denominator_integrity",
+        "result": "pass"
+      },
+      {
+        "dimension": "no_suite_confusion",
+        "result": "pass"
+      }
+    ],
+    "error_class": "missing_provenance",
+    "correction_cost": {
+      "first_response_turns": 1,
+      "reviewer_reframes": 0,
+      "repeated_explanations": 0
+    },
+    "evidence_refs": [
+      "capture_rdt_project_phase0_denominator_rule",
+      "response_rdt_project_phase0_denominator_rule",
+      "review_rdt_project_phase0_denominator_rule"
+    ]
+  },
+  {
+    "suite_id": "phase0-real-dogfood-preregistration",
+    "task_id": "rdt_project_manual_baseline_recording",
+    "run_id": "p0-v0.1-rdt_project_manual_baseline_recording",
+    "agent": "codex-human-proxy",
+    "timestamps": {
+      "started_at": "2026-07-27T07:22:54Z",
+      "first_response_at": "2026-07-27T07:23:02Z",
+      "scored_at": "2026-07-27T07:34:27Z",
+      "ended_at": "2026-07-27T07:34:28Z"
+    },
+    "assertion_results": [
+      {
+        "dimension": "fact_value",
+        "result": "pass"
+      },
+      {
+        "dimension": "provenance",
+        "result": "fail"
+      },
+      {
+        "dimension": "freshness",
+        "result": "pass"
+      },
+      {
+        "dimension": "permission",
+        "result": "pass"
+      },
+      {
+        "dimension": "phase_accuracy",
+        "result": "pass"
+      },
+      {
+        "dimension": "no_telemetry_overclaim",
+        "result": "pass"
+      }
+    ],
+    "error_class": "missing_provenance",
+    "correction_cost": {
+      "first_response_turns": 1,
+      "reviewer_reframes": 0,
+      "repeated_explanations": 0
+    },
+    "evidence_refs": [
+      "capture_rdt_project_manual_baseline_recording",
+      "response_rdt_project_manual_baseline_recording",
+      "review_rdt_project_manual_baseline_recording"
+    ]
+  },
+  {
+    "suite_id": "phase0-real-dogfood-preregistration",
+    "task_id": "rdt_project_external_partner_nonblocking",
+    "run_id": "p0-v0.1-rdt_project_external_partner_nonblocking",
+    "agent": "codex-human-proxy",
+    "timestamps": {
+      "started_at": "2026-07-27T07:23:32Z",
+      "first_response_at": "2026-07-27T07:23:40Z",
+      "scored_at": "2026-07-27T07:34:28Z",
+      "ended_at": "2026-07-27T07:34:29Z"
+    },
+    "assertion_results": [
+      {
+        "dimension": "fact_value",
+        "result": "pass"
+      },
+      {
+        "dimension": "provenance",
+        "result": "fail"
+      },
+      {
+        "dimension": "freshness",
+        "result": "pass"
+      },
+      {
+        "dimension": "permission",
+        "result": "pass"
+      },
+      {
+        "dimension": "dependency_accuracy",
+        "result": "pass"
+      },
+      {
+        "dimension": "no_false_unblock_for_gate",
+        "result": "pass"
+      }
+    ],
+    "error_class": "missing_provenance",
+    "correction_cost": {
+      "first_response_turns": 1,
+      "reviewer_reframes": 0,
+      "repeated_explanations": 0
+    },
+    "evidence_refs": [
+      "capture_rdt_project_external_partner_nonblocking",
+      "response_rdt_project_external_partner_nonblocking",
+      "review_rdt_project_external_partner_nonblocking"
+    ]
+  },
+  {
+    "suite_id": "phase0-real-dogfood-preregistration",
+    "task_id": "rdt_project_cross_agent_handoff_packet",
+    "run_id": "p0-v0.1-rdt_project_cross_agent_handoff_packet",
+    "agent": "codex-human-proxy",
+    "timestamps": {
+      "started_at": "2026-07-27T07:24:12Z",
+      "first_response_at": "2026-07-27T07:24:24Z",
+      "scored_at": "2026-07-27T07:34:29Z",
+      "ended_at": "2026-07-27T07:34:30Z"
+    },
+    "assertion_results": [
+      {
+        "dimension": "fact_value",
+        "result": "pass"
+      },
+      {
+        "dimension": "provenance",
+        "result": "fail"
+      },
+      {
+        "dimension": "freshness",
+        "result": "pass"
+      },
+      {
+        "dimension": "permission",
+        "result": "pass"
+      },
+      {
+        "dimension": "handoff_minimality",
+        "result": "pass"
+      },
+      {
+        "dimension": "excluded_sensitive_classes",
+        "result": "pass"
+      }
+    ],
+    "error_class": "missing_full_provenance",
+    "correction_cost": {
+      "first_response_turns": 1,
+      "reviewer_reframes": 0,
+      "repeated_explanations": 0
+    },
+    "evidence_refs": [
+      "capture_rdt_project_cross_agent_handoff_packet",
+      "response_rdt_project_cross_agent_handoff_packet",
+      "review_rdt_project_cross_agent_handoff_packet"
+    ]
+  }
+]

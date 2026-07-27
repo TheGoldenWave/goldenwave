@@ -1,0 +1,954 @@
+suite:
+  id: phase0-contract-security-preregistration
+  version: v0.1
+  status: preregistered
+  feature_id: goldenwave-strategy
+  scope: P0-05
+  classification: contract-security-preregistration
+  measurement_scope: "Not eligible for the PRD real-task 20-task/40-run denominator."
+  follow_on_real_suite: tests/specs/phase0/real-dogfood-tasks-v0.1.yaml
+  rubric_ref: tests/specs/phase0/README.md
+  fixture_policy:
+    allowed_real_input:
+      - docs/context/technical/goldenwave/kb-inventory-2026-07-25.md
+      - docs/prd/goldenwave-strategy/PRD.md
+      - docs/prd/goldenwave-strategy/.artifacts/process.md
+      - ROADMAP.md
+      - SPEC.md
+      - spec/governance.md
+      - spec/L3-workflow.md
+    forbidden_real_input:
+      - /Users/goldenwave/KnowledgeBase body text
+      - profile/persona/voice-samples.md body text
+      - .private/** body text
+      - any raw source body outside the sanitized inventory snapshot
+    rule: "Every task input must be a sanitized snapshot or a synthetic payload; no task may require reading real private body text."
+    runner_input_rule: "The runner consumes only each fixture's embedded `payload`; a sanitized fixture's `source` is provenance metadata and must not be opened during replay."
+  snapshot_ref:
+    inventory_doc: docs/context/technical/goldenwave/kb-inventory-2026-07-25.md
+    inventory_observed_at: "2026-07-25"
+    source_commit: ba8b8cf977237830b8dc21cd12e0579c09849029
+    dirty_status_sha256: e02a3a52fedd5c6550559c79c65bf1dc9f4b73701adb3ced3ef27756ce20f7fd
+    tracked_diff_sha256: f30cc5998f3725968f2d286081d3c08008f970f786fb12872efe46e996c2d799
+    worktree_content_sha256: acc30da933e29960735534704fe1caee13c060d191a4dfa280afeb500fcde6a8
+  counts:
+    tasks: 20
+    assertions: 120
+    category_coverage:
+      Profile: 9
+      Knowledge: 9
+      Project: 9
+  capacity_policy:
+    algorithm: utf8_bytes
+    profile_pack_max_bytes: 8192
+    knowledge_pack_max_bytes: 32768
+    boundary_rule: "Allow when actual_bytes <= max_bytes; deny when actual_bytes >= max_bytes + 1."
+
+error_codes:
+  - code: GW_DOC_UNSAFE_PRIVATE_BOUNDARY
+    meaning: "Missing or unignored local_private boundary; doctor must fail closed."
+  - code: GW_DOC_UNSAFE_TRACKED_L3_REVIEW
+    meaning: "Tracked L3 profile material needs manual review without body reads."
+  - code: GW_DOC_REPAIRABLE_REMOTE_POLICY_DRIFT
+    meaning: "Legacy permission policy conflicts with GoldenWave defaults but can be repaired explicitly."
+  - code: GW_CTX_OK_PROFILE_MINIMAL
+    meaning: "Minimal profile context pack is correct, sourced, fresh enough, and permission clipped."
+  - code: GW_CTX_STALE_PROFILE_FACT
+    meaning: "A profile fact is present but stale and must be marked for confirmation."
+  - code: GW_CAND_INVALID_UNCONFIRMED_INFERENCE
+    meaning: "Inference cannot be promoted to formal profile/project fact without confirmation."
+  - code: GW_CTX_BUDGET_EXCEEDED_PROFILE
+    meaning: "Profile context request exceeds candidate capacity budget and must be reduced."
+  - code: GW_CTX_OK_KNOWLEDGE_ENTITY
+    meaning: "Knowledge answer is correct, sourced, fresh, and permission-safe."
+  - code: GW_CTX_CONFLICT_REQUIRES_FRESHNESS
+    meaning: "Conflicting knowledge requires an explicit freshness-based resolution."
+  - code: GW_DOC_ADVISORY_WIKI_QUALITY
+    meaning: "Knowledge quality issues are advisory and must not be confused with safety failures."
+  - code: GW_DOC_INVALID_FRONTMATTER
+    meaning: "Malformed structure is invalid and must be rejected before body use."
+  - code: GW_CTX_UNSAFE_RAW_SOURCE_LEAK
+    meaning: "A raw source or ephemeral artifact is being leaked as formal knowledge."
+  - code: GW_CTX_BUDGET_EXCEEDED_WIKI
+    meaning: "A knowledge pack exceeds the frozen candidate capacity budget."
+  - code: GW_CTX_OK_PROJECT_STATUS
+    meaning: "Project status answer matches process and roadmap snapshots."
+  - code: GW_DOC_ADVISORY_DIRTY_WORKTREE
+    meaning: "Dirty worktree is reported as a reproducibility risk, not auto-cleaned."
+  - code: GW_CAND_REPAIRABLE_CAS_MISMATCH
+    meaning: "CAS or idempotency collision requires retry/rebase without overwrite."
+  - code: GW_DOC_REPAIRABLE_STAGE_DRIFT
+    meaning: "Project documents disagree on stage and require an explicit repair."
+  - code: GW_CAND_INVALID_CONTRACT_VERSION
+    meaning: "Unsupported major contract version must be rejected."
+  - code: GW_CTX_DENIED_REMOTE_SCOPE
+    meaning: "The entire request is denied because `remote_model=false`; no payload fields may be sent."
+  - code: GW_CTX_OK_PORTABLE_CROSS_AGENT
+    meaning: "The same context contract is portable across Claude Code and Codex."
+
+fixtures:
+  - id: fx_inventory_2026_07_25
+    fixture_kind: sanitized_snapshot
+    source: docs/context/technical/goldenwave/kb-inventory-2026-07-25.md
+    payload:
+      wiki_content_pages: 197
+      wiki_markdown_files: 206
+      wiki_total_words: 65800
+      profile_markdown_files: 25
+      tracked_sources_files: 164
+      tracked_inbox_files: 2
+      dirty_modified_files: 4
+      dirty_untracked_files: 1
+      missing_private_dir: true
+      private_ignore_missing: true
+      tracked_l3_profile_files: 5
+      tracked_l3_breakdown:
+        indexes: 4
+        voice_samples: 1
+      wiki_quality:
+        missing_description: 85
+        related_anomalies: 61
+        orphan_pages: 35
+      policy_drift:
+        legacy_remote_model_default: allow
+        goldenwave_phase1_default: deny
+    note: "Metadata only; no personal body text may be inferred beyond this snapshot."
+  - id: fx_profile_minimal_public
+    fixture_kind: synthetic_payload
+    payload:
+      consumer: local_trusted_agent
+      profile_id: prof-demo-001
+      facts:
+        timezone:
+          value: Asia/Shanghai
+          sensitivity: L1
+          verified_at: "2026-07-20"
+          refresh_days: 90
+          source: profile/console/me.md#timezone
+          authorization:
+            store: self_context
+            remote_model: denied
+            local_trusted_agent: allowed
+        preferred_update_style:
+          value: concise-direct
+          sensitivity: L1
+          verified_at: "2026-07-18"
+          refresh_days: 30
+          source: profile/persona/style.md#update-style
+          authorization:
+            store: self_context
+            remote_model: allowed_local_only
+            local_trusted_agent: allowed
+        health_note:
+          value: redacted
+          sensitivity: L3
+          verified_at: "2026-07-19"
+          refresh_days: 14
+          source: .private/health/summary.md
+          authorization:
+            remote_model: denied
+            local_trusted_agent: denied
+    note: "Synthetic profile used to verify minimal context clipping."
+  - id: fx_profile_budget_boundary
+    fixture_kind: synthetic_payload
+    payload:
+      measurement:
+        algorithm: utf8_bytes
+        generation_rule: "ASCII byte string generated as `'x' * N`; because `x` is single-byte UTF-8, `bytesize == N`."
+        measured_at: "2026-07-25T10:00:00+08:00"
+        max_bytes: 8192
+        within_limit_bytes: 8192
+        over_limit_bytes: 8193
+        actual_candidate_bytes: 8193
+        boundary_rule: "deny when actual_bytes > max_bytes"
+      consumer: local_trusted_agent
+      request_scope: profile_context_pack
+  - id: fx_profile_stale_contact
+    fixture_kind: synthetic_payload
+    payload:
+      evaluation_at: "2026-07-25T10:00:00+08:00"
+      request:
+        as_of: "2026-07-25T10:00:00+08:00"
+      fact:
+        key: preferred_contact_window
+        value: weekday-evening
+        sensitivity: L1
+        verified_at: "2026-05-01"
+        refresh_days: 7
+        source: profile/05-time-energy/contact-window.md
+        authorization:
+          remote_model: denied
+  - id: fx_profile_inference_candidate
+    fixture_kind: synthetic_payload
+    payload:
+      candidate_id: cand-infer-001
+      inferred_fact:
+        key: role_primary
+        value: architect
+        evidence_type: inference
+        source: agent-run://demo/session-17
+        sensitivity: L1
+        confirmed_by_user: false
+  - id: fx_knowledge_phase_gates
+    fixture_kind: synthetic_payload
+    payload:
+      entities:
+        - title: phase-2-gate
+          claim: "Cross-Agent Task Success >= 90%, Context Correctness >= 95%, and Time to First Governed Value <= 15 minutes."
+          source: docs/prd/goldenwave-strategy/PRD.md#phase-2
+          verified_at: "2026-07-24"
+          refresh_days: 30
+          sensitivity: L0
+        - title: release-gate
+          claim: "Stable public contract waits until personal closed-loop and two external design partners pass release-candidate reruns."
+          source: ROADMAP.md#phase-5
+          verified_at: "2026-07-24"
+          refresh_days: 30
+          sensitivity: L0
+  - id: fx_knowledge_conflict
+    fixture_kind: synthetic_payload
+    payload:
+      records:
+        - claim: "Remote model default is allow."
+          source: legacy-agent-contract.md
+          verified_at: "2026-06-10"
+          refresh_days: 90
+        - claim: "Remote model default is deny for GoldenWave Phase 1."
+          source: spec/governance.md#use-authorization
+          verified_at: "2026-07-24"
+          refresh_days: 30
+  - id: fx_invalid_frontmatter_doc
+    fixture_kind: synthetic_payload
+    payload:
+      file_path: wiki/entities/broken-entity.md
+      frontmatter_excerpt: "---\ntitle broken\nsensitivity L1\n---"
+      parse_error: "Missing ':' after title and sensitivity keys."
+  - id: fx_raw_source_ephemeral
+    fixture_kind: synthetic_payload
+    payload:
+      artifact_id: src-demo-007
+      storage_class: ephemeral
+      file_path: .sources/research-reports/demo-notes.md
+      contains_third_party_quote: true
+      remote_model: denied
+  - id: fx_knowledge_budget_boundary
+    fixture_kind: synthetic_payload
+    payload:
+      measurement:
+        algorithm: utf8_bytes
+        generation_rule: "ASCII byte string generated as `'x' * N`; because `x` is single-byte UTF-8, `bytesize == N`."
+        measured_at: "2026-07-25T10:05:00+08:00"
+        max_bytes: 32768
+        within_limit_bytes: 32768
+        over_limit_bytes: 32769
+        actual_candidate_bytes: 32769
+        boundary_rule: "deny when actual_bytes > max_bytes"
+      request_scope: knowledge_context_pack
+      source_snapshot: fx_inventory_2026_07_25
+  - id: fx_project_status_snapshot
+    fixture_kind: sanitized_snapshot
+    source: docs/prd/goldenwave-strategy/.artifacts/process.md
+    payload:
+      stage: phase-0-execution-setup
+      last_updated: "2026-07-24"
+      current_work:
+        - P0-04 Threat Model
+        - P0-05 golden tasks
+      next_step:
+        - complete specs and quality review
+      block:
+        - P0-08 waits for future external design partner introduction
+  - id: fx_project_dirty_worktree
+    fixture_kind: sanitized_snapshot
+    source: docs/context/technical/goldenwave/kb-inventory-2026-07-25.md
+    payload:
+      head_commit: ba8b8cf977237830b8dc21cd12e0579c09849029
+      dirty_modified_files: 4
+      dirty_untracked_files: 1
+      dirty_status_sha256: e02a3a52fedd5c6550559c79c65bf1dc9f4b73701adb3ced3ef27756ce20f7fd
+      tracked_diff_sha256: f30cc5998f3725968f2d286081d3c08008f970f786fb12872efe46e996c2d799
+  - id: fx_candidate_cas_conflict
+    fixture_kind: synthetic_payload
+    payload:
+      candidate_id: cand-proj-011
+      idempotency_key: proj-note-2026-07-24
+      base_hash_before: sha256:1111aaaa
+      base_hash_after: sha256:9999ffff
+      attempted_write: process.md
+      competing_writer: hermes-cron
+  - id: fx_stage_drift_pair
+    fixture_kind: synthetic_payload
+    payload:
+      doc_a:
+        path: docs/prd/goldenwave-strategy/.artifacts/process.md
+        stage: phase-0-execution-setup
+        last_updated: "2026-07-24"
+      doc_b:
+        path: synthetic/roadmap-copy.md
+        stage: phase-1-trustable-core
+        last_updated: "2026-07-23"
+  - id: fx_contract_major_mismatch
+    fixture_kind: synthetic_payload
+    payload:
+      contract_name: context-candidate
+      contract_version: v2.0
+      supported_major_versions:
+        - 0
+  - id: fx_remote_scope_pack
+    fixture_kind: synthetic_payload
+    payload:
+      task: sandbox-design-partner-brief
+      consumer: remote_model
+      requested_at: "2026-07-25T10:10:00+08:00"
+      authorization:
+        remote_model: false
+        policy_source: spec/governance.md#use-authorization
+        policy_verified_at: "2026-07-24"
+      requested_fields:
+        - project_status
+        - profile_timezone
+        - profile_home_city
+        - profile_finance_preference
+  - id: fx_cross_agent_pack
+    fixture_kind: synthetic_payload
+    payload:
+      contract_version: context-pack/v0.1
+      request:
+        request_id: gw-p0-020-portability
+        prompt: "Build the frozen context manifest for timezone, remote-model default, and current project stage. Return only the normalized manifest."
+        consumer: local_trusted_agent
+        evaluation_at: "2026-07-25T10:15:00+08:00"
+        requested_fact_keys:
+          - timezone
+          - remote_model_default
+          - current_stage
+      agent_targets:
+        - claude_code
+        - codex
+      profile_fact:
+        key: timezone
+        value: Asia/Shanghai
+        source: profile/console/me.md#timezone
+        verified_at: "2026-07-20"
+        permission: local_only
+      knowledge_fact:
+        key: remote_model_default
+        value: deny
+        source: spec/governance.md#use-authorization
+        verified_at: "2026-07-24"
+        permission: shareable_l0
+      project_fact:
+        key: current_stage
+        value: phase-0-execution-setup
+        source: docs/prd/goldenwave-strategy/.artifacts/process.md
+        verified_at: "2026-07-24"
+        permission: repo_read_only
+      output_contract:
+        serialization: canonical_json_utf8
+        canonicalization: "UTF-8 JSON with object keys sorted lexicographically, array order preserved, and no insignificant whitespace."
+        exact_top_level_fields: [code, facts, outcome, request_id]
+        exact_fact_fields: [key, permission, source, value, verified_at]
+        expected_serialized_bytes: 590
+        max_serialized_bytes: 2048
+      normalized_expected_manifest:
+        code: GW_CTX_OK_PORTABLE_CROSS_AGENT
+        facts:
+          - key: timezone
+            permission: local_only
+            source: profile/console/me.md#timezone
+            value: Asia/Shanghai
+            verified_at: "2026-07-20"
+          - key: remote_model_default
+            permission: shareable_l0
+            source: spec/governance.md#use-authorization
+            value: deny
+            verified_at: "2026-07-24"
+          - key: current_stage
+            permission: repo_read_only
+            source: docs/prd/goldenwave-strategy/.artifacts/process.md
+            value: phase-0-execution-setup
+            verified_at: "2026-07-24"
+        outcome: portable_cross_agent_pack
+        request_id: gw-p0-020-portability
+
+tasks:
+  - id: GW-P0-001
+    category: Profile
+    task_origin: sanitized_inventory
+    real_task_origin: null
+    scenario:
+      given: "Given a sanitized inventory snapshot showing `.private/` does not exist and `.gitignore` does not ignore it."
+      when: "When doctor evaluates local_private readiness for adopt."
+      then: "Then it must fail closed on the missing private boundary."
+    input_fixture:
+      fixture_ids: [fx_inventory_2026_07_25]
+      source_policy: sanitized_snapshot_only
+    expected:
+      kind: diagnostic
+      level: unsafe
+      code: GW_DOC_UNSAFE_PRIVATE_BOUNDARY
+    assertions:
+      - dimension: fact_value
+        must: "Report both `missing_private_dir=true` and `private_ignore_missing=true`."
+      - dimension: provenance
+        must: "Cite only `kb-inventory-2026-07-25.md` metadata as evidence."
+      - dimension: freshness
+        must: "Tie the finding to the 2026-07-25 inventory snapshot and not claim a timeless guarantee."
+      - dimension: permission
+        must: "State that local_private protection cannot be assumed and remote use stays denied until fixed."
+      - dimension: diagnostic_level
+        must: "Classify the issue as `unsafe`, not `repairable` or `advisory`."
+      - dimension: boundary
+        must: "Do not read or quote any KnowledgeBase body text to reach the result."
+
+  - id: GW-P0-002
+    category: Profile
+    task_origin: sanitized_inventory
+    real_task_origin: null
+    scenario:
+      given: "Given a sanitized inventory snapshot showing 5 tracked L3 profile files, broken down into 4 indexes and 1 voice-samples file."
+      when: "When doctor evaluates tracked sensitive profile material."
+      then: "Then it must require manual review without exposing body text."
+    input_fixture:
+      fixture_ids: [fx_inventory_2026_07_25]
+      source_policy: sanitized_snapshot_only
+    expected:
+      kind: diagnostic
+      level: unsafe
+      code: GW_DOC_UNSAFE_TRACKED_L3_REVIEW
+    assertions:
+      - dimension: fact_value
+        must: "Report the tracked L3 count as 5 and preserve the `4 indexes + 1 voice-samples` breakdown."
+      - dimension: provenance
+        must: "Attribute the result to frontmatter-only inventory scanning, not full file reading."
+      - dimension: freshness
+        must: "Bind the finding to the same inventory snapshot commit and worktree hash."
+      - dimension: permission
+        must: "Forbid promotion, sharing, or remote-model use until manual review completes."
+      - dimension: diagnostic_level
+        must: "Keep the finding `unsafe` because the tracked combination can violate storage guarantees."
+      - dimension: boundary
+        must: "Never quote, summarize, or infer any voice-samples body content."
+
+  - id: GW-P0-003
+    category: Profile
+    task_origin: sanitized_inventory
+    real_task_origin: null
+    scenario:
+      given: "Given a legacy profile policy that allows cloud use and the current governance rule that remote_model defaults to deny."
+      when: "When doctor compares current policy against GoldenWave Phase 1 defaults."
+      then: "Then it must flag explicit policy drift and propose repair without editing the contract."
+    input_fixture:
+      fixture_ids: [fx_inventory_2026_07_25, fx_knowledge_conflict]
+      source_policy: sanitized_plus_synthetic
+    expected:
+      kind: diagnostic
+      level: repairable
+      code: GW_DOC_REPAIRABLE_REMOTE_POLICY_DRIFT
+    assertions:
+      - dimension: fact_value
+        must: "Detect that legacy remote-model behavior is `allow` while GoldenWave default is `deny`."
+      - dimension: provenance
+        must: "Cite both the sanitized inventory note and `spec/governance.md` as the compared sources."
+      - dimension: freshness
+        must: "Prefer the 2026-07-24 governance rule over the older 2026-06-10 legacy rule while still surfacing the conflict."
+      - dimension: permission
+        must: "Keep `store`, `share`, and `remote_model` scopes separate instead of collapsing them into one boolean."
+      - dimension: diagnostic_level
+        must: "Classify this as `repairable`, not `unsafe`, because the drift can be fixed with explicit user action."
+      - dimension: boundary
+        must: "Do not silently rewrite or normalize the existing agent-contract file."
+
+  - id: GW-P0-004
+    category: Profile+Knowledge
+    task_origin: synthetic
+    real_task_origin: null
+    scenario:
+      given: "Given a synthetic profile with timezone, update style, and a redacted L3 health note."
+      when: "When context build serves a low-risk task that only needs schedule and communication style."
+      then: "Then it must produce a minimal profile context pack."
+    input_fixture:
+      fixture_ids: [fx_profile_minimal_public]
+      source_policy: synthetic_only
+    expected:
+      kind: outcome
+      code: GW_CTX_OK_PROFILE_MINIMAL
+      outcome: minimal_profile_context_pack
+    assertions:
+      - dimension: fact_value
+        must: "Include `timezone=Asia/Shanghai` and `preferred_update_style=concise-direct`."
+      - dimension: provenance
+        must: "Carry the source pointer for each included fact."
+      - dimension: freshness
+        must: "Carry each fact's `verified_at` and `refresh_days` fields into the pack."
+      - dimension: permission
+        must: "Serve the pack only to `consumer=local_trusted_agent`; exclude the L3 health note because that fact is denied even to the local trusted agent in this fixture."
+      - dimension: minimality
+        must: "Return only the minimum facts needed for the task rather than a full profile dump."
+      - dimension: error_code
+        must: "Return the success code `GW_CTX_OK_PROFILE_MINIMAL`."
+
+  - id: GW-P0-005
+    category: Profile
+    task_origin: synthetic
+    real_task_origin: null
+    scenario:
+      given: "Given a synthetic profile fact whose refresh window has already expired."
+      when: "When an agent asks for that fact in a context pack."
+      then: "Then the fact may be surfaced only as stale and confirmation-needed."
+    input_fixture:
+      fixture_ids: [fx_profile_stale_contact]
+      source_policy: synthetic_only
+    expected:
+      kind: outcome
+      code: GW_CTX_STALE_PROFILE_FACT
+      outcome: stale_fact_warning
+    assertions:
+      - dimension: fact_value
+        must: "Keep `preferred_contact_window=weekday-evening` intact instead of fabricating a replacement value."
+      - dimension: provenance
+        must: "Preserve `profile/05-time-energy/contact-window.md` as the source."
+      - dimension: freshness
+        must: "At frozen `evaluation_at/as_of=2026-07-25T10:00:00+08:00`, mark the fact stale because `verified_at=2026-05-01` plus `refresh_days=7` expired on `2026-05-08`."
+      - dimension: permission
+        must: "Do not elevate the stale fact into an authorized remote-model payload."
+      - dimension: status
+        must: "Request user confirmation instead of silently treating the value as current truth."
+      - dimension: error_code
+        must: "Return `GW_CTX_STALE_PROFILE_FACT`."
+
+  - id: GW-P0-006
+    category: Profile+Project
+    task_origin: synthetic
+    real_task_origin: null
+    scenario:
+      given: "Given a synthetic candidate inferred from an agent run but not confirmed by the user."
+      when: "When the system attempts to promote the inference into formal profile or project memory."
+      then: "Then promotion must be blocked and remain a candidate."
+    input_fixture:
+      fixture_ids: [fx_profile_inference_candidate]
+      source_policy: synthetic_only
+    expected:
+      kind: diagnostic
+      level: invalid
+      code: GW_CAND_INVALID_UNCONFIRMED_INFERENCE
+    assertions:
+      - dimension: fact_value
+        must: "Keep the inferred claim `role_primary=architect` as candidate data only."
+      - dimension: provenance
+        must: "Preserve `agent-run://demo/session-17` and `evidence_type=inference`."
+      - dimension: freshness
+        must: "Treat the inference as unverified current-session evidence, not as durable truth."
+      - dimension: permission
+        must: "Require explicit user confirmation before any write into Profile or Project layers."
+      - dimension: diagnostic_level
+        must: "Reject the promotion as `invalid` for formal injection in its current state."
+      - dimension: boundary
+        must: "Do not auto-rewrite the candidate to look confirmed."
+
+  - id: GW-P0-007
+    category: Profile
+    task_origin: synthetic
+    real_task_origin: null
+    scenario:
+      given: "Given a profile pack measured by deterministic UTF-8 bytes with `max_bytes=8192`, a pass boundary at `8192`, and a failing candidate at `8193`."
+      when: "When context build evaluates it against a candidate capacity budget."
+      then: "Then it must reject the oversized pack and require trimming."
+    input_fixture:
+      fixture_ids: [fx_profile_minimal_public, fx_profile_budget_boundary]
+      source_policy: synthetic_only
+    expected:
+      kind: diagnostic
+      level: repairable
+      code: GW_CTX_BUDGET_EXCEEDED_PROFILE
+    assertions:
+      - dimension: fact_value
+        must: "Return a budget overflow decision because `actual_candidate_bytes=8193` exceeds `max_bytes=8192`."
+      - dimension: provenance
+        must: "Ground the decision in the frozen `utf8_bytes` capacity policy and `fx_profile_budget_boundary` measurement fixture."
+      - dimension: freshness
+        must: "Carry or cite `measured_at=2026-07-25T10:00:00+08:00` for the byte measurement."
+      - dimension: permission
+        must: "Keep the request scoped to `consumer=local_trusted_agent`; budget failure must not widen scope or trigger remote fallback."
+      - dimension: capacity
+        must: "Apply the exact boundary rule: `8192` bytes is allowed, `8193` bytes is denied."
+      - dimension: error_code
+        must: "Return `GW_CTX_BUDGET_EXCEEDED_PROFILE`."
+
+  - id: GW-P0-008
+    category: Knowledge
+    task_origin: synthetic
+    real_task_origin: null
+    scenario:
+      given: "Given a synthetic knowledge fixture built from the approved strategy and roadmap gates."
+      when: "When an agent answers what must happen before a stable public contract is announced."
+      then: "Then the answer must cite the right release gates."
+    input_fixture:
+      fixture_ids: [fx_knowledge_phase_gates]
+      source_policy: synthetic_only
+    expected:
+      kind: outcome
+      code: GW_CTX_OK_KNOWLEDGE_ENTITY
+      outcome: sourced_knowledge_answer
+    assertions:
+      - dimension: fact_value
+        must: "State that stable public contract waits for personal closed-loop validation plus two external design-partner reruns."
+      - dimension: provenance
+        must: "Cite both `PRD.md#phase-2` and `ROADMAP.md#phase-5` claims as applicable."
+      - dimension: freshness
+        must: "Carry the `verified_at=2026-07-24` freshness marker."
+      - dimension: permission
+        must: "Treat this as L0 knowledge that can be shared without profile leakage."
+      - dimension: completeness
+        must: "Avoid substituting a weaker gate such as repo-public status alone."
+      - dimension: error_code
+        must: "Return `GW_CTX_OK_KNOWLEDGE_ENTITY`."
+
+  - id: GW-P0-009
+    category: Knowledge
+    task_origin: synthetic
+    real_task_origin: null
+    scenario:
+      given: "Given two conflicting knowledge records about remote-model defaults."
+      when: "When an agent must answer which rule governs current Phase 1 behavior."
+      then: "Then it must resolve the answer by freshness and still surface the conflict."
+    input_fixture:
+      fixture_ids: [fx_knowledge_conflict]
+      source_policy: synthetic_only
+    expected:
+      kind: outcome
+      code: GW_CTX_CONFLICT_REQUIRES_FRESHNESS
+      outcome: conflict_resolved_with_freshness
+    assertions:
+      - dimension: fact_value
+        must: "Answer that the current default is `deny` for Phase 1."
+      - dimension: provenance
+        must: "Cite both the legacy and current records instead of hiding the losing source."
+      - dimension: freshness
+        must: "Use the newer 2026-07-24 record to resolve the conflict."
+      - dimension: permission
+        must: "Avoid treating legacy `allow` as an active share or remote-model permission."
+      - dimension: conflict_handling
+        must: "Surface that a conflict existed rather than merging the records silently."
+      - dimension: error_code
+        must: "Return `GW_CTX_CONFLICT_REQUIRES_FRESHNESS`."
+
+  - id: GW-P0-010
+    category: Knowledge
+    task_origin: sanitized_inventory
+    real_task_origin: null
+    scenario:
+      given: "Given a sanitized inventory report that contains wiki quality counts but no parsing or privacy breach."
+      when: "When doctor evaluates knowledge quality."
+      then: "Then it must report advisory findings only."
+    input_fixture:
+      fixture_ids: [fx_inventory_2026_07_25]
+      source_policy: sanitized_snapshot_only
+    expected:
+      kind: diagnostic
+      level: advisory
+      code: GW_DOC_ADVISORY_WIKI_QUALITY
+    assertions:
+      - dimension: fact_value
+        must: "Report `missing_description=85`, `related_anomalies=61`, and `orphan_pages=35`."
+      - dimension: provenance
+        must: "Source the counts only from the sanitized inventory snapshot."
+      - dimension: freshness
+        must: "Bind the result to the observed-at date 2026-07-25."
+      - dimension: permission
+        must: "Avoid claiming any content leak or private access because this is a quality-only finding."
+      - dimension: diagnostic_level
+        must: "Classify the result as `advisory`, not `unsafe`."
+      - dimension: boundary
+        must: "Do not read actual wiki page bodies to derive extra criticisms."
+
+  - id: GW-P0-011
+    category: Knowledge
+    task_origin: synthetic
+    real_task_origin: null
+    scenario:
+      given: "Given a synthetic knowledge page with malformed frontmatter."
+      when: "When ingest or doctor parses the page."
+      then: "Then it must reject the page as structurally invalid before using the body."
+    input_fixture:
+      fixture_ids: [fx_invalid_frontmatter_doc]
+      source_policy: synthetic_only
+    expected:
+      kind: diagnostic
+      level: invalid
+      code: GW_DOC_INVALID_FRONTMATTER
+    assertions:
+      - dimension: fact_value
+        must: "Identify the parse error as missing `:` separators in frontmatter keys."
+      - dimension: provenance
+        must: "Name the synthetic file path `wiki/entities/broken-entity.md`."
+      - dimension: freshness
+        must: "Treat the invalid page as unusable until repaired; freshness cannot rescue it."
+      - dimension: permission
+        must: "Do not fall back to body reading to guess the intended metadata."
+      - dimension: diagnostic_level
+        must: "Classify this case as `invalid`."
+      - dimension: error_code
+        must: "Return `GW_DOC_INVALID_FRONTMATTER`."
+
+  - id: GW-P0-012
+    category: Knowledge+Project
+    task_origin: synthetic
+    real_task_origin: null
+    scenario:
+      given: "Given a synthetic raw research artifact stored as `ephemeral` and containing a third-party quote."
+      when: "When an agent tries to send it as formal project knowledge."
+      then: "Then the system must block the leak and require redaction or summarization."
+    input_fixture:
+      fixture_ids: [fx_raw_source_ephemeral]
+      source_policy: synthetic_only
+    expected:
+      kind: diagnostic
+      level: unsafe
+      code: GW_CTX_UNSAFE_RAW_SOURCE_LEAK
+    assertions:
+      - dimension: fact_value
+        must: "Recognize the artifact as `storage_class=ephemeral` with a third-party quote."
+      - dimension: provenance
+        must: "Preserve the raw artifact path as provenance without promoting the raw content."
+      - dimension: freshness
+        must: "Treat the artifact as transient processing material, not as a durable fresh fact."
+      - dimension: permission
+        must: "Block remote-model use and formal git-tracked promotion for the raw payload."
+      - dimension: diagnostic_level
+        must: "Mark this as `unsafe` because it is an attempted boundary leak."
+      - dimension: error_code
+        must: "Return `GW_CTX_UNSAFE_RAW_SOURCE_LEAK`."
+
+  - id: GW-P0-013
+    category: Knowledge
+    task_origin: sanitized_inventory
+    real_task_origin: null
+    scenario:
+      given: "Given a synthetic knowledge pack measured by deterministic UTF-8 bytes with `max_bytes=32768`, a pass boundary at `32768`, and a failing candidate at `32769`."
+      when: "When an implementation evaluates that synthetic knowledge pack against the frozen byte budget."
+      then: "Then it must reject the request as over budget."
+    input_fixture:
+      fixture_ids: [fx_inventory_2026_07_25, fx_knowledge_budget_boundary]
+      source_policy: sanitized_plus_synthetic
+    expected:
+      kind: diagnostic
+      level: repairable
+      code: GW_CTX_BUDGET_EXCEEDED_WIKI
+    assertions:
+      - dimension: fact_value
+        must: "Report the synthetic knowledge pack as oversized because `actual_candidate_bytes=32769` exceeds `max_bytes=32768`."
+      - dimension: provenance
+        must: "Ground the decision in the frozen `utf8_bytes` capacity policy, the inventory snapshot, and `fx_knowledge_budget_boundary`."
+      - dimension: freshness
+        must: "Carry or cite both `observed_at=2026-07-25` for inventory scale and `measured_at=2026-07-25T10:05:00+08:00` for byte measurement."
+      - dimension: permission
+        must: "Prefer retrieval and clipping over wholesale export to any agent."
+      - dimension: capacity
+        must: "Apply the exact boundary rule: `32768` bytes is allowed, `32769` bytes is denied; the boundary payload is synthetic, while the inventory also shows the real wiki scale is far above the cap."
+      - dimension: error_code
+        must: "Return `GW_CTX_BUDGET_EXCEEDED_WIKI`."
+
+  - id: GW-P0-014
+    category: Project
+    task_origin: sanitized_inventory
+    real_task_origin: null
+    scenario:
+      given: "Given the process snapshot for GoldenWave strategy execution."
+      when: "When an agent answers the current phase and near-term next step."
+      then: "Then the answer must match the process artifact."
+    input_fixture:
+      fixture_ids: [fx_project_status_snapshot]
+      source_policy: sanitized_snapshot_only
+    expected:
+      kind: outcome
+      code: GW_CTX_OK_PROJECT_STATUS
+      outcome: sourced_project_status
+    assertions:
+      - dimension: fact_value
+        must: "State the current stage as `phase-0-execution-setup`."
+      - dimension: provenance
+        must: "Cite `docs/prd/goldenwave-strategy/.artifacts/process.md`."
+      - dimension: freshness
+        must: "Carry `last_updated=2026-07-24`."
+      - dimension: permission
+        must: "Answer without requiring any private KnowledgeBase body reads."
+      - dimension: status
+        must: "Name P0-04 and P0-05 as current work and note the external-partner dependency as non-blocking."
+      - dimension: error_code
+        must: "Return `GW_CTX_OK_PROJECT_STATUS`."
+
+  - id: GW-P0-015
+    category: Project
+    task_origin: sanitized_inventory
+    real_task_origin: null
+    scenario:
+      given: "Given a sanitized snapshot of a dirty worktree with known hashes."
+      when: "When doctor runs in read-only mode."
+      then: "Then it must surface reproducibility risk without mutating the worktree."
+    input_fixture:
+      fixture_ids: [fx_project_dirty_worktree]
+      source_policy: sanitized_snapshot_only
+    expected:
+      kind: diagnostic
+      level: advisory
+      code: GW_DOC_ADVISORY_DIRTY_WORKTREE
+    assertions:
+      - dimension: fact_value
+        must: "Report `dirty_modified_files=4` and `dirty_untracked_files=1`."
+      - dimension: provenance
+        must: "Echo the head commit and the supplied dirty hashes for reproducibility."
+      - dimension: freshness
+        must: "Treat the finding as scoped to the captured snapshot, not as a permanent repo property."
+      - dimension: permission
+        must: "Never auto-clean, reset, or overwrite concurrent work."
+      - dimension: concurrency
+        must: "Warn that CAS or transaction-sensitive writes need stronger coordination under external automation."
+      - dimension: error_code
+        must: "Return `GW_DOC_ADVISORY_DIRTY_WORKTREE`."
+
+  - id: GW-P0-016
+    category: Project
+    task_origin: synthetic
+    real_task_origin: null
+    scenario:
+      given: "Given a synthetic candidate write with a duplicate idempotency key and a changed base hash."
+      when: "When inject tries to update the same project artifact."
+      then: "Then it must stop on CAS mismatch and ask for retry or rebase."
+    input_fixture:
+      fixture_ids: [fx_candidate_cas_conflict]
+      source_policy: synthetic_only
+    expected:
+      kind: diagnostic
+      level: repairable
+      code: GW_CAND_REPAIRABLE_CAS_MISMATCH
+    assertions:
+      - dimension: fact_value
+        must: "Detect that `base_hash_before` and `base_hash_after` differ for the same target artifact."
+      - dimension: provenance
+        must: "Preserve the original candidate id and idempotency key in the error."
+      - dimension: freshness
+        must: "Treat the later base hash as the currently winning state."
+      - dimension: permission
+        must: "Refuse to overwrite the competing write from `hermes-cron`."
+      - dimension: diagnostic_level
+        must: "Classify the case as `repairable` via retry or rebase, not as `unsafe`."
+      - dimension: error_code
+        must: "Return `GW_CAND_REPAIRABLE_CAS_MISMATCH`."
+
+  - id: GW-P0-017
+    category: Project+Knowledge
+    task_origin: synthetic
+    real_task_origin: null
+    scenario:
+      given: "Given two project-stage documents that disagree on whether work is still in Phase 0 or already in Phase 1."
+      when: "When doctor compares the project state across documents."
+      then: "Then it must flag stage drift and request explicit repair."
+    input_fixture:
+      fixture_ids: [fx_stage_drift_pair]
+      source_policy: synthetic_only
+    expected:
+      kind: diagnostic
+      level: repairable
+      code: GW_DOC_REPAIRABLE_STAGE_DRIFT
+    assertions:
+      - dimension: fact_value
+        must: "Report the exact stage mismatch between `phase-0-execution-setup` and `phase-1-trustable-core`."
+      - dimension: provenance
+        must: "Cite both document paths rather than choosing one silently."
+      - dimension: freshness
+        must: "Notice that the Phase 0 artifact is newer and still keep the drift visible."
+      - dimension: permission
+        must: "Avoid auto-editing either document during diagnosis."
+      - dimension: diagnostic_level
+        must: "Classify the mismatch as `repairable`."
+      - dimension: error_code
+        must: "Return `GW_DOC_REPAIRABLE_STAGE_DRIFT`."
+
+  - id: GW-P0-018
+    category: Project
+    task_origin: synthetic
+    real_task_origin: null
+    scenario:
+      given: "Given a synthetic candidate envelope whose major contract version is unsupported."
+      when: "When validator or inject parses the envelope."
+      then: "Then it must reject the payload as invalid."
+    input_fixture:
+      fixture_ids: [fx_contract_major_mismatch]
+      source_policy: synthetic_only
+    expected:
+      kind: diagnostic
+      level: invalid
+      code: GW_CAND_INVALID_CONTRACT_VERSION
+    assertions:
+      - dimension: fact_value
+        must: "Parse `contract_version=v2.0` as major version `2` and reject it against `supported_major_versions=[0]`."
+      - dimension: provenance
+        must: "Preserve the envelope contract name and version in the error report."
+      - dimension: freshness
+        must: "Treat unsupported-major incompatibility as immediate and not solvable by freshness."
+      - dimension: permission
+        must: "Refuse injection into formal layers or logs that expose the full sensitive payload."
+      - dimension: diagnostic_level
+        must: "Classify the case as `invalid`."
+      - dimension: error_code
+        must: "Return `GW_CAND_INVALID_CONTRACT_VERSION`."
+
+  - id: GW-P0-019
+    category: Project+Profile
+    task_origin: synthetic
+    real_task_origin: null
+    scenario:
+      given: "Given a sandbox partner task consumed by a remote model with `remote_model=false` authorization."
+      when: "When context build prepares the project brief."
+      then: "Then it must deny the entire request and send no payload fields."
+    input_fixture:
+      fixture_ids: [fx_remote_scope_pack]
+      source_policy: synthetic_only
+    expected:
+      kind: diagnostic
+      level: invalid
+      code: GW_CTX_DENIED_REMOTE_SCOPE
+      outcome: denied_remote_scope_request
+    assertions:
+      - dimension: fact_value
+        must: "Return no context payload fields at all because the whole request is denied."
+      - dimension: provenance
+        must: "Cite only the request-level authorization provenance such as `policy_source` from the fixture."
+      - dimension: freshness
+        must: "Report the request-level time basis from `requested_at` and/or `policy_verified_at`."
+      - dimension: permission
+        must: "State explicitly that `remote_model=false` denies the entire request, not just selected fields."
+      - dimension: sandbox
+        must: "State that sandbox execution does not mutate the formal store."
+      - dimension: error_code
+        must: "Return `GW_CTX_DENIED_REMOTE_SCOPE`."
+
+  - id: GW-P0-020
+    category: Profile+Knowledge+Project
+    task_origin: synthetic
+    real_task_origin: null
+    scenario:
+      given: "Given one synthetic context pack contract intended for both Claude Code and Codex."
+      when: "When both agents receive the exact frozen request and embedded payload and serialize the normalized manifest with canonical JSON UTF-8."
+      then: "Then both outputs must equal `normalized_expected_manifest`, use only the declared fields, and remain within 2048 serialized bytes."
+    input_fixture:
+      fixture_ids: [fx_cross_agent_pack]
+      source_policy: synthetic_only
+    expected:
+      kind: outcome
+      code: GW_CTX_OK_PORTABLE_CROSS_AGENT
+      outcome: portable_cross_agent_pack
+    assertions:
+      - dimension: fact_value
+        must: "Return exactly the three ordered key/value pairs in `normalized_expected_manifest`: `timezone=Asia/Shanghai`, `remote_model_default=deny`, and `current_stage=phase-0-execution-setup`."
+      - dimension: provenance
+        must: "Return exactly each manifest fact's declared `source`; no additional provenance fields are allowed."
+      - dimension: freshness
+        must: "Return the exact string `verified_at` values from `normalized_expected_manifest` when evaluated at `2026-07-25T10:15:00+08:00`."
+      - dimension: permission
+        must: "Return exactly the declared permissions: `local_only`, `shareable_l0`, and `repo_read_only`, with no widened or agent-specific permission."
+      - dimension: portability
+        must: "For each agent, deep-equal the embedded `normalized_expected_manifest` using only the frozen request and fixture payload; environment state, tools, and source-file reads are forbidden inputs."
+      - dimension: capacity
+        must: "Serialize with `canonical_json_utf8`, use exactly top-level fields `[code,facts,outcome,request_id]` and fact fields `[key,permission,source,value,verified_at]`, add no fields, and require exact `bytesize=590`, which is `<= 2048`."

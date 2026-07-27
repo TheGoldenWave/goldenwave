@@ -1,0 +1,52 @@
+---
+feature_id: goldenwave-strategy
+updated: 2026-07-27
+---
+
+# GoldenWave Strategy Notes
+
+## 2026-07-24 — 外层入口引用不可解析
+
+- 现象：会话外层注入的指令包含 `@RTK.md`，但实际仓库 `AGENTS.md` 不含该引用，仓库和 Git 历史也从未存在 `RTK.md`。
+- 结论：这是外层兼容上下文，不是项目入口缺失。当前及首次引入提交中的 `AGENTS.md` 均为完整入口。
+- 处理：不创建虚假 `RTK.md`，不修改有效的仓库入口；后续以工作区 `AGENTS.md` 为项目权威规则。
+
+## 2026-07-24 — 决策包重复请求
+
+- 现象：初版决策包把已由战略批准的 local-first、experimental Contract、Social Memory 延后等事项再次提交用户。
+- 原因：把架构约束确认误当成新产品决策。
+- 规则：后续生成决策包前，先检索 PRD/ADR 的已批准决策；只有剩余 D2 分歧才请求用户。
+
+## 2026-07-27 — 动态来源不能直接充当冻结 fixture
+
+- 现象：真实任务 suite 最初按路径冻结 `ROADMAP.md`、`process.md` 和执行看板；完成用户确认后按规范更新进度，会立即造成来源摘要不匹配。
+- 原因：把持续变化的项目状态文件同时当成不可变测试输入，形成确认后自失效循环。
+- 规则：可重放测试必须引用不可变脱敏 snapshot，并在 snapshot frontmatter 保存原路径、观察时间和原内容摘要；live 文件只用于后续状态管理。
+
+## 2026-07-27 — 未确认的 owner-bound baseline 必须隔离
+
+- 现象：工作区曾出现一组在 suite 仍为 pending 时生成的 baseline 报告；其中 owner-bound 任务被记为通过，原始运行引用也无法复核。
+- 处理：将产物移入 `tests/evidence/phase0/quarantine/preconfirmation-2026-07-25/` 并标记 `.invalid`，禁止进入 Gate、指标或重放。
+- 规则：生成 scorecard 前必须先运行 P0-06 preflight；它要验证 suite 已确认、绑定与摘要一致、运行清单位于允许目录且 run ID 非空唯一。
+
+## 2026-07-27 — 项目组织方式减重
+
+- **用户决定**：保留 GoldenWave 的安全与治理红线，但从“完整体系先行”调整为“最小可信纵向闭环先行”。
+- **阶段调整**：Phase 1 拆为 1A Safe Bootstrap、1B Candidate Contract、1C Reliable Inject；每个切片独立验收后再扩大能力。
+- **Gate 调整**：Phase 0 内部基线与 Threat Model 通过即可启动内部 Phase 1A；外部设计伙伴继续阻塞公共产品结论和正式发布，不阻塞内部 dogfood。
+- **协作调整**：开发闭环按 A/B/C 风险分级，低风险文档与状态更新不再强制双重独立评审。
+- **仓库边界**：维护者 Harness 与用户产品分发分离；物理去重必须在引用盘点后执行，不在本次调整中直接删除。
+
+## 2026-07-27 — 仓库 scorecard metadata 必须 fail-closed
+
+- 现象：`p0-baseline-preflight.rb` 已验证 suite 绑定、确认摘要和 `run_id` 唯一性，但还不能阻止 repo scorecard 混入额外字段、私有路径或二次回答痕迹。
+- 风险：一旦把 `.private/` 路径、自由文本评语或多轮补救记录写进仓库，P0-06 就会破坏 allowlist 边界，且难以自动复核。
+- 处理：新增 `tests/specs/phase0/p0-scorecard-metadata-validate.rb` 与 `tests/specs/phase0/goldenwave-strategy.spec.rb`，把 repo scorecard 收紧为 9 个 allowlist 字段、固定嵌套键、opaque `evidence_refs`、单响应计数和 preregistered `run_id` 集合。
+- 规则：P0-06 的仓库 scorecard 只能存 `tests/specs/phase0/real-dogfood-README.md` 明示 allowlist 字段；原始输出和带文本的 reviewer notes 仅允许进入 `.private/goldenwave/baselines/p0-v0.1/`。
+
+## 2026-07-27 — P0-06 基线暴露来源归因缺口
+
+- **结果**：20 个单响应 run 共通过 96/120 条断言，无 invalid；20 个任务均因至少一条断言失败而未全量通过。
+- **主要缺口**：provenance 归因 0/20，通过内容本身无法稳定判断用了哪些冻结来源；另有 3 条 fact-value 和 1 条 workflow-fit 失败。
+- **保留原则**：不提供第二次回答，不把 baseline 修绿；该结果作为 Phase 1A Context/Doctor 输出必须显式携带来源的 RED 输入。
+- **计时限制**：5 个 run 使用批次级 65 秒边界，不能用于精确的单任务延迟比较；本批次只报告聚合观察。
