@@ -51,6 +51,15 @@ bash scripts/init.sh ~/MyKnowledgeBase
 
 ---
 
+## 生态项目
+
+- [LifeSub / 旁白](https://github.com/TheGoldenWave/LifeSub)：本地优先的个人声音记忆系统，负责会议与重要对话的采集、转写、摘要、证据和 Agent 检索。经过用户确认的记忆候选可进入 GoldenWave 治理，但原始音频、完整转写和私有索引仍由 LifeSub 持有。详见 [GoldenWave 与 LifeSub 生态关系](docs/lifesub-integration.md)。
+- [malow / 吗喽](https://github.com/TheGoldenWave/malow)：围绕 Project / Matter 的个人 Agent 工作台，通过受控 Knowledge Patch 与 GoldenWave 协同。
+
+三个源码仓库独立发布，不使用 Git submodule，也不保存用户的真实个人数据。
+
+---
+
 ## 项目状态
 
 **v0.1（当前）**：开放标准 + 结构骨架 + init 脚本 + 三个 Skill。
