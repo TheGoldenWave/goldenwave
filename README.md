@@ -109,6 +109,7 @@ bash scripts/init.sh ~/MyKnowledgeBase
 
 ## Integrations
 
+- [LifeSub、Malow 与 GoldenWave](docs/lifesub-malow-integration.md)：LifeSub 作为声音与情境证据系统，Malow 作为项目处理与人工审核层，GoldenWave 作为长期上下文治理系统；三者通过 Evidence Contract 与 Knowledge Patch Contract 解耦。
 - [Malow](docs/malow-integration.md)：Malow 作为下游 Knowledge Patch producer，通过版本化 GoldenWave Contract 和运行时 Inbox 路径接入；两个源码仓库保持独立，不使用 Git submodule。
 - [Malow 能力与 Workflow 集成](docs/malow-capability-workflow-integration.md)：区分 Malow Project Workflow 与 GoldenWave Knowledge Governance Workflow，并定义 Skill / Workflow 从 Matter 到 Project、再到全局的受治理晋升路径。
 - [核心术语中英对照](docs/core-terminology.md)：统一 Profile、Knowledge、Skill、Capability 与两类 Workflow 的中英文领域名。
