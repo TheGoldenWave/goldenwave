@@ -1,0 +1,15 @@
+GoldenWave Phase 1B P1B-01 branch coverage
+Date: 2026-07-29
+Tool: Coverage.py 7.15.2 with C extension
+Test result: 5 runs, 125 assertions, 0 failures, 0 errors, 0 skips
+
+Statements: 178
+Missing statements: 3
+Branches: 62
+Partial branches: 4
+Total coverage: 97%
+
+The report covers scripts/goldenwave_candidate.py and scripts/gw_candidate.
+It was produced by running tests/specs/candidate-contract/run.rb with
+tests/specs/candidate-contract/coverage_python.sh as GW_CANDIDATE_PYTHON.
+The fixture set contains 2 valid and 15 invalid or malicious candidates.

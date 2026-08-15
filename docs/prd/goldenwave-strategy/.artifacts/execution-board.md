@@ -1,8 +1,8 @@
 ---
 feature_id: goldenwave-strategy
-stage: phase-1a-complete
+stage: phase-1b-p1b01-review
 status: active
-updated: 2026-07-27
+updated: 2026-08-10
 accountable: primary-agent
 responsible_for_status: project-manager-agent
 ---
@@ -11,9 +11,9 @@ responsible_for_status: project-manager-agent
 
 ## 当前里程碑
 
-- **Phase**：1B — Candidate Contract（ready to start）
-- **状态**：Green（Phase 1A 内部 Gate 已通过；外部验证泳道仍待真实引荐）
-- **目标**：冻结并实现 experimental Candidate Contract、fixtures 与 Validator。
+- **Phase**：1B — Candidate Contract（P1B-01 review）
+- **状态**：Green（Contract、fixtures 与 Validator 已实现；分支覆盖率 97%，独立评审待补）
+- **目标**：完成 P1B-01 评审后，进入最小 review/accept/reject。
 - **用户参与预算**：Phase 0 最多 1 个边界决策包、1 次外部引荐请求、1 次 Gate 确认。
 
 ## 状态枚举
@@ -65,12 +65,23 @@ P0-08 调整为并行外部验证泳道：两名设计伙伴的知情同意和�
 | P1A-01 | Safe Bootstrap 检查集与失败验收 | qa + architect | done | P0-09 | E-P1A-01 | no |
 | P1A-02 | 安全 `init`、只读 `doctor` 与 Git 门禁 | dev | done | P1A-01 | E-P1A-02 | no |
 | P1A-03 | 新库 + 真实 KnowledgeBase 只读演练与 1A Gate | primary + qa | done | P1A-02 | E-P1A-03 | remediation-only |
-| P1B-01 | Candidate Contract、fixtures 与 Validator | qa + dev | backlog | P1A-03 | E-P1B-01 | no |
+| P1B-01 | Candidate Contract、fixtures 与 Validator | qa + dev | review | P1A-03 | E-P1B-01 | no |
 | P1B-02 | 最小 review/accept/reject 与单候选写入 | dev | backlog | P1B-01 | E-P1B-02 | no |
 | P1B-03 | Contract 安全验收与 1B Gate | qa + architect | backlog | P1B-02 | E-P1B-03 | no |
 | P1C-01 | 稳定 ID、幂等、CAS 与事务式 inject | dev | backlog | P1B-03 | E-P1C-01 | no |
 | P1C-02 | 并发、崩溃、备份恢复与受控 adopt 修复 | dev + qa | backlog | P1C-01 | E-P1C-02 | remediation-only |
 | P1C-03 | 真实库恢复演练与 Phase 1 Gate | primary + independent reviewers | backlog | P1C-02 | E-P1C-03 | go-no-go |
+
+## 复杂度减重泳道
+
+| ID | 工作项 | Status | Depends On | 完成标准 |
+|---|---|---|---|---|
+| CR-01 | 维护者 Harness 引用盘点与物理去重方案 | todo | - | 明确单一模板源、必要适配层、可删除镜像及验证命令 |
+| CR-02 | 真实纵向闭环 | backlog | P1B-02 | `init -> context build -> candidate -> accept -> 后续复用` 有真实证据 |
+| CR-03 | 状态来源收敛 | backlog | CR-01 | 同一状态不再由 README、ROADMAP、process、看板手工重复维护 |
+| CR-04 | 对外认知路径简化 | backlog | CR-02 | 入口文档优先呈现五步用户路径，内部模型渐进披露 |
+| CR-05 | Contract 单一结构定义 | backlog | P1B-01 | Schema 是基础结构 SSOT；运行时不复制字段和枚举；紧凑投影可生成 |
+| CR-06 | 复杂度预算门禁 | backlog | CR-01/CR-03 | 新增治理资产需抵消旧机制或记录例外理由 |
 
 每个切片先保存对应 RED 证据，再进入实现。Gate 检查不得存在 skip/pending 测试；总体分支覆盖率下限为 80%，安全与策略分支要求 100% fixture 覆盖。覆盖率报告登记到 Evidence Manifest，但不为低风险文档或生成物重复建立多层审查证据。
 

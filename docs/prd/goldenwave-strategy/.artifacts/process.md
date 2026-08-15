@@ -1,6 +1,6 @@
 ---
-stage: phase-1a-complete
-last_updated: 2026-07-27
+stage: phase-1b-p1b01-review
+last_updated: 2026-08-10
 feature_id: goldenwave-strategy
 source: personal-knowledge-base-synthesis
 status: active
@@ -8,7 +8,7 @@ status: active
 
 # GoldenWave 战略重规划进度
 
-- 当前阶段：Phase 1A Safe Bootstrap 已实现并通过内部 Gate，当前进入 `phase-1a-complete`，Phase 1B ready。
+- 当前阶段：Phase 1B 已启动；P1B-01 experimental Candidate Contract、fixtures 与 Validator 已实现，进入 review。
 - 已完成：项目现状盘点、个人知识库证据检索、三条战略路线比较、定位与核心取舍确认、正式战略设计稿。
 - 已确认：先用张金波真实 KnowledgeBase 与 Claude Code / Codex 完成闭环，再提炼通用产品。
 - 已确认：近期主线为 Trustable Core、Context Pack、Candidate Governance 与双 Agent 验证。
@@ -39,5 +39,12 @@ status: active
 - 已完成：P1A-02 交付安全 init、只读 doctor/adopt inventory、Git 门禁、versioned manifest、bundled Skill 与兼容包装器。
 - 已完成：安全审查补齐 manifest/template 路径 allowlist、frontmatter-only 扫描、库内 symlink、tracked ephemeral/L3、Git 根精确匹配和私有目录权限。
 - 已完成：P1A-03 最终 `19 tests / 165 assertions / 0 failures / 0 skips`，分支覆盖率 `81%`；真实 KnowledgeBase 演练 `unchanged=true`。
-- 下一步：启动 P1B-01 experimental Candidate Contract、fixtures 与 Validator；P0-08 外部验证继续并行。
-- 阻塞项：P0-08 只阻塞公共产品结论与正式发布；Windows/Linux 原生 CI 在公共发布前补跑，不阻塞内部 Phase 1B。
+- 已完成：P1B-01 保存两轮 RED：Validator 入口缺失 `3 runs / 6 assertions / 2 failures`；Schema 缺失 `4 runs / 53 assertions / 1 failure`。
+- 已完成：交付闭合 JSON Schema、严格无依赖 Validator、2 个合法 fixture 与 9 个非法/恶意 fixture；来源、新鲜度、内容/指令分离、路径和稳定错误码均 fail closed。
+- 已完成：P1B-01 GREEN 为 `5 runs / 125 assertions / 0 failures / 0 errors / 0 skips`；Phase 1A 回归保持 `19 / 165` 全绿，敏感正文和绝对 fixture 路径不进入诊断输出。
+- 已完成：使用 Coverage.py 7.15.2 补齐 P1B-01 分支覆盖率证据，覆盖 `178` statements、`62` branches，总覆盖率 `97%`；fixture 集扩展为 2 个合法与 15 个非法/恶意候选。
+- 已确认：按 `amendments/2026-08-10-complexity-reduction.md` 执行复杂度减重，顺序为 Harness 去重、真实纵向闭环、状态来源收敛、对外认知简化、Contract 单一结构定义、复杂度预算。
+- 已确认：`context-candidate/v0.1` 暂以 JSON Schema 作为结构 SSOT；运行时只保留跨字段与安全语义，紧凑提示格式必须由 Schema 自动生成，不能成为第二套手写定义。
+- 下一步：完成 P1B-01 A 级独立 Contract/安全评审；通过后进入 P1B-02 最小 review/accept/reject。
+- 并行减重：先完成维护者 Harness 引用盘点和去重方案，不在盘点前直接删除适配文件。
+- 阻塞项：P1B-01 仅剩非作者独立评审；P0-08 只阻塞公共产品结论与正式发布。

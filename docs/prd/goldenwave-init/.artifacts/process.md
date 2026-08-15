@@ -1,6 +1,6 @@
 ---
 stage: phase-1a-complete
-last_updated: 2026-07-27
+last_updated: 2026-07-29
 feature_id: goldenwave-init
 source: product-initiated
 status: active
@@ -18,8 +18,10 @@ status: active
 - 已完成：安全 `plan/apply`、只读 `doctor/adopt inventory`、Git 泄露门禁、原子落位、manifest checksum 与薄 Skill。
 - 已完成：`19 tests / 165 assertions / 0 failures / 0 skips`；分支覆盖率 `81%`。
 - 已完成：真实 `/Users/goldenwave/KnowledgeBase` 只读演练前后元数据与 Git 状态指纹一致，`unchanged=true`；诊断诚实返回 unsafe/invalid/repairable/advisory。
-- 下一步：启动 Phase 1B experimental Candidate Contract、fixtures 与 Validator。
-- 阻塞项：无内部阻塞；Windows/Linux 原生环境矩阵留待公共发布前 CI 复跑，外部设计伙伴验证仍阻塞稳定承诺。
+- 已完成：Phase 1B P1B-01 experimental Candidate Contract、fixtures 与 Validator 已实现并通过功能回归，当前进入独立评审。
+- 已完成：Phase 1B P1B-01 分支覆盖率证据已补齐，总覆盖率 `97%`。
+- 下一步：完成 P1B-01 独立安全评审，再进入最小 review/accept/reject。
+- 阻塞项：Windows/Linux 原生环境矩阵留待公共发布前 CI 复跑，外部设计伙伴验证仍阻塞稳定承诺。
 
 ## 关键产物
 

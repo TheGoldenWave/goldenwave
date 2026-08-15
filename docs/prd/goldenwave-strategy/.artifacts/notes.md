@@ -50,3 +50,24 @@ updated: 2026-07-27
 - **主要缺口**：provenance 归因 0/20，通过内容本身无法稳定判断用了哪些冻结来源；另有 3 条 fact-value 和 1 条 workflow-fit 失败。
 - **保留原则**：不提供第二次回答，不把 baseline 修绿；该结果作为 Phase 1A Context/Doctor 输出必须显式携带来源的 RED 输入。
 - **计时限制**：5 个 run 使用批次级 65 秒边界，不能用于精确的单任务延迟比较；本批次只报告聚合观察。
+
+## 2026-07-27 — P1B-01 覆盖率工具不可用
+
+- 现象：Candidate Contract 验收和 Phase 1A 回归均通过，但当前 `python3` 环境没有 `coverage` 模块，系统也没有 `coverage` 命令。
+- 处理：不伪造覆盖率数字；E-P1B-01 保持 `review`，分支覆盖率证据与 A 级独立 Contract/安全评审完成前不得标记 done。
+- 规则：测试全绿不等于 Gate 完成；覆盖率工具缺失必须作为显式证据缺口保留。
+
+## 2026-07-29 — P1B-01 覆盖率补齐
+
+- 现象：项目指定的 Python 3.11 由 `uv` 管理并启用 PEP 668，拒绝直接安装 Coverage.py。
+- 处理：在仓库忽略的 `.private/venvs/phase1b-coverage/` 建立隔离环境，安装与 Phase 1A 一致的 Coverage.py 7.15.2；测试通过 `GW_CANDIDATE_PYTHON` 注入覆盖率包装器，不修改产品运行时。
+- 结果：补充合同版本、状态、ID、枚举、时间、嵌套类型、未知字段和运行时输入 fixtures 后，验收为 `5 runs / 125 assertions / 0 failures / 0 errors / 0 skips`，分支覆盖率 `97%`。
+- 剩余 Gate：P1B-01 仍需 A 级非作者 Contract/安全评审，覆盖率不再是阻塞项。
+
+## 2026-08-10 — 第三方复杂度审视与减重决定
+
+- 盘点：已跟踪文件中 `.agents/`、`.claude/`、`.codex/` 占主要部分；`.agents` 与 `.claude` 存在大量完全相同的镜像副本。维护者 Harness 的复杂度已经明显高于当前产品实现。
+- 判断：隐私、来源、Candidate 确认、安全写入与恢复属于必要复杂度；多套 Harness 镜像、重复状态来源和超前的流程治理属于优先消除的偶然复杂度。
+- 用户决定：接受按“物理去重 -> 真实纵向闭环 -> 状态收敛 -> 对外认知简化 -> Contract 单一结构定义 -> 复杂度预算”的顺序推进。
+- 格式原则：JSON Schema 当前继续作为结构 SSOT。字符数问题要区分低频 Schema 与高频实例；若提示词成本过高，从 Schema 生成紧凑投影，不手工维护第二套定义。
+- 开放验证：可比较 JTD、CUE、TypeSpec、Protocol Buffers、MessagePack/CBOR 等方案，但替换必须用真实 Candidate 样本证明净收益，并计入新编译器、生成链和学习成本。
