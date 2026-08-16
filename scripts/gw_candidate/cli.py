@@ -71,12 +71,22 @@ def _parser() -> argparse.ArgumentParser:
     inject_review = subparsers.add_parser("inject-review")
     inject_review.add_argument("candidate")
     inject_review.add_argument("--target", required=True)
+    inject_review.add_argument("--authorization-basis")
+    inject_review.add_argument("--retention-until")
+    inject_review.add_argument("--attest-no-consent-required-data", action="store_true")
+    inject_review.add_argument("--ack-git-history", action="store_true")
 
     inject_apply = subparsers.add_parser("inject-apply")
     inject_apply.add_argument("candidate")
     inject_apply.add_argument("--target", required=True)
     inject_apply.add_argument("--expected-base", required=True)
     inject_apply.add_argument("--idempotency-key", required=True)
+    inject_apply.add_argument("--confirm")
+    inject_apply.add_argument("--review-digest")
+    inject_apply.add_argument("--authorization-basis")
+    inject_apply.add_argument("--retention-until")
+    inject_apply.add_argument("--attest-no-consent-required-data", action="store_true")
+    inject_apply.add_argument("--ack-git-history", action="store_true")
 
     inject_recover = subparsers.add_parser("inject-recover")
     inject_recover.add_argument("--target", required=True)
@@ -256,17 +266,55 @@ def main(argv: list[str]) -> int:
     elif args.command in {"inject-review", "inject-apply"}:
         from . import reliable
         try:
-            reliable.initialize(Path(args.target))
+            reliable.assert_initialized(Path(args.target))
             if args.command == "inject-review":
-                values = reliable.review(Path(args.target), candidate, candidate_bytes)
+                values = reliable.review(
+                    Path(args.target),
+                    candidate,
+                    candidate_bytes,
+                    authorization_basis=args.authorization_basis,
+                    retention_until=args.retention_until,
+                    attest_no_consent_required_data=args.attest_no_consent_required_data,
+                    acknowledge_git_history=args.ack_git_history,
+                )
                 payload = {"ok": True, "command": args.command, "summary": {"status": "reviewable"}, **values}
             else:
+                if any(
+                    value is None
+                    for value in (
+                        args.confirm,
+                        args.review_digest,
+                        args.authorization_basis,
+                        args.retention_until,
+                    )
+                ):
+                    payload = decision.failed_result(
+                        args.command,
+                        "GW_CANDIDATE_AUTHORIZATION_REQUIRED",
+                        "authorization",
+                    )
+                    _write_payload(payload)
+                    return 1
                 values = reliable.apply(
                     Path(args.target), candidate, candidate_bytes,
                     expected_base=args.expected_base,
                     idempotency_key=args.idempotency_key,
+                    confirm=args.confirm,
+                    review_digest=args.review_digest,
+                    authorization_basis=args.authorization_basis,
+                    retention_until=args.retention_until,
+                    attest_no_consent_required_data=args.attest_no_consent_required_data,
+                    acknowledge_git_history=args.ack_git_history,
+                    now=decision_time.isoformat().replace("+00:00", "Z"),
                 )
-                payload = {"ok": values["status"] == "applied", "command": args.command, "summary": {"status": values["status"]}, **values}
+                if values["status"] == "failed":
+                    payload = decision.failed_result(
+                        args.command,
+                        values["error"],
+                        "authorization" if "AUTHORIZATION" in values["error"] else "target",
+                    )
+                else:
+                    payload = {"ok": values["status"] == "applied", "command": args.command, "summary": {"status": values["status"]}, **values}
         except (OSError, ValueError, reliable.ReliableError) as error:
             code = error.code if isinstance(error, reliable.ReliableError) else "GW_CANDIDATE_WRITE_FAILED"
             payload = decision.failed_result(args.command, code, "target")

@@ -152,6 +152,12 @@ module GoldenwaveInitTestHelper
     write_markdown(target / "profile" / "console" / "me.md")
     write_markdown(target / "profile" / "console" / "agent-contract.md", "remote_model" => "deny")
     write_markdown(target / ".kb" / "log.md")
+    (target / ".kb" / "reliable-inject").mkpath
+    File.write(
+      target / ".kb" / "reliable-inject" / "active.json",
+      "{\"active_base\":\"base_#{"0" * 64}\",\"manifest\":null,\"version\":\"gw-reliable-inject/v0.1\"}\n"
+    )
+    File.write(target / ".kb" / "reliable-inject" / "lock", "")
     File.write(target / ".gitignore", ".private/\n.ephemeral/\n.DS_Store\nThumbs.db\n")
 
     managed_paths = MANAGED_FILES + WIKI_TYPES.each_key.map { |type| "wiki/#{type}/index.md" }

@@ -103,6 +103,8 @@ REQUIRED_FILES = [
     *[f"profile/persona/{name}" for name in PERSONA_FILES],
     ".kb/log.md",
     ".kb/goldenwave.json",
+    ".kb/reliable-inject/active.json",
+    ".kb/reliable-inject/lock",
 ]
 
 FRONTMATTER_FILES = [

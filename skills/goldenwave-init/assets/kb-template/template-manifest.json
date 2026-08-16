@@ -39,6 +39,8 @@
     { "kind": "dir", "path": "profile/09-career-assets" },
 
     { "kind": "file", "path": ".gitignore", "content": ".private/\n.ephemeral/\n.DS_Store\nThumbs.db\n" },
+    { "kind": "file", "path": ".kb/reliable-inject/active.json", "content": "{\"active_base\":\"base_0000000000000000000000000000000000000000000000000000000000000000\",\"manifest\":null,\"version\":\"gw-reliable-inject/v0.1\"}\n" },
+    { "kind": "file", "path": ".kb/reliable-inject/lock", "content": "" },
     { "kind": "file", "path": "AGENTS.md", "content": "# GoldenWave Knowledge Base\n\nRead `CLAUDE.md` if your agent expects that entrypoint. Follow the storage boundary: `.private/` stays local private, `.ephemeral/` stays disposable, managed schema files remain auditable.\n" },
     { "kind": "file", "path": "CLAUDE.md", "content": "# Claude Bridge\n\nRead `AGENTS.md` in this Knowledge Base before making changes.\n" },
     { "kind": "file", "path": "INDEX.md", "content": "---\ntitle: GoldenWave Index\nformat_version: {{FORMAT_VERSION}}\n---\n\n# GoldenWave Index\n\n- [Knowledge Wiki](wiki/index.md)\n- [Profile](profile/INDEX.md)\n- [Schema](kb-schema.md)\n- [Glossary](glossary.md)\n" },
