@@ -4,22 +4,40 @@ from __future__ import annotations
 
 import json
 import re
+import unicodedata
 from datetime import datetime
 from pathlib import PurePosixPath
 from typing import Any
 
 from .constants import (
+    TARGET_ROOTS,
+)
+from .schema import (
     CANDIDATE_ID_PATTERN,
     CONTENT_FIELDS,
+    CONTENT_REQUIRED_FIELDS,
+    CONTENT_TREAT_AS,
     CONTRACT,
     CONTRACT_STATUS,
     MEDIA_TYPES,
     PROVENANCE_FIELDS,
+    PROVENANCE_REQUIRED_FIELDS,
     ROOT_FIELDS,
+    ROOT_REQUIRED_FIELDS,
     SOURCE_TYPES,
     STORAGE_CLASSES,
     TARGET_FIELDS,
-    TARGET_ROOTS,
+    TARGET_REQUIRED_FIELDS,
+)
+
+
+RFC3339_PATTERN = re.compile(
+    r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})$"
+)
+BIDI_CONTROL_CODEPOINTS = frozenset(
+    {0x061C, 0x200E, 0x200F}
+    | set(range(0x202A, 0x202F))
+    | set(range(0x2066, 0x206A))
 )
 
 
@@ -40,7 +58,22 @@ def parse_candidate(raw: str) -> dict[str, Any]:
     value = json.loads(raw, object_pairs_hook=_strict_object)
     if not isinstance(value, dict):
         raise ValueError("candidate must be an object")
+    if _contains_surrogate(value):
+        raise ValueError("candidate contains invalid Unicode scalar values")
     return value
+
+
+def _contains_surrogate(value: Any) -> bool:
+    if isinstance(value, str):
+        return any(0xD800 <= ord(character) <= 0xDFFF for character in value)
+    if isinstance(value, dict):
+        return any(
+            _contains_surrogate(key) or _contains_surrogate(item)
+            for key, item in value.items()
+        )
+    if isinstance(value, list):
+        return any(_contains_surrogate(item) for item in value)
+    return False
 
 
 def _error(code: str, field: str) -> dict[str, str]:
@@ -51,8 +84,8 @@ def _unknown_fields(value: Any, allowed: set[str], field: str) -> list[dict[str,
     if not isinstance(value, dict):
         return []
     return [
-        _error("GW_CANDIDATE_UNKNOWN_FIELD", f"{field}.{name}".strip("."))
-        for name in sorted(set(value) - allowed)
+        _error("GW_CANDIDATE_UNKNOWN_FIELD", f"{field}.*".strip("."))
+        for _name in sorted(set(value) - allowed)
     ]
 
 
@@ -66,7 +99,7 @@ def _required_fields(value: Any, required: set[str], field: str) -> list[dict[st
 
 
 def _timestamp(value: Any, field: str) -> tuple[datetime | None, list[dict[str, str]]]:
-    if not isinstance(value, str):
+    if not isinstance(value, str) or not RFC3339_PATTERN.fullmatch(value):
         return None, [_error("GW_CANDIDATE_TIMESTAMP_INVALID", field)]
     try:
         parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
@@ -78,7 +111,7 @@ def _timestamp(value: Any, field: str) -> tuple[datetime | None, list[dict[str, 
 
 
 def _target_errors(target: Any) -> list[dict[str, str]]:
-    errors = _required_fields(target, TARGET_FIELDS, "target")
+    errors = _required_fields(target, TARGET_REQUIRED_FIELDS, "target")
     errors.extend(_unknown_fields(target, TARGET_FIELDS, "target"))
     if not isinstance(target, dict):
         return errors
@@ -95,6 +128,9 @@ def _target_errors(target: Any) -> list[dict[str, str]]:
         pure_path.is_absolute()
         or ".." in pure_path.parts
         or "\\" in path
+        or any(ord(character) < 32 or ord(character) == 127 for character in path)
+        or unicodedata.normalize("NFC", path) != path
+        or any(ord(character) in BIDI_CONTROL_CODEPOINTS for character in path)
         or not path.endswith(".md")
         or not path.startswith(allowed_roots)
     )
@@ -104,7 +140,7 @@ def _target_errors(target: Any) -> list[dict[str, str]]:
 
 
 def validate_candidate(candidate: dict[str, Any], now: datetime) -> list[dict[str, str]]:
-    errors = _required_fields(candidate, ROOT_FIELDS, "")
+    errors = _required_fields(candidate, ROOT_REQUIRED_FIELDS, "")
     errors.extend(_unknown_fields(candidate, ROOT_FIELDS, ""))
 
     if candidate.get("contract") != CONTRACT:
@@ -138,7 +174,7 @@ def validate_candidate(candidate: dict[str, Any], now: datetime) -> list[dict[st
 
 
 def _provenance_errors(provenance: Any, created_at: datetime | None) -> list[dict[str, str]]:
-    errors = _required_fields(provenance, PROVENANCE_FIELDS, "provenance")
+    errors = _required_fields(provenance, PROVENANCE_REQUIRED_FIELDS, "provenance")
     errors.extend(_unknown_fields(provenance, PROVENANCE_FIELDS, "provenance"))
     if not isinstance(provenance, dict):
         return errors
@@ -155,13 +191,13 @@ def _provenance_errors(provenance: Any, created_at: datetime | None) -> list[dic
 
 
 def _content_errors(content: Any) -> list[dict[str, str]]:
-    errors = _required_fields(content, CONTENT_FIELDS, "content")
+    errors = _required_fields(content, CONTENT_REQUIRED_FIELDS, "content")
     errors.extend(_unknown_fields(content, CONTENT_FIELDS, "content"))
     if not isinstance(content, dict):
         return errors
     if content.get("media_type") not in MEDIA_TYPES:
         errors.append(_error("GW_CANDIDATE_ENUM", "content.media_type"))
-    if content.get("treat_as") != "data":
+    if content.get("treat_as") != CONTENT_TREAT_AS:
         errors.append(_error("GW_CANDIDATE_CONTENT_NOT_DATA", "content.treat_as"))
     text = content.get("text")
     if not isinstance(text, str) or not text.strip():

@@ -218,6 +218,11 @@ def inspect_target(target: Path, *, read_only_mode: str) -> dict[str, object]:
     findings.extend(_scan_boundary_symlinks(target))
 
     for relative in REQUIRED_DIRS:
+        if read_only_mode == "adopt" and (
+            relative == ".kb/candidate-decisions"
+            or relative.startswith(".kb/reliable-inject")
+        ):
+            continue
         if not (target / relative).is_dir():
             findings.append(issue("GW_DOCTOR_FAILED", "invalid", "error", relative, "required directory is missing"))
 

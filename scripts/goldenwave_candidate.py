@@ -4,6 +4,9 @@
 from __future__ import annotations
 
 import sys
+
+sys.dont_write_bytecode = True
+
 from pathlib import Path
 
 SCRIPT_DIR = Path(__file__).resolve().parent

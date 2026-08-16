@@ -1,8 +1,8 @@
 ---
 feature_id: goldenwave-strategy
-stage: phase-1b-p1b01-review
+stage: phase-1b-p1b03-ready
 status: active
-updated: 2026-08-10
+updated: 2026-08-16
 accountable: primary-agent
 responsible_for_status: project-manager-agent
 ---
@@ -11,9 +11,9 @@ responsible_for_status: project-manager-agent
 
 ## 当前里程碑
 
-- **Phase**：1B — Candidate Contract（P1B-01 review）
-- **状态**：Green（Contract、fixtures 与 Validator 已实现；分支覆盖率 97%，独立评审待补）
-- **目标**：完成 P1B-01 评审后，进入最小 review/accept/reject。
+- **Phase**：1B — Candidate Contract（P1B-03 ready）
+- **状态**：Green（P1B-02 独立整体验收 Approved；Phase 1B 综合覆盖率 84%）
+- **目标**：执行 P1B-03 Contract 安全验收与 Phase 1B Gate。
 - **用户参与预算**：Phase 0 最多 1 个边界决策包、1 次外部引荐请求、1 次 Gate 确认。
 
 ## 状态枚举
@@ -65,9 +65,9 @@ P0-08 调整为并行外部验证泳道：两名设计伙伴的知情同意和�
 | P1A-01 | Safe Bootstrap 检查集与失败验收 | qa + architect | done | P0-09 | E-P1A-01 | no |
 | P1A-02 | 安全 `init`、只读 `doctor` 与 Git 门禁 | dev | done | P1A-01 | E-P1A-02 | no |
 | P1A-03 | 新库 + 真实 KnowledgeBase 只读演练与 1A Gate | primary + qa | done | P1A-02 | E-P1A-03 | remediation-only |
-| P1B-01 | Candidate Contract、fixtures 与 Validator | qa + dev | review | P1A-03 | E-P1B-01 | no |
-| P1B-02 | 最小 review/accept/reject 与单候选写入 | dev | backlog | P1B-01 | E-P1B-02 | no |
-| P1B-03 | Contract 安全验收与 1B Gate | qa + architect | backlog | P1B-02 | E-P1B-03 | no |
+| P1B-01 | Candidate Contract、fixtures 与 Validator | qa + dev | done | P1A-03 | E-P1B-01 | no |
+| P1B-02 | 最小 review/accept/reject 与单候选写入 | dev | done | P1B-01 | E-P1B-02 | no |
+| P1B-03 | Contract 安全验收与 1B Gate | qa + architect | todo | P1B-02 | E-P1B-03 | no |
 | P1C-01 | 稳定 ID、幂等、CAS 与事务式 inject | dev | backlog | P1B-03 | E-P1C-01 | no |
 | P1C-02 | 并发、崩溃、备份恢复与受控 adopt 修复 | dev + qa | backlog | P1C-01 | E-P1C-02 | remediation-only |
 | P1C-03 | 真实库恢复演练与 Phase 1 Gate | primary + independent reviewers | backlog | P1C-02 | E-P1C-03 | go-no-go |

@@ -73,6 +73,12 @@ MANAGED_FILES = [
 
 REQUIRED_DIRS = [
     ".kb",
+    ".kb/candidate-decisions",
+    ".kb/reliable-inject",
+    ".kb/reliable-inject/objects",
+    ".kb/reliable-inject/manifests",
+    ".kb/reliable-inject/transactions",
+    ".kb/reliable-inject/receipts",
     ".private",
     ".private/social",
     ".ephemeral",

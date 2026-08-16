@@ -71,3 +71,26 @@ updated: 2026-07-27
 - 用户决定：接受按“物理去重 -> 真实纵向闭环 -> 状态收敛 -> 对外认知简化 -> Contract 单一结构定义 -> 复杂度预算”的顺序推进。
 - 格式原则：JSON Schema 当前继续作为结构 SSOT。字符数问题要区分低频 Schema 与高频实例；若提示词成本过高，从 Schema 生成紧凑投影，不手工维护第二套定义。
 - 开放验证：可比较 JTD、CUE、TypeSpec、Protocol Buffers、MessagePack/CBOR 等方案，但替换必须用真实 Candidate 样本证明净收益，并计入新编译器、生成链和学习成本。
+
+## 2026-08-16 — P1B-01 独立 Contract / 安全评审
+
+- 初审结论：`Changes requested`。发现 Schema 不是运行时 SSOT、目标路径接受控制字符、时间解析宽于 RFC 3339、未知字段名和非法 Candidate ID 可进入诊断、深层 JSON 可触发未捕获递归异常。
+- 处理：每项先写失败验收，再做最小修复；Schema 现负责字段、required、枚举、pattern 与 const，运行时只保留跨字段、安全和运行时语义。
+- 复核：同一非作者 code reviewer 进行了三轮复核，最终 `Approved`，无剩余 Critical/Major/Minor。
+- 集成结果：Candidate `13 runs / 173 assertions`、Phase 1A `19 / 165`、Phase 0 `3 / 9`，全部无 failure/error/skip；分支覆盖率 `95%`（`200` statements、`64` branches）。
+- 工具经验：覆盖率包装器只用于被测 CLI 入口；测试内部的 `python -c` Schema 探针使用独立 `GW_RUNTIME_PYTHON`，避免 coverage 参数污染辅助命令。
+
+## 2026-08-16 — P1B-02 Candidate Decision 闭环
+
+- 设计结论：review 只读；accept/reject 必须绑定 Candidate ID 与 exact-byte SHA-256；accept 仅开放 `git_tracked`，并要求完整 store 授权元组、无 consent-required 数据声明和 Git 历史确认。
+- 安全实现：所有声明写入通过 descriptor-relative `O_NOFOLLOW`、exclusive create、fstat regular/link-count、短写循环及文件/目录 fsync；写入结果区分 failed、indeterminate 和 applied。
+- 决策一致性：accept/reject 先竞争共享 `<candidate_id>.decision.json`，防止顺序或并发产生矛盾回执；完整并发协调、CAS 和恢复仍属于 Phase 1C。
+- 评审发现：系统时钟不能由调用者回拨；验证与写入必须拒绝非 NFC 和 bidi 控制路径；CLI 参数、Unicode 输出、lone surrogate 与 help 都必须保持结构化、脱敏、无隐藏 bytecode 写入。
+- POSIX 边界：固定 dirfd 能防止路径替换重定向到另一个目录对象；最终验证后的非协作同 UID rename 无可移植无锁解法，明确纳入 Phase 1C/OS 信任模型，不在 P1B-02 过度承诺。
+- 最终证据：Candidate Decision `32/1472`、safe-write `22`、workflow `12`、Contract `13/173`、Init `20/178`、Phase 0 `3/9` 全绿；综合分支覆盖率 `84%`；非作者最终 verdict `Approved`。
+
+## 2026-08-16 — P1B-03 独立评审基础设施中断
+
+- 现象：两次 QA 代理和一次 architect 代理均在启动后由平台返回 `stream disconnected before completion`，没有产生审查结论或文件改动。
+- 处理：primary 已复跑完整 Gate 命令并保存 `p1b03-gate.md`，但不把自检替代独立签署；P1B-03 在新的 reviewer 成功复核前保持 `ready-for-independent-review`。
+- 规则：代理基础设施错误不能降低 A 级 Gate，也不能被记录为 reviewer pass；允许继续准备下一阶段的设计和 RED fixture，但不得把 Phase 1B 状态标记为 done。

@@ -3,6 +3,11 @@
   "format_version": "gwkb/v0.1",
   "entries": [
     { "kind": "dir", "path": ".kb" },
+    { "kind": "dir", "path": ".kb/candidate-decisions" },
+    { "kind": "dir", "path": ".kb/reliable-inject/objects" },
+    { "kind": "dir", "path": ".kb/reliable-inject/manifests" },
+    { "kind": "dir", "path": ".kb/reliable-inject/transactions" },
+    { "kind": "dir", "path": ".kb/reliable-inject/receipts" },
     { "kind": "dir", "path": ".private/social" },
     { "kind": "dir", "path": ".ephemeral" },
     { "kind": "dir", "path": "projects" },

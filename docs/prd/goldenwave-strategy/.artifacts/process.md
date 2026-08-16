@@ -1,6 +1,6 @@
 ---
-stage: phase-1b-p1b01-review
-last_updated: 2026-08-10
+stage: phase-1b-p1b03-ready
+last_updated: 2026-08-16
 feature_id: goldenwave-strategy
 source: personal-knowledge-base-synthesis
 status: active
@@ -8,7 +8,7 @@ status: active
 
 # GoldenWave 战略重规划进度
 
-- 当前阶段：Phase 1B 已启动；P1B-01 experimental Candidate Contract、fixtures 与 Validator 已实现，进入 review。
+- 当前阶段：Phase 1B P1B-02 已通过独立整体验收，进入 `phase-1b-p1b03-ready`。
 - 已完成：项目现状盘点、个人知识库证据检索、三条战略路线比较、定位与核心取舍确认、正式战略设计稿。
 - 已确认：先用张金波真实 KnowledgeBase 与 Claude Code / Codex 完成闭环，再提炼通用产品。
 - 已确认：近期主线为 Trustable Core、Context Pack、Candidate Governance 与双 Agent 验证。
@@ -45,6 +45,15 @@ status: active
 - 已完成：使用 Coverage.py 7.15.2 补齐 P1B-01 分支覆盖率证据，覆盖 `178` statements、`62` branches，总覆盖率 `97%`；fixture 集扩展为 2 个合法与 15 个非法/恶意候选。
 - 已确认：按 `amendments/2026-08-10-complexity-reduction.md` 执行复杂度减重，顺序为 Harness 去重、真实纵向闭环、状态来源收敛、对外认知简化、Contract 单一结构定义、复杂度预算。
 - 已确认：`context-candidate/v0.1` 暂以 JSON Schema 作为结构 SSOT；运行时只保留跨字段与安全语义，紧凑提示格式必须由 Schema 自动生成，不能成为第二套手写定义。
-- 下一步：完成 P1B-01 A 级独立 Contract/安全评审；通过后进入 P1B-02 最小 review/accept/reject。
+- 已完成：P1B-01 非作者评审先后发现 Schema/runtime 漂移、路径控制字符、宽松时间格式、诊断泄漏和深层 JSON 异常等 Major 问题；全部以失败验收复现并修复。
+- 已完成：JSON Schema 现为字段、required、枚举、pattern 与 const 的结构 SSOT；Validator 只保留路径映射、跨字段时间和安全语义。
+- 已完成：非作者 code reviewer 最终结论 `Approved`，无剩余 Critical/Major/Minor；集成结果为 Candidate `13/173`、Phase 1A `19/165`、Phase 0 `3/9` 全绿，无 skip。
+- 已完成：P1B-01 最新分支覆盖率为 `95%`（`200` statements、`64` branches）。
+- 已完成：P1B-02 交付只读 review、digest-bound accept/reject、完整 store 授权元组、共享 O_EXCL decision claim、单个 git-tracked 正式写入和脱敏回执。
+- 已完成：文件写入使用 descriptor-relative no-follow、exclusive create、inode/link-count 校验、短写循环、文件/目录 fsync 和诚实 failed/indeterminate 状态；并发锁/CAS/恢复仍保留给 Phase 1C。
+- 已完成：最终非作者整体验收复现并修复调用者时间回拨、并发矛盾决策、Unicode bidi target 和非结构化 help；最终结论 `Approved`，无剩余 Critical/Major。
+- 已完成：P1B-02 集成结果 Candidate Decision `32/1472`、safe-write `22`、workflow `12`、Candidate Contract `13/173`、Init `20/178`、Phase 0 `3/9`，全部无 failure/error/skip；综合分支覆盖率 `84%`。
+- 下一步：启动 P1B-03 Contract 安全验收与 Phase 1B Gate，确认未确认、来源不足、恶意、过期、冲突和不确定写入均 fail closed 且正式写入可追溯。
+- 已完成：为跨会话继续开发创建 `docs/prd/goldenwave-strategy/handoff_note.md`，包含 dirty worktree、验证证据、P1B-03 执行顺序和禁止扩展项。
 - 并行减重：先完成维护者 Harness 引用盘点和去重方案，不在盘点前直接删除适配文件。
-- 阻塞项：P1B-01 仅剩非作者独立评审；P0-08 只阻塞公共产品结论与正式发布。
+- 阻塞项：无内部阻塞；P0-08 只阻塞公共产品结论与正式发布。

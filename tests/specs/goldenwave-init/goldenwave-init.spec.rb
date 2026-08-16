@@ -55,6 +55,7 @@ class GoldenwaveInitContractTest < Minitest::Test
       payload = parse_json!(stdout, stderr)
       assert_equal true, payload.fetch("ok")
       assert_equal FORMAT_VERSION, JSON.parse((target / ".kb" / "goldenwave.json").read).fetch("format_version")
+      assert (target / ".kb" / "candidate-decisions").directory?
       assert (target / ".private" / "social").directory?
       assert (target / ".ephemeral").directory?
       GoldenwaveInitTestHelper::WIKI_TYPES.each_key do |type|
@@ -80,6 +81,30 @@ class GoldenwaveInitContractTest < Minitest::Test
       second_stdout, second_stderr, second_status = run_init("apply", "--target", target, "--mode", "new", "--git", "off", "--format", "json")
       assert second_status.success?, "second apply should also succeed deterministically\nSTDOUT:\n#{second_stdout}\nSTDERR:\n#{second_stderr}"
       assert_equal first_snapshot, snapshot_tree(target), "repeat apply must not introduce diff"
+    end
+  end
+
+  def test_doctor_reports_missing_candidate_decision_directory_after_init
+    with_workspace("gw-init-missing-candidate-decisions") do |workspace|
+      target = workspace / "kb"
+      apply_stdout, apply_stderr, apply_status = run_init(
+        "apply", "--target", target, "--mode", "new", "--git", "off", "--format", "json"
+      )
+      assert apply_status.success?, "init failed\nSTDOUT:\n#{apply_stdout}\nSTDERR:\n#{apply_stderr}"
+      (target / ".kb/candidate-decisions").rmdir
+
+      stdout, stderr, status = run_init("doctor", "--target", target, "--format", "json")
+      payload = parse_json!(stdout, stderr)
+
+      refute status.success?
+      assert_equal "", stderr
+      finding = payload.fetch("findings").find do |item|
+        item.fetch("code") == "GW_DOCTOR_FAILED" && item.fetch("path") == ".kb/candidate-decisions"
+      end
+      refute_nil finding
+      assert_equal "invalid", finding.fetch("level")
+      assert_equal "error", finding.fetch("severity")
+      assert_relative_path_payload!(payload)
     end
   end
 
