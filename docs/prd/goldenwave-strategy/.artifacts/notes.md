@@ -101,3 +101,6 @@ updated: 2026-07-27
 - P1C-01 复审：第一轮发现提交点后 materialization 异常结果不诚实、缺并发证据；第二轮发现 backup symlink、atomic 短写和管理记录 symlink 风险；均以针对性测试修复，Critical=0，Important=0，Minor 不阻塞。
 - P1C-02 复审：repair 初版发现 symlink parent 和无 marker 目录可被修改，定级 Critical 并修复；repair `2/9`、Init `22/187` 全绿。
 - 真实库边界：`readonly_gate.rb /Users/goldenwave/KnowledgeBase` 返回 `unchanged=true`，但 doctor/adopt 仍报告现有 manifest/ignore/结构阻断；未获新授权前不执行真实写入或 repair。
+- 独立复审：`/root/phase1c_independent_review` 报告 repair TOCTOU 1 个 Critical，以及 prepared journal、授权防篡改、backup allowlist、Gate 证据 4 个 Important；全部以 targeted RED/GREEN 修复，未重开已批准问题。
+- 最终证据：Reliable `19 tests`、Repair `5/21 + 1 direct`、Candidate Decision `32/1472 + 22 + 12`、Contract `13/173`、Init `25/199`、Phase 0 `3/9`，全部无 failure/error/skip；总体分支覆盖率 `85%`。
+- Minor 记录：`scripts/gw_candidate/reliable.py` 超过首选 300 行。该问题不影响当前安全或验收，按用户规则不阻塞；后续只有在 Phase 2 需要修改相同区域时再按 transaction/recovery/backup 职责拆分。

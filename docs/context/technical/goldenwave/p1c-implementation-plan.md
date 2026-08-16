@@ -15,82 +15,77 @@
 ### Task 1: Freeze identity, review binding and CAS RED
 
 **Files:**
-- Create: `tests/specs/reliable-inject/reliable-inject.spec.rb`
-- Create: `tests/specs/reliable-inject/test_transaction.py`
+- Create: `tests/specs/reliable-inject/test_reliable.py`
 - Create: `tests/specs/reliable-inject/run.rb`
 
-- [ ] Add sandbox KB fixtures with empty and populated active generations.
-- [ ] Test deterministic operation ID/idempotency key, exact review binding, matching replay and mismatched-key rejection.
-- [ ] Test same-base competing operations where exactly one commits and the loser returns base conflict.
-- [ ] Run the focused suite and preserve the missing-module/command RED output.
+- [x] Add sandbox KB fixtures with empty and populated active generations.
+- [x] Test deterministic operation ID/idempotency key, exact review binding, matching replay and mismatched-key rejection.
+- [x] Test same-base competing operations where exactly one commits and the loser returns base conflict.
+- [x] Run the focused suite and preserve the missing-module/command RED output.
 
 ### Task 2: Implement immutable records and active-base CAS
 
 **Files:**
-- Create: `scripts/gw_candidate/transaction.py`
-- Create: `scripts/gw_candidate/manifest.py`
+- Create: `scripts/gw_candidate/reliable.py`
 - Modify: `scripts/gw_candidate/decision.py`
 
-- [ ] Implement canonical JSON/hash helpers and stable operation/key derivation.
-- [ ] Implement empty-base and immutable generation manifest validation.
-- [ ] Implement target-aware review fields without changing Candidate Contract v0.1.
-- [ ] Run identity and manifest tests to GREEN.
+- [x] Implement canonical JSON/hash helpers and stable operation/key derivation.
+- [x] Implement empty-base and immutable generation manifest validation.
+- [x] Implement target-aware review fields without changing Candidate Contract v0.1.
+- [x] Run identity and manifest tests to GREEN.
 
 ### Task 3: Implement serialized transaction commit
 
 **Files:**
-- Create: `scripts/gw_candidate/transaction_store.py`
-- Modify: `scripts/gw_candidate/workflow.py`
+- Modify: `scripts/gw_candidate/reliable.py`
 - Modify: `scripts/gw_candidate/cli.py`
 
-- [ ] Add verified lock acquisition and fail-closed platform behavior.
-- [ ] Persist objects, prepared journal and manifest before active-pointer replacement.
-- [ ] Add required review/accept base and idempotency arguments.
-- [ ] Make exact replay return the existing receipt and conflicts never overwrite.
-- [ ] Run focused RED/GREEN tests, P1B regression and Python compile.
+- [x] Add verified lock acquisition and fail-closed platform behavior.
+- [x] Persist objects, prepared journal and manifest before active-pointer replacement.
+- [x] Add required review/accept base and idempotency arguments.
+- [x] Make exact replay return the existing receipt and conflicts never overwrite.
+- [x] Run focused RED/GREEN tests, P1B regression and Python compile.
 
 ### Task 4: Review P1C-01
 
-- [ ] Run branch coverage and `git diff --check`.
-- [ ] Complete independent spec review, then code/security review; fix Critical/Major findings test-first.
-- [ ] Record E-P1C-01 only after both reviews approve.
+- [x] Run branch coverage and `git diff --check`.
+- [x] Complete independent spec review, then code/security review; fix Critical/Major findings test-first.
+- [x] Record E-P1C-01 only after both reviews approve.
 
 ## Chunk 2: P1C-02 Recovery, Backup and Repair
 
 ### Task 5: Freeze crash/concurrency recovery RED
 
 **Files:**
-- Create: `tests/specs/reliable-inject/test_recovery.py`
-- Create: `tests/specs/reliable-inject/test_concurrency.py`
+- Modify: `tests/specs/reliable-inject/test_reliable.py`
 
-- [ ] Inject failure at every journal/object/manifest/pointer/materialization persistence boundary.
-- [ ] Add multiprocess identical replay and competing-base tests.
-- [ ] Add corrupt/tampered journal, object, manifest and pointer tests.
-- [ ] Preserve expected RED output before implementation.
+- [x] Inject failure at every journal/object/manifest/pointer/materialization persistence boundary.
+- [x] Add multiprocess identical replay and competing-base tests.
+- [x] Add corrupt/tampered journal, object, manifest and pointer tests.
+- [x] Preserve expected RED output before implementation.
 
 ### Task 6: Implement reconciliation and materialized-view repair
 
 **Files:**
-- Create: `scripts/gw_candidate/recovery.py`
-- Modify: `scripts/gw_candidate/transaction_store.py`
+- Modify: `scripts/gw_candidate/reliable.py`
 - Modify: `scripts/gw_candidate/cli.py`
 
-- [ ] Reconcile prepared, committed and completed journals under the same lock.
-- [ ] Complete or abort only when hashes and active-base relationships prove the action.
-- [ ] Rebuild missing exact-content materialized views and refuse divergent files.
-- [ ] Run recovery and concurrency tests to GREEN.
+- [x] Reconcile prepared, committed and completed journals under the same lock.
+- [x] Complete or abort only when hashes and active-base relationships prove the action.
+- [x] Rebuild missing exact-content materialized views and refuse divergent files.
+- [x] Run recovery and concurrency tests to GREEN.
 
 ### Task 7: Implement verified sandbox backup/restore
 
 **Files:**
-- Create: `scripts/gw_candidate/backup.py`
-- Create: `tests/specs/reliable-inject/test_backup.py`
+- Modify: `scripts/gw_candidate/reliable.py`
+- Modify: `tests/specs/reliable-inject/test_reliable.py`
 - Modify: `scripts/gw_candidate/cli.py`
 
-- [ ] Write RED tests for active hash inventory, corruption, partial restore, existing-target refusal and private-backup rejection.
-- [ ] Implement git-tracked-only backup manifest and empty-sandbox restore.
-- [ ] Verify restored active root, objects, receipts and materialized views.
-- [ ] Run backup tests to GREEN.
+- [x] Write RED tests for active hash inventory, corruption, partial restore, existing-target refusal and private-backup rejection.
+- [x] Implement git-tracked-only backup manifest and empty-sandbox restore.
+- [x] Verify restored active root, objects, receipts and materialized views.
+- [x] Run backup tests to GREEN.
 
 ### Task 8: Implement controlled adopt repair
 
@@ -101,15 +96,15 @@
 - Modify: `skills/goldenwave-init/assets/kb-template/template-manifest.json`
 - Test: `tests/specs/goldenwave-init/goldenwave-init.spec.rb`
 
-- [ ] Write RED tests for plan digest, confirmation, dirty/unsafe refusal and no user-file overwrite.
-- [ ] Implement plan-repair and apply-repair for Phase 1C managed scaffolding only.
-- [ ] Run init and prior regressions to GREEN.
+- [x] Write RED tests for plan digest, confirmation, dirty/unsafe refusal and no user-file overwrite.
+- [x] Implement plan-repair and apply-repair for Phase 1C managed scaffolding only.
+- [x] Run init and prior regressions to GREEN.
 
 ### Task 9: Review P1C-02
 
-- [ ] Run fault, concurrency, backup, restore, repair and full regression suites with zero skips.
-- [ ] Complete independent spec and code/security reviews; fix Critical/Major findings test-first.
-- [ ] Record E-P1C-02 only after approval.
+- [x] Run fault, concurrency, backup, restore, repair and full regression suites with zero skips.
+- [x] Complete independent spec and code/security reviews; fix Critical/Major findings test-first.
+- [x] Record E-P1C-02 only after approval.
 
 ## Chunk 3: P1C-03 Gate
 
@@ -119,10 +114,10 @@
 - Create: `tests/specs/reliable-inject/recovery_drill.py`
 - Create: `docs/prd/goldenwave-strategy/.artifacts/p1c03-gate.md`
 
-- [ ] Generate the documented sandbox profile, inject, interrupt, recover, back up and restore.
-- [ ] Verify root/content hashes and record measured elapsed time/RPO evidence.
-- [ ] Run real `/Users/goldenwave/KnowledgeBase` doctor/inventory with before/after metadata fingerprints and prove unchanged state.
-- [ ] Do not perform real-KB accept, repair or restore.
+- [x] Generate the documented sandbox profile, inject, interrupt, recover, back up and restore.
+- [x] Verify root/content hashes and record measured elapsed time/RPO evidence.
+- [x] Run real `/Users/goldenwave/KnowledgeBase` doctor/inventory with before/after metadata fingerprints and prove unchanged state.
+- [x] Do not perform real-KB accept, repair or restore.
 
 ### Task 11: Close Phase 1 evidence
 
@@ -133,6 +128,6 @@
 - Modify: `docs/prd/goldenwave-strategy/.artifacts/process.md`
 - Modify: `docs/prd/goldenwave-strategy/.artifacts/notes.md`
 
-- [ ] Run all Phase 1C, P1B, P1A and Phase 0 suites, compile and diff checks from a clean command invocation.
-- [ ] Complete final independent architecture/security and QA reviews.
-- [ ] Mark P1C-03 and Phase 1 done only with zero failure/error/skip and complete E-P1C evidence.
+- [x] Run all Phase 1C, P1B, P1A and Phase 0 suites, compile and diff checks from a clean command invocation.
+- [x] Complete final independent architecture/security and QA reviews.
+- [x] Mark P1C-03 and Phase 1 done only with zero failure/error/skip and complete E-P1C evidence.

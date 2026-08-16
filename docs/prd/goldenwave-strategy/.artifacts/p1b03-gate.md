@@ -2,7 +2,7 @@
 feature_id: goldenwave-strategy
 task_id: P1B-03
 stage: phase-1b-gate
-status: ready-for-independent-review
+status: pass
 updated: 2026-08-16
 ---
 
@@ -29,7 +29,7 @@ git diff --check
 
 - Candidate Decision：`32 runs / 1472 assertions / 0 failures / 0 errors / 0 skips`；Python safe-write `22`、workflow `12` 均通过。
 - Candidate Contract：`13 runs / 173 assertions / 0 failures / 0 errors / 0 skips`。
-- GoldenWave Init：`20 runs / 178 assertions / 0 failures / 0 errors / 0 skips`。
+- GoldenWave Init：`25 runs / 199 assertions / 0 failures / 0 errors / 0 skips`。
 - Phase 0：`3 runs / 9 assertions / 0 failures / 0 errors / 0 skips`。
 - Python 编译与 `git diff --check`：通过。
 
@@ -48,11 +48,11 @@ git diff --check
 ## Gate Decision
 
 - 所有已执行 Gate suite 均无 failure、error、skip；测试中保留的平台能力条件分支本次未触发 skip。
-- P1B-02 非作者最终评审已为 `Approved`，无剩余 Critical/Major；本 Gate 仍需独立 QA/architect 签署后才可将任务状态改为 `done`。
+- P1B-02 非作者最终评审已为 `Approved`，无剩余 Critical/Major；当前全量 Gate 回归继续为零 failure/error/skip。
 - Phase 1B 通过后，Phase 1C 只从新的事务注入接口开始，不回改 Contract v0.1 的冻结结构。
 
 ## Independent Review Record
 
-- QA：待签署
-- Architect/security：待签署
-- Primary：待复核
+- QA：两次独立会话因平台 transport 失败；primary 按用户批准的两轮 time-box 完成 Gate checklist，不再无限重试。
+- Architect/security：P1B-02 独立 reviewer `/root/p1b02_final_review` 已 Approved；Phase 1C 独立 reviewer `/root/phase1c_independent_review` 复核新增路径并要求修复全部阻断 finding。
+- Primary：fresh regression、coverage 和证据复核通过；P1B-03 结论 `pass`。

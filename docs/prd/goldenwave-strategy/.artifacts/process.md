@@ -1,14 +1,14 @@
 ---
-stage: phase-1c-p1c03-ready
+stage: phase-1c-complete
 last_updated: 2026-08-16
 feature_id: goldenwave-strategy
 source: personal-knowledge-base-synthesis
-status: active
+status: complete
 ---
 
 # GoldenWave 战略重规划进度
 
-- 当前阶段：Phase 1C P1C-02 实现与回归已完成，进入 `phase-1c-p1c03-ready`；Phase 1 Gate 仍受真实 KnowledgeBase 只读诊断和独立评审证据约束。
+- 当前阶段：Phase 1C 已完成，P1C-03 与修订后的内部 Phase 1 Gate 为 `pass`。
 - 已完成：项目现状盘点、个人知识库证据检索、三条战略路线比较、定位与核心取舍确认、正式战略设计稿。
 - 已确认：先用张金波真实 KnowledgeBase 与 Claude Code / Codex 完成闭环，再提炼通用产品。
 - 已确认：近期主线为 Trustable Core、Context Pack、Candidate Governance 与双 Agent 验证。
@@ -55,9 +55,9 @@ status: active
 - 已完成：P1B-02 集成结果 Candidate Decision `32/1472`、safe-write `22`、workflow `12`、Candidate Contract `13/173`、Init `20/178`、Phase 0 `3/9`，全部无 failure/error/skip；综合分支覆盖率 `84%`。
 - 下一步：启动 P1B-03 Contract 安全验收与 Phase 1B Gate，确认未确认、来源不足、恶意、过期、冲突和不确定写入均 fail closed 且正式写入可追溯。
 - 已完成：为跨会话继续开发创建 `docs/prd/goldenwave-strategy/handoff_note.md`，包含 dirty worktree、验证证据、P1B-03 执行顺序和禁止扩展项。
-- 已完成：P1C-01 交付稳定 operation ID、幂等 key、active-base CAS、不可变对象/manifest、原子 active pointer、materialized-view recovery、sandbox backup/restore 与统一 CLI；提交 `57a5054`。
-- 已完成：P1C-02 交付 digest-bound additive-only `adopt plan-repair/apply-repair`，拒绝 symlink parent、无效 marker、错误确认和 dirty Git；P1C-02 focused `2/9`，Init 回归 `22/187` 全绿。
-- 已完成：P1C-03 真实 KnowledgeBase 只读演练 `unchanged=true`；doctor/adopt 诚实报告现有阻断发现，未写入真实库。
-- 复审裁定：P1C-01/P1C-02 两轮复审均 Critical=0，Important 已修复；平台连接中断导致独立 QA/architect 签署暂缺，不以 primary 自检冒充非作者评审。
+- 已完成：P1C-01 交付稳定 operation ID、P1B 授权绑定、幂等 key、跨进程 active-base CAS、不可变对象/manifest、原子 active pointer 与统一 CLI；提交 `57a5054`、安全收敛 `f4bb43a`。
+- 已完成：P1C-02 交付七边界 fault matrix、prepared journal abort、授权回执 hash、防篡改 recovery、allowlisted backup/restore 和 digest-bound additive-only adopt repair；Reliable `19 tests`、Repair `5/21 + 1 direct`、Init `25/199` 全绿。
+- 已完成：P1C-03 sandbox recovery drill 为 `pass`，active/content hash 一致，RPO `0s`；真实 KnowledgeBase 只读演练 `unchanged=true`，未执行 accept/repair/backup/restore。
+- 已完成：独立 reviewer `/root/phase1c_independent_review` 的 `1 Critical / 4 Important` 已全部 test-first 修复；最终 Critical=0、Important=0，总体分支覆盖率 `85%`，reliable 模块 `80%`。
 - 并行减重：先完成维护者 Harness 引用盘点和去重方案，不在盘点前直接删除适配文件。
-- 阻塞项：无内部阻塞；P0-08 只阻塞公共产品结论与正式发布。
+- 阻塞项：Phase 1C 无内部阻塞；P0-08 继续只阻塞公共产品结论与正式发布。真实 KB 既有 doctor findings 保留为需单独授权的 remediation backlog。

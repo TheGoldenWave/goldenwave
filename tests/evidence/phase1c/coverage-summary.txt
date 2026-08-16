@@ -1,0 +1,27 @@
+GoldenWave Phase 1C combined branch coverage
+Date: 2026-08-16
+Tool: Coverage.py 7.15.2 with C extension
+
+Focused result: Reliable Inject 19 tests; Candidate Decision 32 runs / 1472
+assertions plus 34 direct Python tests; Candidate Contract 13 runs / 173
+assertions. All completed with 0 failures, 0 errors and 0 skips.
+
+Statements: 1258
+Missing statements: 143
+Branches: 414
+Partial branches: 86
+Total coverage: 85%
+
+Reliable Inject module: 432 statements, 168 branches, 80% total coverage.
+
+The combined report covers scripts/goldenwave_candidate.py and
+scripts/gw_candidate/*.py. It includes Candidate validation and decisions,
+descriptor-relative writes, authorization binding, deterministic operation and
+idempotency identity, active-base CAS, cross-process serialization, fault
+boundaries, crash recovery, object/manifest integrity, backup/restore and CLI
+behavior. Security fixtures explicitly cover missing authorization, unsupported
+local_private inject, symlinked KB parents and object paths, corrupted active
+state and referenced objects, and concurrent same-base writers.
+
+Reproducible coverage commands are recorded in the P1C-03 Gate report. The
+coverage data file is temporary and is not committed.

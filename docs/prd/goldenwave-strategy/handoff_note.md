@@ -1,13 +1,15 @@
 ---
 feature_id: goldenwave-strategy
-stage: phase-1b-p1b03-ready
-status: ready
+stage: phase-1c-complete
+status: complete
 updated: 2026-08-16
 branch: codex/sync-agentic-project
 remote_head: 75db9ef9e5160c8f22147ce02e0a773e162ceaa1
 ---
 
-# GoldenWave Phase 1B 工程移交说明
+# GoldenWave Phase 1C 完成移交说明
+
+> **Continuation update (2026-08-16):** Phase 1C is complete in commits `57a5054`, `a16e0ad` and `f4bb43a`. The authoritative Gate is `.artifacts/p1c03-gate.md` with status `pass`. The real KnowledgeBase remained unchanged; its existing doctor findings are remediation backlog and do not authorize writes. The historical P1B instructions below remain useful for regression context; do not restart P1B implementation.
 
 ## 新会话先读
 

@@ -1,7 +1,7 @@
 ---
 feature_id: goldenwave-strategy
 task_ids: [P1C-01, P1C-02, P1C-03]
-status: approved-by-existing-prd-boundary
+status: implemented
 updated: 2026-08-16
 decision_level: D1
 ---
@@ -28,7 +28,6 @@ Phase 1C adds stable operation identity, idempotent replay, active-base CAS, ser
   manifests/<generation-id>.json
   transactions/<operation-id>.json
   receipts/<operation-id>.json
-  backups/<backup-id>.json
 ```
 
 All JSON uses sorted keys, UTF-8 and a trailing newline. IDs are lowercase SHA-256 tokens with a type prefix. Records never contain Candidate body, `source_ref`, absolute KB paths or clear target paths; target paths are represented by a salted-in-record hash and are present only inside the active manifest required to materialize the governed view.
@@ -69,11 +68,11 @@ Concurrent requests serialize on the lock. Same operation and key converge to on
 
 Phase 1C backup covers only the active manifest, referenced `git_tracked` objects, redacted transaction/receipt records and the KB format marker. It writes a content-hash inventory into a caller-selected temporary/sandbox destination. `local_private` backup remains unsupported until an encrypted mechanism is selected and must return an honest unsupported result.
 
-Restore verifies every hash into a new or empty sandbox KB, rebuilds materialized views, runs doctor and compares the active root hash. It never overwrites an existing real KB. The Gate records measured RPO/RTO for the test profile without claiming production-scale guarantees.
+Restore verifies every hash into a new or empty sandbox recovery root, rebuilds materialized views and compares the active root/content hashes. The Phase 1C Gate separately runs read-only doctor/inventory against the real KB. Restore never overwrites an existing real KB. The Gate records measured RPO/RTO for the fixture profile without claiming production-scale guarantees.
 
 ## Controlled Adopt Repair
 
-`adopt plan-repair` remains read-only and emits a digest-bound repair plan limited to missing Phase 1C managed directories/files and exact managed-template drift. `adopt apply-repair` requires the plan digest and confirmation, refuses dirty Git state, symlinks, tracked private/ephemeral content, L3 storage ambiguity and user-authored file replacement. It never stages, commits, pushes or changes storage class.
+`adopt plan-repair` remains read-only and emits a target/marker-bound repair plan limited to missing Phase 1C managed directories/files; existing conflicting files block rather than being overwritten. `adopt apply-repair` requires the plan digest and confirmation, refuses dirty Git state, symlinks, tracked private/ephemeral content, L3 storage ambiguity and user-authored file replacement. It never stages, commits, pushes or changes storage class.
 
 ## Error Model
 
