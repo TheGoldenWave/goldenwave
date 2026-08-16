@@ -11,9 +11,9 @@ responsible_for_status: project-manager-agent
 
 ## 当前里程碑
 
-- **Phase**：1B — Candidate Contract（P1B-03 ready）
-- **状态**：Green（P1B-02 独立整体验收 Approved；Phase 1B 综合覆盖率 84%）
-- **目标**：执行 P1B-03 Contract 安全验收与 Phase 1B Gate。
+- **Phase**：1C — Reliable Inject（P1C-03 ready）
+- **状态**：Amber（P1C-01/P1C-02 实现回归 Green；真实 KB doctor 仍有既有阻断，独立 reviewer 签署待补）
+- **目标**：完成 P1C-03 sandbox recovery drill、只读真实库复核和 Phase 1 Gate 裁定。
 - **用户参与预算**：Phase 0 最多 1 个边界决策包、1 次外部引荐请求、1 次 Gate 确认。
 
 ## 状态枚举
@@ -67,10 +67,10 @@ P0-08 调整为并行外部验证泳道：两名设计伙伴的知情同意和�
 | P1A-03 | 新库 + 真实 KnowledgeBase 只读演练与 1A Gate | primary + qa | done | P1A-02 | E-P1A-03 | remediation-only |
 | P1B-01 | Candidate Contract、fixtures 与 Validator | qa + dev | done | P1A-03 | E-P1B-01 | no |
 | P1B-02 | 最小 review/accept/reject 与单候选写入 | dev | done | P1B-01 | E-P1B-02 | no |
-| P1B-03 | Contract 安全验收与 1B Gate | qa + architect | todo | P1B-02 | E-P1B-03 | no |
-| P1C-01 | 稳定 ID、幂等、CAS 与事务式 inject | dev | backlog | P1B-03 | E-P1C-01 | no |
-| P1C-02 | 并发、崩溃、备份恢复与受控 adopt 修复 | dev + qa | backlog | P1C-01 | E-P1C-02 | remediation-only |
-| P1C-03 | 真实库恢复演练与 Phase 1 Gate | primary + independent reviewers | backlog | P1C-02 | E-P1C-03 | go-no-go |
+| P1B-03 | Contract 安全验收与 1B Gate | qa + architect | review | P1B-02 | E-P1B-03 | no |
+| P1C-01 | 稳定 ID、幂等、CAS 与事务式 inject | dev | review | P1B-03 | E-P1C-01 | no |
+| P1C-02 | 并发、崩溃、备份恢复与受控 adopt 修复 | dev + qa | review | P1C-01 | E-P1C-02 | remediation-only |
+| P1C-03 | 真实库恢复演练与 Phase 1 Gate | primary + independent reviewers | in_progress | P1C-02 | E-P1C-03 | go-no-go |
 
 ## 复杂度减重泳道
 

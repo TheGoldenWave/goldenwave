@@ -13,6 +13,8 @@ COMMAND_PLAN = "plan"
 COMMAND_APPLY = "apply"
 COMMAND_DOCTOR = "doctor"
 COMMAND_ADOPT_INVENTORY = "adopt inventory"
+COMMAND_ADOPT_PLAN_REPAIR = "adopt plan-repair"
+COMMAND_ADOPT_APPLY_REPAIR = "adopt apply-repair"
 
 GIT_MODE_OFF = "off"
 GIT_MODE_INIT = "init"

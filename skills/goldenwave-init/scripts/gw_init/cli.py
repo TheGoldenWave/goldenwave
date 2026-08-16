@@ -8,6 +8,8 @@ from pathlib import Path
 
 from .constants import (
     COMMAND_ADOPT_INVENTORY,
+    COMMAND_ADOPT_PLAN_REPAIR,
+    COMMAND_ADOPT_APPLY_REPAIR,
     COMMAND_APPLY,
     COMMAND_DOCTOR,
     COMMAND_PLAN,
@@ -17,6 +19,7 @@ from .constants import (
 )
 from .doctor import inspect_target
 from .planner import analyze_target, apply_new, detect_existing_state
+from .repair import apply as apply_repair, plan as plan_repair
 from .result import emit, envelope, issue, target_descriptor
 
 
@@ -38,6 +41,14 @@ def _common_parser() -> argparse.ArgumentParser:
     inventory = adopt_subparsers.add_parser("inventory")
     inventory.add_argument("--target", required=True)
     inventory.add_argument("--format", choices=["json"], required=True)
+    repair_plan = adopt_subparsers.add_parser("plan-repair")
+    repair_plan.add_argument("--target", required=True)
+    repair_plan.add_argument("--format", choices=["json"], required=True)
+    repair_apply = adopt_subparsers.add_parser("apply-repair")
+    repair_apply.add_argument("--target", required=True)
+    repair_apply.add_argument("--format", choices=["json"], required=True)
+    repair_apply.add_argument("--plan-digest", required=True)
+    repair_apply.add_argument("--confirm", required=True)
     return parser
 
 
@@ -162,6 +173,29 @@ def _adopt_inventory(target_text: str) -> dict[str, object]:
     )
 
 
+def _adopt_repair(target_text: str, *, apply: bool, plan_digest: str | None = None, confirm: str | None = None) -> dict[str, object]:
+    analysis = analyze_target(target_text)
+    target = target_descriptor(analysis.canonical, Path.home())
+    command = COMMAND_ADOPT_APPLY_REPAIR if apply else COMMAND_ADOPT_PLAN_REPAIR
+    if analysis.unsafe_reason:
+        return _unsafe_response(command, analysis.canonical, analysis.unsafe_reason)
+    if apply:
+        assert plan_digest is not None and confirm is not None
+        result = apply_repair(analysis.canonical, plan_digest=plan_digest, confirm=confirm)
+    else:
+        result = {"ok": True, **plan_repair(analysis.canonical)}
+    findings = [] if result["ok"] else [
+        issue(result["code"], "unsafe", "error", "", "repair request was rejected")
+    ]
+    return envelope(
+        ok=result["ok"], command=command, target=target, format_version=FORMAT_VERSION,
+        status=("repaired" if apply else "planned") if result["ok"] else "blocked",
+        message="repair applied" if apply and result["ok"] else "repair plan generated" if result["ok"] else "repair blocked",
+        findings=findings,
+        artifacts={"mode": "additive-only", "plan_digest": result["plan_digest"], "actions": result["actions"]},
+    )
+
+
 def main(argv: list[str]) -> int:
     parser = _common_parser()
     args = parser.parse_args(argv)
@@ -172,8 +206,14 @@ def main(argv: list[str]) -> int:
         payload = _apply(args.target, args.git)
     elif args.command == COMMAND_DOCTOR:
         payload = _doctor(args.target)
-    else:
+    elif args.command == "adopt" and args.adopt_command == "inventory":
         payload = _adopt_inventory(args.target)
+    elif args.adopt_command == "plan-repair":
+        payload = _adopt_repair(args.target, apply=False)
+    else:
+        payload = _adopt_repair(
+            args.target, apply=True, plan_digest=args.plan_digest, confirm=args.confirm
+        )
 
     emit(payload)
     return 0 if payload["ok"] else 1

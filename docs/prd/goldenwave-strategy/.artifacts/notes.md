@@ -94,3 +94,10 @@ updated: 2026-07-27
 - 现象：两次 QA 代理和一次 architect 代理均在启动后由平台返回 `stream disconnected before completion`，没有产生审查结论或文件改动。
 - 处理：primary 已复跑完整 Gate 命令并保存 `p1b03-gate.md`，但不把自检替代独立签署；P1B-03 在新的 reviewer 成功复核前保持 `ready-for-independent-review`。
 - 规则：代理基础设施错误不能降低 A 级 Gate，也不能被记录为 reviewer pass；允许继续准备下一阶段的设计和 RED fixture，但不得把 Phase 1B 状态标记为 done。
+
+## 2026-08-16 — P1C Reliable Inject 加速复审
+
+- P1C-01 RED/GREEN：稳定 operation ID、幂等 replay、active-base CAS、同 base 并发、提交后 indeterminate、恢复、backup/restore 与 CLI 黄金路径；focused `8 tests` 全绿。
+- P1C-01 复审：第一轮发现提交点后 materialization 异常结果不诚实、缺并发证据；第二轮发现 backup symlink、atomic 短写和管理记录 symlink 风险；均以针对性测试修复，Critical=0，Important=0，Minor 不阻塞。
+- P1C-02 复审：repair 初版发现 symlink parent 和无 marker 目录可被修改，定级 Critical 并修复；repair `2/9`、Init `22/187` 全绿。
+- 真实库边界：`readonly_gate.rb /Users/goldenwave/KnowledgeBase` 返回 `unchanged=true`，但 doctor/adopt 仍报告现有 manifest/ignore/结构阻断；未获新授权前不执行真实写入或 repair。
