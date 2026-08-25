@@ -30,6 +30,7 @@
   - 业务提需：`docs/context/business/{unit}/{req_id}/` — 含原始设想、需求确认单、MRD
   - 产品自发：`docs/context/product-initiated/{req_id}/` — 含洞察、产品简报
   - 技术实现：`docs/context/technical/{feature_id}/` — 技术笔记、决策记录
+  - 长期记忆开放问题：`docs/context/product-initiated/goldenwave-strategy-202607/open-questions-20260825.md`
 - **🎨 设计与样式 (UI 视窗)** → `docs/design/`
   - 严禁在代码中硬编码颜色、间距等样式值，必须引用 `docs/design/tokens/base.json` 中的 Token。
   - 项目设计规范存储在 `docs/design/tokens/impeccable.md`，与 `base.json` 同目录，由 ui-agent 通过 `teach-impeccable` Skill 建立，不要移动该文件。

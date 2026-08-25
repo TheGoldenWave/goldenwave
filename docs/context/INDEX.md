@@ -14,6 +14,7 @@
 | 2026-07-23 | social-memory | 逻辑层与存储等级分离，可撤回数据不得进入 Git | `docs/context/project/experience/social-memory-storage-boundary.md` |
 | 2026-07-27 | goldenwave-init | 用户库 init 采用薄 Skill、确定性脚本与 doctor，源码 bootstrap 独立 | `docs/context/technical/goldenwave-init/init-skill-design.md` |
 | 2026-07-27 | goldenwave-strategy | Phase 1 拆为 Safe Bootstrap、Candidate Contract、Reliable Inject | `docs/prd/goldenwave-strategy/amendments/2026-07-27-organization-lightening.md` |
+| 2026-08-25 | personal-ai-open-questions | 人-AI 认知对齐、学习闭环、能力地图、决策复盘与 Memory 主权待验证 | `docs/context/product-initiated/goldenwave-strategy-202607/open-questions-20260825.md` |
 | <!-- 示例: 2025-04-10 --> | <!-- 1.0.0-用户登录-202504 --> | <!-- 选用 PostgreSQL 而非 MongoDB，因为需要事务一致性 --> | <!-- docs/context/project/experience/db-choice.md --> |
 
 ## 🐛 Bug 模式 (Bug Patterns)
