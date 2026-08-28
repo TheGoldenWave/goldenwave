@@ -62,7 +62,20 @@ Follow-up Signal / GoldenWave Candidate / 用户目标
   → Govern 后更新 Capability Profile
 ```
 
-## 5. 职责矩阵
+## 5. Capability Registry 本地实现
+
+参考 Boujoy Harness 的 Markdown Expert / Style Registry 与本地 Vault 访问机制，Capability Profile 采用文本优先、渐进读取的本地投影：
+
+- frontmatter 保存稳定 ID、版本、状态、最近验证时间和监督要求，正文保存能力说明、失败模式与证据摘要；
+- Registry 列表只读取 compact metadata，搜索命中或构建 Context Pack 时再按需加载完整记录；
+- 写入先生成 Capability Evidence Candidate，经 Govern 后原子更新正式投影；
+- Adapter 使用可写路径白名单、Vault 边界校验、符号链接校验和临时文件替换；
+- 更新与删除保留可恢复记录，索引作为可重建派生物随正式投影刷新；
+- Malow Run / Outcome、Skill 版本和评测结果通过 Evidence Ref 关联，不复制运行时日志。
+
+首轮派生报告可以直接基于 Markdown Registry 生成，Schema 验证通过后再固化到正式 Contract。
+
+## 6. 职责矩阵
 
 | 系统 | 负责 | 不负责 |
 |---|---|---|
@@ -72,7 +85,7 @@ Follow-up Signal / GoldenWave Candidate / 用户目标
 | LifeSub | 必要时提供讲解、交流、现场实践或设备结果的 Evidence | 判断能力是否掌握 |
 | Tutor Capability | 生成讲解、案例、测验和练习 | 成为正式状态权威 |
 
-## 6. 与 GoldenWave Learn 的关系
+## 7. 与 GoldenWave Learn 的关系
 
 GoldenWave 的 Learn 内核需要区分两个子方向：
 
@@ -81,7 +94,7 @@ GoldenWave 的 Learn 内核需要区分两个子方向：
 
 两者共享 Candidate、Evidence、Promotion 和撤回机制，但不能用“系统已收录”代替“人已掌握”。
 
-## 7. 最小验证
+## 8. 最小验证
 
 1. 选择本人近期使用的 10 个 Skill 或概念，不新增正式 Schema，先生成 Capability 派生报告。
 2. 标注 Human State、Agent State、最近调用、返工和失败模式。
@@ -89,7 +102,7 @@ GoldenWave 的 Learn 内核需要区分两个子方向：
 4. 用解释题、真实任务和一周后找回验证 `understood`、`practiced` 与 `validated`。
 5. 只有结果显著改善检索、委托或监督判断，才进入 Contract / PRD。
 
-## 8. 非目标
+## 9. 非目标
 
 - 不建设通用 LMS、课程商城或内容社区；
 - 不把所有知识强制变成课程；
