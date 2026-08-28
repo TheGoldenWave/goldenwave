@@ -10,6 +10,8 @@
 
 本文用于后续 Agent 研究和实验，不直接改变 GoldenWave 的正式 Contract、Schema、成熟度枚举或路线图。任何新字段或状态必须先用真实 KnowledgeBase 样本验证，再进入 PRD、SPEC 和兼容性流程。
 
+2026-08-28 已确认 Capability Alignment 的跨项目责任：GoldenWave 管状态与治理，Malow 执行学习、实践和 Outcome Review，Follow-up 只提交 `learn_requested`。具体设计见 `capability-alignment-positioning-20260828.md`；下列 Q-G1 至 Q-G3 继续验证状态模型、交互和效果，不再重新讨论顶层归属。
+
 ## Q-G1：AI 能使用某知识，但人没有理解，它属于“我的知识”吗？
 
 ### 问题定义
@@ -58,11 +60,12 @@ Candidate accepted
   → 更新 human-understanding / practice evidence
 ```
 
-### 当前边界
+### 已确认职责边界
 
-- GoldenWave 决定“哪些内容值得学”和保存学习证据；
+- GoldenWave 拥有 Capability 身份、人/AI 掌握状态、学习证据和晋升治理；
 - 教材生成器是可替换 Capability，不成为 GoldenWave 内核；
-- Malow 承担学习实践和 Outcome Review；
+- Malow 承担 Learning Matter、Practice Run 和 Outcome Review；
+- Follow-up 只产生带来源的 `learn_requested`，不能标记 `understood` 或 `practiced`；
 - 不能用完成阅读或点击“已学”替代实践证据。
 
 ### 最小实验
@@ -93,7 +96,7 @@ Harness 中存在大量 Skill，但用户不知道它们在哪里、何时使用
 
 ### 跨仓依赖
 
-Malow 负责真实 Run 和调用证据；GoldenWave 保存可迁移的 Capability/Experience Candidate，不接管运行时 Registry。
+Malow 负责真实 Run、学习实践、Outcome 和调用证据；GoldenWave 保存可迁移的 Capability Profile、Capability/Experience Candidate 和治理历史，不接管运行时 Registry。
 
 ## Q-G4：Decision / Outcome 何时应晋升为长期原则？
 
@@ -145,14 +148,14 @@ Malow Decision + Evidence
 
 ### 暂定边界
 
-- Domain Information System 是原始结构化数据权威；
+- 外部 Domain Information System 仍是 source-of-origin；LifeSub 通过 Source Adapter 保存获授权的个人 Evidence、来源证明和稳定引用；
 - GoldenWave 保存稳定引用、经过确认的事实、个人偏好、长期原则和 Context Pack；
 - 高风险解释需要专业证据、时效和 Human/Professional Gate；
-- 专用系统删除或撤回后，GoldenWave 必须能识别来源失效。
+- 外部源或 LifeSub Evidence 删除、撤回或过期后，GoldenWave 必须能识别来源失效。
 
 ### 最小实验
 
-先用 LifeSub Evidence Contract 的模式验证“外部权威数据 + 稳定引用 + 受治理结论”，再评估健康或财务连接器，不直接建设领域数据库。
+先用 LifeSub 全领域 Evidence Contract 验证“外部 source-of-origin + LifeSub Evidence Ref + GoldenWave 受治理结论”，再评估健康或财务连接器，不直接在 GoldenWave 建设领域数据库。
 
 ## Q-G7：开源什么，才能增加影响力又不平替本人？
 
