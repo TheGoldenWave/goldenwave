@@ -1,0 +1,4 @@
+interface:
+  display_name: "GoldenWave Safe Bootstrap"
+  short_description: "安全初始化并诊断本地 GoldenWave Knowledge Base"
+  default_prompt: "Use $goldenwave-init to safely plan, initialize, and verify a local Knowledge Base."

@@ -1,0 +1,22 @@
+---
+run_ids:
+  - p0-v0.1-rdt_profile_handoff_update_style
+  - p0-v0.1-rdt_profile_handoff_timezone
+  - p0-v0.1-rdt_profile_contact_window_stale_reconfirm
+  - p0-v0.1-rdt_profile_remote_scope_guard
+  - p0-v0.1-rdt_profile_inference_requires_candidate
+  - p0-v0.1-rdt_profile_minimal_self_context_pack
+  - p0-v0.1-rdt_knowledge_strategy_positioning
+  - p0-v0.1-rdt_knowledge_four_kernels
+  - p0-v0.1-rdt_knowledge_phase2_gate_metrics
+  - p0-v0.1-rdt_knowledge_social_memory_deferred
+  - p0-v0.1-rdt_knowledge_inventory_scale_budget
+  - p0-v0.1-rdt_knowledge_policy_drift_resolution
+  - p0-v0.1-rdt_knowledge_private_boundary_reason
+  - p0-v0.1-rdt_project_doctor_readonly_priorities
+  - p0-v0.1-rdt_project_current_phase_status
+  - p0-v0.1-rdt_project_execution_board_user_decisions
+  - p0-v0.1-rdt_project_phase0_denominator_rule
+  - p0-v0.1-rdt_project_manual_baseline_recording
+  - p0-v0.1-rdt_project_external_partner_nonblocking
+  - p0-v0.1-rdt_project_cross_agent_handoff_packet

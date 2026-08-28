@@ -1,0 +1,521 @@
+---
+- suite_id: phase0-real-dogfood-preregistration
+  task_id: rdt_knowledge_four_kernels
+  run_id: p0-v0.1-group-a-rdt_knowledge_four_kernels
+  agent: codex-human-proxy
+  timestamps:
+    started_at_utc: '2026-07-25T11:17:36Z'
+    finished_at_utc: '2026-07-25T11:17:37Z'
+    duration_seconds: 1.0
+  assertion_results:
+  - dimension: fact_value
+    status: pass
+  - dimension: provenance
+    status: pass
+  - dimension: freshness
+    status: pass
+  - dimension: permission
+    status: pass
+  - dimension: completeness
+    status: pass
+  - dimension: no_future_fabrication
+    status: pass
+  error_class:
+  correction_cost: 0
+  evidence_refs:
+    raw_run_sha256: f09f4164a50b606cc0f7e6f5791b7cf71bc6b81e5590380de562f15369d3a06d
+    raw_run_path_ref: private_baselines:p0-v0.1/group-a/rdt_knowledge_four_kernels.json
+- suite_id: phase0-real-dogfood-preregistration
+  task_id: rdt_knowledge_phase2_gate_metrics
+  run_id: p0-v0.1-group-a-rdt_knowledge_phase2_gate_metrics
+  agent: codex-human-proxy
+  timestamps:
+    started_at_utc: '2026-07-25T11:17:38Z'
+    finished_at_utc: '2026-07-25T11:17:39Z'
+    duration_seconds: 1.0
+  assertion_results:
+  - dimension: fact_value
+    status: pass
+  - dimension: provenance
+    status: pass
+  - dimension: freshness
+    status: pass
+  - dimension: permission
+    status: pass
+  - dimension: threshold_accuracy
+    status: pass
+  - dimension: denominator_integrity
+    status: pass
+  error_class:
+  correction_cost: 0
+  evidence_refs:
+    raw_run_sha256: f7538e626df2c3ada5362cb6505a526d9f65f690fb155ede6f0e397f7fd8818c
+    raw_run_path_ref: private_baselines:p0-v0.1/group-a/rdt_knowledge_phase2_gate_metrics.json
+- suite_id: phase0-real-dogfood-preregistration
+  task_id: rdt_knowledge_social_memory_deferred
+  run_id: p0-v0.1-group-a-rdt_knowledge_social_memory_deferred
+  agent: codex-human-proxy
+  timestamps:
+    started_at_utc: '2026-07-25T11:17:40Z'
+    finished_at_utc: '2026-07-25T11:17:41Z'
+    duration_seconds: 1.0
+  assertion_results:
+  - dimension: fact_value
+    status: pass
+  - dimension: provenance
+    status: pass
+  - dimension: freshness
+    status: pass
+  - dimension: permission
+    status: pass
+  - dimension: scope_accuracy
+    status: pass
+  - dimension: no_false_commitment
+    status: pass
+  error_class:
+  correction_cost: 0
+  evidence_refs:
+    raw_run_sha256: a0e676df1bc87d45ba56d2868cb8444021857f55bd6bc6941dc9ed87fc116dfa
+    raw_run_path_ref: private_baselines:p0-v0.1/group-a/rdt_knowledge_social_memory_deferred.json
+- suite_id: phase0-real-dogfood-preregistration
+  task_id: rdt_knowledge_strategy_positioning
+  run_id: p0-v0.1-group-a-rdt_knowledge_strategy_positioning
+  agent: codex-human-proxy
+  timestamps:
+    started_at_utc: '2026-07-25T11:17:34Z'
+    finished_at_utc: '2026-07-25T11:17:35Z'
+    duration_seconds: 1.0
+  assertion_results:
+  - dimension: fact_value
+    status: pass
+  - dimension: provenance
+    status: pass
+  - dimension: freshness
+    status: pass
+  - dimension: permission
+    status: pass
+  - dimension: boundary_accuracy
+    status: pass
+  - dimension: no_scope_inflation
+    status: pass
+  error_class:
+  correction_cost: 0
+  evidence_refs:
+    raw_run_sha256: d62dbff6eea2312cedef00212b9064025d7c69034b85370df23dc6797ee00ce9
+    raw_run_path_ref: private_baselines:p0-v0.1/group-a/rdt_knowledge_strategy_positioning.json
+- suite_id: phase0-real-dogfood-preregistration
+  task_id: rdt_profile_contact_window_stale_reconfirm
+  run_id: p0-v0.1-group-a-rdt_profile_contact_window_stale_reconfirm
+  agent: codex-human-proxy
+  timestamps:
+    started_at_utc: '2026-07-25T11:17:26Z'
+    finished_at_utc: '2026-07-25T11:17:27Z'
+    duration_seconds: 1.0
+  assertion_results:
+  - dimension: fact_value
+    status: pass
+  - dimension: provenance
+    status: pass
+  - dimension: freshness
+    status: pass
+  - dimension: permission
+    status: pass
+  - dimension: owner_reconfirmation_gate
+    status: pass
+  - dimension: no_guessing
+    status: pass
+  error_class:
+  correction_cost: 0
+  evidence_refs:
+    raw_run_sha256: 9146c88bad4bda750c20706c377f9225cd6b081ffb75e6c8fed354380e8d4cf6
+    raw_run_path_ref: private_baselines:p0-v0.1/group-a/rdt_profile_contact_window_stale_reconfirm.json
+- suite_id: phase0-real-dogfood-preregistration
+  task_id: rdt_profile_handoff_timezone
+  run_id: p0-v0.1-group-a-rdt_profile_handoff_timezone
+  agent: codex-human-proxy
+  timestamps:
+    started_at_utc: '2026-07-25T11:17:24Z'
+    finished_at_utc: '2026-07-25T11:17:25Z'
+    duration_seconds: 1.0
+  assertion_results:
+  - dimension: fact_value
+    status: pass
+  - dimension: provenance
+    status: pass
+  - dimension: freshness
+    status: pass
+  - dimension: permission
+    status: pass
+  - dimension: temporal_clarity
+    status: pass
+  - dimension: minimality
+    status: pass
+  error_class:
+  correction_cost: 0
+  evidence_refs:
+    raw_run_sha256: 3454128e43f0802d1f82e2b1e02b1e6a792742f00b5261995e4cf1c63bf3f8be
+    raw_run_path_ref: private_baselines:p0-v0.1/group-a/rdt_profile_handoff_timezone.json
+- suite_id: phase0-real-dogfood-preregistration
+  task_id: rdt_profile_handoff_update_style
+  run_id: p0-v0.1-group-a-rdt_profile_handoff_update_style
+  agent: codex-human-proxy
+  timestamps:
+    started_at_utc: '2026-07-25T11:17:22Z'
+    finished_at_utc: '2026-07-25T11:17:23Z'
+    duration_seconds: 1.0
+  assertion_results:
+  - dimension: fact_value
+    status: pass
+  - dimension: provenance
+    status: pass
+  - dimension: freshness
+    status: pass
+  - dimension: permission
+    status: pass
+  - dimension: minimality
+    status: pass
+  - dimension: workflow_fit
+    status: pass
+  error_class:
+  correction_cost: 0
+  evidence_refs:
+    raw_run_sha256: 7bb887db11b48dabb871fa7904fe6332e3c2b79c094e63f01a433bf0ed419f33
+    raw_run_path_ref: private_baselines:p0-v0.1/group-a/rdt_profile_handoff_update_style.json
+- suite_id: phase0-real-dogfood-preregistration
+  task_id: rdt_profile_inference_requires_candidate
+  run_id: p0-v0.1-group-a-rdt_profile_inference_requires_candidate
+  agent: codex-human-proxy
+  timestamps:
+    started_at_utc: '2026-07-25T11:17:30Z'
+    finished_at_utc: '2026-07-25T11:17:31Z'
+    duration_seconds: 1.0
+  assertion_results:
+  - dimension: fact_value
+    status: pass
+  - dimension: provenance
+    status: pass
+  - dimension: freshness
+    status: pass
+  - dimension: permission
+    status: pass
+  - dimension: candidate_only
+    status: pass
+  - dimension: no_silent_promotion
+    status: pass
+  error_class:
+  correction_cost: 0
+  evidence_refs:
+    raw_run_sha256: 5912280032305f805d707a1e575b3e28a3e850d32d2549890448af7f12382a5a
+    raw_run_path_ref: private_baselines:p0-v0.1/group-a/rdt_profile_inference_requires_candidate.json
+- suite_id: phase0-real-dogfood-preregistration
+  task_id: rdt_profile_minimal_self_context_pack
+  run_id: p0-v0.1-group-a-rdt_profile_minimal_self_context_pack
+  agent: codex-human-proxy
+  timestamps:
+    started_at_utc: '2026-07-25T11:17:32Z'
+    finished_at_utc: '2026-07-25T11:17:33Z'
+    duration_seconds: 1.0
+  assertion_results:
+  - dimension: fact_value
+    status: pass
+  - dimension: provenance
+    status: pass
+  - dimension: freshness
+    status: pass
+  - dimension: permission
+    status: pass
+  - dimension: minimality
+    status: pass
+  - dimension: excluded_sensitive_classes
+    status: pass
+  error_class:
+  correction_cost: 0
+  evidence_refs:
+    raw_run_sha256: e83e346e0b0476acaa44efd4ae4335fe4d57974e13e4d91d4fe9b396b9464092
+    raw_run_path_ref: private_baselines:p0-v0.1/group-a/rdt_profile_minimal_self_context_pack.json
+- suite_id: phase0-real-dogfood-preregistration
+  task_id: rdt_profile_remote_scope_guard
+  run_id: p0-v0.1-group-a-rdt_profile_remote_scope_guard
+  agent: codex-human-proxy
+  timestamps:
+    started_at_utc: '2026-07-25T11:17:28Z'
+    finished_at_utc: '2026-07-25T11:17:29Z'
+    duration_seconds: 1.0
+  assertion_results:
+  - dimension: fact_value
+    status: pass
+  - dimension: provenance
+    status: pass
+  - dimension: freshness
+    status: pass
+  - dimension: permission
+    status: pass
+  - dimension: deny_by_default
+    status: pass
+  - dimension: no_hidden_egress
+    status: pass
+  error_class:
+  correction_cost: 0
+  evidence_refs:
+    raw_run_sha256: a91e44e6cc46d0b8a969753421f907da94e4ee0687b2ec20c9493ba732090137
+    raw_run_path_ref: private_baselines:p0-v0.1/group-a/rdt_profile_remote_scope_guard.json
+- suite_id: phase0-real-dogfood-preregistration
+  task_id: rdt_knowledge_inventory_scale_budget
+  run_id:
+  agent: codex-human-proxy
+  timestamps:
+    started_at_utc: '2026-07-25T11:17:48Z'
+    finished_at_utc: '2026-07-25T11:17:49Z'
+    duration_seconds: 1.0
+  assertion_results:
+  - dimension: fact_value
+    status: pass
+  - dimension: provenance
+    status: pass
+  - dimension: freshness
+    status: pass
+  - dimension: permission
+    status: pass
+  - dimension: capacity_rationale
+    status: pass
+  - dimension: no_body_read
+    status: pass
+  error_class:
+  correction_cost: 0
+  evidence_refs:
+    raw_run_sha256: 501cb2fa0ce0742ecc669fb62f850bf5e357edd30f0bf53d2a60e39b90a77f98
+    raw_run_path_ref: private_baselines:p0-v0.1/group-b/rdt_knowledge_inventory_scale_budget.json
+- suite_id: phase0-real-dogfood-preregistration
+  task_id: rdt_knowledge_policy_drift_resolution
+  run_id:
+  agent: codex-human-proxy
+  timestamps:
+    started_at_utc: '2026-07-25T11:17:50Z'
+    finished_at_utc: '2026-07-25T11:17:51Z'
+    duration_seconds: 1.0
+  assertion_results:
+  - dimension: fact_value
+    status: pass
+  - dimension: provenance
+    status: pass
+  - dimension: freshness
+    status: pass
+  - dimension: permission
+    status: pass
+  - dimension: drift_disclosure
+    status: pass
+  - dimension: no_silent_rewrite
+    status: pass
+  error_class:
+  correction_cost: 0
+  evidence_refs:
+    raw_run_sha256: 0b19cd56d36d64621e01d93546ec2731af021f6a01b4ca510e65733116811b5b
+    raw_run_path_ref: private_baselines:p0-v0.1/group-b/rdt_knowledge_policy_drift_resolution.json
+- suite_id: phase0-real-dogfood-preregistration
+  task_id: rdt_knowledge_private_boundary_reason
+  run_id:
+  agent: codex-human-proxy
+  timestamps:
+    started_at_utc: '2026-07-25T11:17:52Z'
+    finished_at_utc: '2026-07-25T11:17:53Z'
+    duration_seconds: 1.0
+  assertion_results:
+  - dimension: fact_value
+    status: pass
+  - dimension: provenance
+    status: pass
+  - dimension: freshness
+    status: pass
+  - dimension: permission
+    status: pass
+  - dimension: boundary_reasoning
+    status: pass
+  - dimension: honest_deletion_claims
+    status: pass
+  error_class:
+  correction_cost: 0
+  evidence_refs:
+    raw_run_sha256: 13d3660a170dbcf8d6e0b8e54c2537b70ba54902768a3c245f9e0aa24ea1a7c0
+    raw_run_path_ref: private_baselines:p0-v0.1/group-b/rdt_knowledge_private_boundary_reason.json
+- suite_id: phase0-real-dogfood-preregistration
+  task_id: rdt_project_cross_agent_handoff_packet
+  run_id:
+  agent: codex-human-proxy
+  timestamps:
+    started_at_utc: '2026-07-25T11:18:06Z'
+    finished_at_utc: '2026-07-25T11:18:07Z'
+    duration_seconds: 1.0
+  assertion_results:
+  - dimension: fact_value
+    status: pass
+  - dimension: provenance
+    status: pass
+  - dimension: freshness
+    status: pass
+  - dimension: permission
+    status: pass
+  - dimension: handoff_minimality
+    status: fail
+  - dimension: excluded_sensitive_classes
+    status: pass
+  error_class: minimality_scope_overreach
+  correction_cost: 0
+  evidence_refs:
+    raw_run_sha256: 0f41061af73c50e736835ea0bcc7005fda03aaea56ceab4d0b3df9c1ee1d894f
+    raw_run_path_ref: private_baselines:p0-v0.1/group-b/rdt_project_cross_agent_handoff_packet.json
+- suite_id: phase0-real-dogfood-preregistration
+  task_id: rdt_project_current_phase_status
+  run_id:
+  agent: codex-human-proxy
+  timestamps:
+    started_at_utc: '2026-07-25T11:17:56Z'
+    finished_at_utc: '2026-07-25T11:17:57Z'
+    duration_seconds: 1.0
+  assertion_results:
+  - dimension: fact_value
+    status: pass
+  - dimension: provenance
+    status: pass
+  - dimension: freshness
+    status: pass
+  - dimension: permission
+    status: pass
+  - dimension: status_accuracy
+    status: pass
+  - dimension: no_progress_fabrication
+    status: pass
+  error_class:
+  correction_cost: 0
+  evidence_refs:
+    raw_run_sha256: 1674cec5762593663af8763d72ba21dc0ffeb125ec1c7f126c5afec8b876a6bd
+    raw_run_path_ref: private_baselines:p0-v0.1/group-b/rdt_project_current_phase_status.json
+- suite_id: phase0-real-dogfood-preregistration
+  task_id: rdt_project_doctor_readonly_priorities
+  run_id:
+  agent: codex-human-proxy
+  timestamps:
+    started_at_utc: '2026-07-25T11:17:54Z'
+    finished_at_utc: '2026-07-25T11:17:55Z'
+    duration_seconds: 1.0
+  assertion_results:
+  - dimension: fact_value
+    status: pass
+  - dimension: provenance
+    status: pass
+  - dimension: freshness
+    status: pass
+  - dimension: permission
+    status: pass
+  - dimension: diagnostic_priority
+    status: pass
+  - dimension: read_only_behavior
+    status: pass
+  error_class:
+  correction_cost: 0
+  evidence_refs:
+    raw_run_sha256: 0e9e6d37ce856dfcb2df9b7767523547419a1009d78f82e8e29295b88649bcb6
+    raw_run_path_ref: private_baselines:p0-v0.1/group-b/rdt_project_doctor_readonly_priorities.json
+- suite_id: phase0-real-dogfood-preregistration
+  task_id: rdt_project_execution_board_user_decisions
+  run_id:
+  agent: codex-human-proxy
+  timestamps:
+    started_at_utc: '2026-07-25T11:17:58Z'
+    finished_at_utc: '2026-07-25T11:17:59Z'
+    duration_seconds: 1.0
+  assertion_results:
+  - dimension: fact_value
+    status: pass
+  - dimension: provenance
+    status: pass
+  - dimension: freshness
+    status: pass
+  - dimension: permission
+    status: pass
+  - dimension: escalation_accuracy
+    status: pass
+  - dimension: no_extra_interruptions
+    status: pass
+  error_class:
+  correction_cost: 0
+  evidence_refs:
+    raw_run_sha256: 040b12c00cb782d31ef8cc87f370aa2ee9a67c9c0b84a3461fa18beed717e3b9
+    raw_run_path_ref: private_baselines:p0-v0.1/group-b/rdt_project_execution_board_user_decisions.json
+- suite_id: phase0-real-dogfood-preregistration
+  task_id: rdt_project_external_partner_nonblocking
+  run_id:
+  agent: codex-human-proxy
+  timestamps:
+    started_at_utc: '2026-07-25T11:18:04Z'
+    finished_at_utc: '2026-07-25T11:18:05Z'
+    duration_seconds: 1.0
+  assertion_results:
+  - dimension: fact_value
+    status: pass
+  - dimension: provenance
+    status: pass
+  - dimension: freshness
+    status: pass
+  - dimension: permission
+    status: pass
+  - dimension: dependency_accuracy
+    status: pass
+  - dimension: no_false_unblock_for_gate
+    status: pass
+  error_class:
+  correction_cost: 0
+  evidence_refs:
+    raw_run_sha256: dfbf00ddbea4fe5a475343f46c02b8a25f98958a96bfeaf8d0e1eef22a6c18ac
+    raw_run_path_ref: private_baselines:p0-v0.1/group-b/rdt_project_external_partner_nonblocking.json
+- suite_id: phase0-real-dogfood-preregistration
+  task_id: rdt_project_manual_baseline_recording
+  run_id:
+  agent: codex-human-proxy
+  timestamps:
+    started_at_utc: '2026-07-25T11:18:02Z'
+    finished_at_utc: '2026-07-25T11:18:03Z'
+    duration_seconds: 1.0
+  assertion_results:
+  - dimension: fact_value
+    status: pass
+  - dimension: provenance
+    status: pass
+  - dimension: freshness
+    status: pass
+  - dimension: permission
+    status: pass
+  - dimension: phase_accuracy
+    status: pass
+  - dimension: no_telemetry_overclaim
+    status: pass
+  error_class:
+  correction_cost: 0
+  evidence_refs:
+    raw_run_sha256: 14795777d4101497b482065bf7b67d0e50a654148c1f12ecd6f7edb4efc61f6a
+    raw_run_path_ref: private_baselines:p0-v0.1/group-b/rdt_project_manual_baseline_recording.json
+- suite_id: phase0-real-dogfood-preregistration
+  task_id: rdt_project_phase0_denominator_rule
+  run_id:
+  agent: codex-human-proxy
+  timestamps:
+    started_at_utc: '2026-07-25T11:18:00Z'
+    finished_at_utc: '2026-07-25T11:18:01Z'
+    duration_seconds: 1.0
+  assertion_results:
+  - dimension: fact_value
+    status: pass
+  - dimension: provenance
+    status: pass
+  - dimension: freshness
+    status: pass
+  - dimension: permission
+    status: pass
+  - dimension: denominator_integrity
+    status: pass
+  - dimension: no_suite_confusion
+    status: pass
+  error_class:
+  correction_cost: 0
+  evidence_refs:
+    raw_run_sha256: 35859b0d50e784a0dbb90a072dd6a6297f25c6724b5aefb5b7331e95eb857f73
+    raw_run_path_ref: private_baselines:p0-v0.1/group-b/rdt_project_phase0_denominator_rule.json

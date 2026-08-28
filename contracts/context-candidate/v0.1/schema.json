@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "context-candidate/v0.1",
+  "title": "GoldenWave Context Candidate v0.1",
+  "description": "Experimental, inert context proposal awaiting governed review.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract",
+    "contract_status",
+    "candidate_id",
+    "created_at",
+    "expires_at",
+    "storage_class",
+    "target",
+    "provenance",
+    "content"
+  ],
+  "properties": {
+    "contract": {"const": "context-candidate/v0.1"},
+    "contract_status": {"const": "experimental"},
+    "candidate_id": {
+      "type": "string",
+      "pattern": "^cand_[0-9A-HJKMNP-TV-Z]{26}$"
+    },
+    "created_at": {"type": "string", "format": "date-time"},
+    "expires_at": {
+      "oneOf": [
+        {"type": "string", "format": "date-time"},
+        {"type": "null"}
+      ]
+    },
+    "storage_class": {
+      "enum": ["git_tracked", "local_private", "ephemeral"]
+    },
+    "target": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "path"],
+      "properties": {
+        "kind": {"enum": ["profile", "knowledge", "experience", "project"]},
+        "path": {"type": "string", "pattern": "^(profile|wiki|projects)/.+\\.md$"}
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_type", "source_ref", "observed_at"],
+      "properties": {
+        "source_type": {
+          "enum": [
+            "user_statement",
+            "repository_document",
+            "local_document",
+            "agent_output",
+            "tool_output"
+          ]
+        },
+        "source_ref": {"type": "string", "minLength": 1},
+        "observed_at": {"type": "string", "format": "date-time"}
+      }
+    },
+    "content": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["media_type", "treat_as", "text"],
+      "properties": {
+        "media_type": {"enum": ["text/markdown", "text/plain"]},
+        "treat_as": {"const": "data"},
+        "text": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

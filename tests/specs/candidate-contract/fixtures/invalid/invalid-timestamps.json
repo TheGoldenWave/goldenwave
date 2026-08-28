@@ -1,0 +1,15 @@
+{
+  "contract": "context-candidate/v0.1",
+  "contract_status": "experimental",
+  "candidate_id": "cand_01JAZ6Y5M4N6KD3V8T2WQ9R7HN",
+  "created_at": "not-a-timestamp",
+  "expires_at": "2026-07-28T09:30:00",
+  "storage_class": "local_private",
+  "target": {"kind": "knowledge", "path": "wiki/concepts/example.md"},
+  "provenance": {
+    "source_type": "user_statement",
+    "source_ref": "conversation:test",
+    "observed_at": 123
+  },
+  "content": {"media_type": "text/plain", "treat_as": "data", "text": "timestamps"}
+}

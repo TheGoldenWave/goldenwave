@@ -1,0 +1,37 @@
+# P0 Baseline Report
+
+## Summary
+
+| Metric | Value |
+|---|---:|
+| Task pass | 19 |
+| Task fail | 1 |
+| Task invalid | 0 |
+| Assertion pass rate | 119/120 (99.2%) |
+| Median run time | 1.0s |
+| Total repeated explanations | 0 |
+| Median repeated explanations | 0.0 |
+| Total correction cost | 0 |
+| Median correction cost | 0.0 |
+
+## Category Distribution
+
+| Category | Total | Pass | Fail | Invalid |
+|---|---:|---:|---:|---:|
+| Profile | 8 | 7 | 1 | 0 |
+| Knowledge | 12 | 11 | 1 | 0 |
+| Project | 13 | 12 | 1 | 0 |
+
+## Error Class Distribution
+
+| Error class | Count |
+|---|---:|
+| minimality_scope_overreach | 1 |
+
+## Needs Fix
+
+- rdt_project_cross_agent_handoff_packet
+
+## Observation
+
+- Raw metadata kept `run_id: null` on 10 runs because the source JSON omitted the field; this was not promoted to `invalid` under the frozen rubric.

@@ -1,0 +1,15 @@
+{
+  "contract": "context-candidate/v0.1",
+  "contract_status": "experimental",
+  "candidate_id": "cand_01JAZ6Y5M4N6KD3V8T2WQ9R7HM",
+  "created_at": "2026-07-27T09:30:00Z",
+  "expires_at": null,
+  "storage_class": "git_tracked",
+  "target": {"kind": "profile", "path": "wiki/entities/person.md"},
+  "provenance": {
+    "source_type": "repository_document",
+    "source_ref": "docs/example.md",
+    "observed_at": "2026-07-27T09:25:00Z"
+  },
+  "content": {"media_type": "text/markdown", "treat_as": "data", "text": "mismatch"}
+}

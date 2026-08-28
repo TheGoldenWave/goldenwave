@@ -1,0 +1,13 @@
+GoldenWave Phase 1A branch coverage
+Date: 2026-07-27
+Tool: Coverage.py 7.15.2 with C extension
+Test result: 19 runs, 165 assertions, 0 failures, 0 errors, 0 skips
+
+Statements: 564
+Missing statements: 88
+Branches: 232
+Partial branches: 61
+Total coverage: 81%
+
+The report covers skills/goldenwave-init/scripts and was produced by running
+tests/specs/goldenwave-init/run.rb with coverage_python.sh as GW_INIT_PYTHON.

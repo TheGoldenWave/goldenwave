@@ -1,0 +1,17 @@
+GoldenWave Phase 1B P1B-02 branch coverage
+Date: 2026-08-16
+Tool: Coverage.py 7.15.2 with C extension
+Test result: Candidate Decision 32 runs / 1472 assertions; direct Python 34 tests;
+Candidate Contract 13 runs / 173 assertions; 0 failures, 0 errors, 0 skips
+
+Statements: 766
+Missing statements: 93
+Branches: 230
+Partial branches: 57
+Total coverage: 84%
+
+The report covers scripts/goldenwave_candidate.py and scripts/gw_candidate.
+It was produced by running the Candidate Decision Ruby CLI suite through the coverage
+wrapper, then running the safe-write and workflow Python suites directly under the same
+parallel coverage data set. The combined report includes validation, review, authorization,
+decision claims, descriptor-relative writes, persistence boundaries and CLI behavior.
